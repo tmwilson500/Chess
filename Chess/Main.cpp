@@ -4,9 +4,9 @@
 #include <SFML/System.hpp>
 #include <cstdlib>
 #include <map>
+#include "Board.cpp"
 
 
-// test3
 using namespace sf;
 
 
@@ -41,9 +41,9 @@ const std::map<int, std::string> pieceID = { {1, "bp"},
 int main()
 {
     RenderWindow window(VideoMode(800, 800), "Chess");
-    window.setFramerateLimit(60);
+    
 
-    // Create board
+    //// Create board
     RectangleShape squares[8][8];
     Color sColors[2];
     bool sColor = 1;
@@ -95,7 +95,8 @@ int main()
 
         window.clear(Color::White);
 
-        // DRAW BOARD
+         //DRAW BOARD
+         
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 8; j++)
