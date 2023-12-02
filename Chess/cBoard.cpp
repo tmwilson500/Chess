@@ -27,15 +27,19 @@ private:
 
 public:
     
-    cBoard(float width, float height) {
-        sColors[0].r = 118;
-        sColors[0].g = 150;
-        sColors[0].b = 86;
-        sColors[1].r = 238;
-        sColors[1].g = 238;
-        sColors[1].b = 210;
+    cBoard(float width, float height, const int boardTheme[2][3]) {
         sW = width/ 8;
         sH = height / 8;
+
+        // Set board color theme
+        for (int i = 0; i < 2; i++)
+        {
+            
+            
+            sColors[i].r = boardTheme[i][0];
+            sColors[i].g = boardTheme[i][1];
+            sColors[i].b = boardTheme[i][2];
+        }
 
 
         // Set square size & color
