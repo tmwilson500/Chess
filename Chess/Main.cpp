@@ -37,15 +37,6 @@ const std::map<int, std::string> pieceID = { {1, "bp"},
 
 const int boardTheme1[2][3] = { {118,150,86},
                                 {238,238,210} };
-//Color sColors[2];
-//sColors[0].r = 118;
-//sColors[0].g = 150;
-//sColors[0].b = 86;
-//sColors[1].r = 238;
-//sColors[1].g = 238;
-//sColors[1].b = 210;
-
-
 
 
 
