@@ -4,7 +4,7 @@
 #include <SFML/System.hpp>
 #include <cstdlib>
 #include <map>
-#include "Board.cpp"
+#include "cBoard.cpp"
 
 
 using namespace sf;
@@ -40,11 +40,18 @@ const std::map<int, std::string> pieceID = { {1, "bp"},
 
 int main()
 {
-    RenderWindow window(VideoMode(800, 800), "Chess");
+    /*RenderWindow window(VideoMode(800, 800), "Chess");*/
+    //RenderWindow window;
     
+    cBoard board(800, 800);
+    while (board.Update()) {
+
+    }
+    return 0;
+
 
     //// Create board
-    RectangleShape squares[8][8];
+    /*RectangleShape squares[8][8];
     Color sColors[2];
     bool sColor = 1;
     sColors[0].r = 118;
@@ -66,56 +73,56 @@ int main()
             sColor = !sColor;
         }
         sColor = !sColor;
-    }
+    }*/
 
     // Create Pieces
-    Texture wpTex;
+    /*Texture wpTex;
     Sprite wp;
 
     if (!wpTex.loadFromFile(theme1.at("bb")))
         throw "could not load wp.png";
 
     wp.setTexture(wpTex);
-    wp.setScale(Vector2f(1.5f, 1.5f));
+    wp.setScale(Vector2f(1.5f, 1.5f));*/
 
 
     
     // GAME LOOP
-    while (window.isOpen())
-    {
-        Event event;
-        while (window.pollEvent(event))
-        {
-            // CLOSE WINDOW EVENTS
-            if (event.type == Event::Closed)
-                window.close();
-            if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-                window.close();
-        }
+    //while (window.isOpen())
+    //{
+    //    Event event;
+    //    while (window.pollEvent(event))
+    //    {
+    //        // CLOSE WINDOW EVENTS
+    //        if (event.type == Event::Closed)
+    //            window.close();
+    //        if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
+    //            window.close();
+    //    }
 
-        window.clear(Color::White);
+    //    window.clear(Color::White);
 
-         //DRAW BOARD
-         
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++)
-                window.draw(squares[i][j]);
-        }
+    //     //DRAW BOARD
+    //     
+    //    for (int i = 0; i < 8; i++)
+    //    {
+    //        for (int j = 0; j < 8; j++)
+    //            window.draw(squares[i][j]);
+    //    }
 
 
-        // DRAW PIECES
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++) {
-                window.draw(wp);
-                wp.setPosition(Vector2f(squares[i][j].getSize().x * i, squares[i][j].getSize().y * j));
-            }
-        }
-        window.draw(wp);
+    //    // DRAW PIECES
+    //    for (int i = 0; i < 8; i++)
+    //    {
+    //        for (int j = 0; j < 8; j++) {
+    //            window.draw(wp);
+    //            wp.setPosition(Vector2f(squares[i][j].getSize().x * i, squares[i][j].getSize().y * j));
+    //        }
+    //    }
+    //    window.draw(wp);
 
-        window.display();
-    }
+    //    window.display();
+    //}
 
-    return 0;
+    //return 0;
 }
