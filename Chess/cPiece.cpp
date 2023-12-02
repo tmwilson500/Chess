@@ -3,5 +3,14 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <cstdlib>
-#include <map>
-#include "Piece.h"
+
+using namespace sf;
+
+class cPiece {
+private:
+	Sprite cP;
+public:
+	cPiece() {
+
+	}
+};
