@@ -40,7 +40,7 @@ const std::map<int, std::string> pieceID = { {1, "bp"},
 
 int main()
 {
-    cBoard board(800, 800);
+    cBoard board(600.f, 600.f);
     while (board.Update()) {
 
     }

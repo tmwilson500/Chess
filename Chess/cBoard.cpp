@@ -43,7 +43,7 @@ public:
         {
             for (int j = 0; j < 8; j++)
             {
-                squares[i][j].setSize(Vector2f(100.f, 100.f));
+                squares[i][j].setSize(Vector2f(sW, sH));
                 squares[i][j].setOutlineThickness(-1.f);
                 squares[i][j].setOutlineColor(Color::Black);
                 squares[i][j].setPosition(Vector2f(squares[i][j].getSize().x * i, squares[i][j].getSize().y * j));
