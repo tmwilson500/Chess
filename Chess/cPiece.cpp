@@ -9,8 +9,15 @@ using namespace sf;
 class cPiece {
 private:
 	Sprite cP;
+	Texture pTex;
+	bool draw = false;
+	int ID;
+	int x;
+	int y;
+
 public:
-	cPiece() {
+	cPiece(int pieceID) {
+		ID = pieceID;
 
 	}
 };
