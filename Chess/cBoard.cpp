@@ -25,7 +25,7 @@ private:
     bool sColor = 1;
     float sW;
     float sH;
-    cPiece pieces[1];
+    cPiece pieces[32];
 
 
     void drawPiece() {
@@ -36,11 +36,27 @@ private:
 
     void scalePiece() {
         for (int i = 0; i < 1; i++) {
-            pieces[i].sprite.setPosition(Vector2f(0.f, 0.f));
-            float pScaleX = sW / pieces[i].sprite.getLocalBounds().width;
-            float pScaleY = sH / pieces[i].sprite.getLocalBounds().height;
+            float pScaleX = sW / pieces[i].sprite.getGlobalBounds().width;
+            float pScaleY = sH / pieces[i].sprite.getGlobalBounds().height;
             pieces[i].sprite.setScale(Vector2f(pScaleX, pScaleY));
+            pieces[i].sprite.setPosition(Vector2f(0.f, 0.f));
+
+
+            std::cout << "piece scale x expected: " << pScaleX << "\n";
+            std::cout << "piece scale y expected: " << pScaleY << "\n";
+            Vector2f pScale = pieces[i].sprite.getScale();
+            std::cout << "piece scale x actual : " << pScale.x << "\n";
+            std::cout << "piece scale y actual : " << pScale.y << "\n";
+
+            // print global bounts
+            FloatRect pBoundsG = pieces[i].sprite.getGlobalBounds();
+            std::cout << "global piece width x: " << pBoundsG.width << "\n";
+            std::cout << "global piece height y: " << pBoundsG.height << "\n";
             
+            // print local bounts
+            FloatRect pBoundsL = pieces[i].sprite.getLocalBounds();
+            std::cout << "local piece width x: " << pBoundsL.width << "\n";
+            std::cout << "local piece height y: " << pBoundsL.height << "\n";
         }
     }
 
@@ -70,6 +86,16 @@ public:
                 squares[i][j].setPosition(Vector2f(squares[i][j].getSize().x * i, squares[i][j].getSize().y * j));
                 squares[i][j].setFillColor(sColors[sColor]);
                 sColor = !sColor;
+
+                // print global bounds
+                FloatRect sBoundsG = squares[i][j].getGlobalBounds();
+                std::cout << "global square width x: " << sBoundsG.width << "\n";
+                std::cout << "global square height y: " << sBoundsG.height << "\n";
+
+                // print local bounds
+                FloatRect sBoundsL = squares[i][j].getLocalBounds();
+                std::cout << "local square width x: " << sBoundsL.width << "\n";
+                std::cout << "local square height y: " << sBoundsL.height << "\n";
             }
             sColor = !sColor;
         }
@@ -77,6 +103,8 @@ public:
         win.create(VideoMode(width, height), "Chess");
 
         // CREATE PIECES
+
+
         for (int i = 0; i < 1; i++) {
             if (!pieces[i].pTex.loadFromFile("Textures/wp.png"))
                 throw "could not load wp.png";

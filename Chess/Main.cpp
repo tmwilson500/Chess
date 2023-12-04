@@ -10,18 +10,18 @@
 using namespace sf;
 
 
-const std::map<std::string, std::string> theme1 = { {"bb","Textures/bb.png"},
-                                                    {"bkg","Textures/bkg.png"},
-                                                    {"bkn","Textures/bkn.png"},
-                                                    {"bp","Textures/bp.png"}, 
-                                                    {"bq","Textures/bq.png"}, 
-                                                    {"br","Textures/br.png"}, 
-                                                    {"wb","Textures/wb.png"}, 
-                                                    {"wkg","Textures/wkg.png"}, 
-                                                    {"wkn","Textures/wkn.png"}, 
-                                                    {"wp","Textures/wp.png"}, 
-                                                    {"wq","Textures/wq.png"}, 
-                                                    {"wr","Textures/wr.png"}};
+const std::map<std::string, std::string> pieceTheme1 = { {"bb","Textures/bb.png"},
+                                                         {"bkg","Textures/bkg.png"},
+                                                         {"bkn","Textures/bkn.png"},
+                                                         {"bp","Textures/bp.png"}, 
+                                                         {"bq","Textures/bq.png"}, 
+                                                         {"br","Textures/br.png"}, 
+                                                         {"wb","Textures/wb.png"}, 
+                                                         {"wkg","Textures/wkg.png"}, 
+                                                         {"wkn","Textures/wkn.png"}, 
+                                                         {"wp","Textures/wp.png"}, 
+                                                         {"wq","Textures/wq.png"}, 
+                                                         {"wr","Textures/wr.png"}};
 const std::map<int, std::string> pieceID = { {1, "bp"},
                                              {2, "br"},
                                              {3, "bkn"},
@@ -42,7 +42,7 @@ const int boardTheme1[2][3] = { {118,150,86},
 
 int main()
 {
-    cBoard board(800.f, 800.f, boardTheme1);
+    cBoard board(1000.f, 1000.f, boardTheme1);
     while (board.Update()) {
 
     }
