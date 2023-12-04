@@ -8,16 +8,13 @@ using namespace sf;
 
 class cPiece {
 private:
-	Sprite cP;
-	Texture pTex;
+	
 	bool draw = false;
-	int ID;
-	int x;
-	int y;
+	int ID=0;
+	int x = 0;
+	int y = 0;
 
 public:
-	cPiece(int pieceID) {
-		ID = pieceID;
-
-	}
+	Sprite sprite;
+	Texture pTex;
 };
