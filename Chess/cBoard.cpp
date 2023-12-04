@@ -29,8 +29,19 @@ private:
 
 
     void drawPiece() {
+        
         win.draw(pieces[0].sprite);
+        
+    }
 
+    void scalePiece() {
+        for (int i = 0; i < 1; i++) {
+            pieces[i].sprite.setPosition(Vector2f(0.f, 0.f));
+            float pScaleX = sW / pieces[i].sprite.getLocalBounds().width;
+            float pScaleY = sH / pieces[i].sprite.getLocalBounds().height;
+            pieces[i].sprite.setScale(Vector2f(pScaleX, pScaleY));
+            
+        }
     }
 
 public:
@@ -66,11 +77,19 @@ public:
         win.create(VideoMode(width, height), "Chess");
 
         // CREATE PIECES
-        pieces[0].sprite.setPosition(Vector2f(20.f, 20.f));
-        pieces[0].sprite.setScale(Vector2f(2.f, 2.f));
-        if (!pieces[0].pTex.loadFromFile("Textures/wp.png"))
-            throw "could not load wp.png";
-        pieces[0].sprite.setTexture(pieces[0].pTex);
+        for (int i = 0; i < 1; i++) {
+            if (!pieces[i].pTex.loadFromFile("Textures/wp.png"))
+                throw "could not load wp.png";
+            pieces[i].sprite.setTexture(pieces[i].pTex);
+            scalePiece();
+            /*FloatRect pBounds = pieces[0].sprite.getLocalBounds();
+            Vector2f pScale = pieces[0].sprite.getScale();
+            std::cout << "piece width x: " << pBounds.width << "\n";
+            std::cout << "piece height y: " << pBounds.height << "\n";
+            std::cout << "piece scale x: " << pScale.x << "\n";
+            std::cout << "piece scale y: " << pScale.y << "\n";*/
+        }
+        
         
 
     }

@@ -42,7 +42,7 @@ const int boardTheme1[2][3] = { {118,150,86},
 
 int main()
 {
-    cBoard board(600.f, 600.f, boardTheme1);
+    cBoard board(800.f, 800.f, boardTheme1);
     while (board.Update()) {
 
     }
