@@ -3,6 +3,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <cstdlib>
+#include "cPiece.cpp"
 
 
 using namespace sf;
@@ -24,6 +25,13 @@ private:
     bool sColor = 1;
     float sW;
     float sH;
+    cPiece pieces[1];
+
+
+    void drawPiece() {
+        win.draw(pieces[0].sprite);
+
+    }
 
 public:
     
@@ -34,8 +42,6 @@ public:
         // Set board color theme
         for (int i = 0; i < 2; i++)
         {
-            
-            
             sColors[i].r = boardTheme[i][0];
             sColors[i].g = boardTheme[i][1];
             sColors[i].b = boardTheme[i][2];
@@ -57,9 +63,16 @@ public:
             sColor = !sColor;
         }
 
-
-
         win.create(VideoMode(width, height), "Chess");
+
+        // CREATE PIECES
+        pieces[0].sprite.setPosition(Vector2f(20.f, 20.f));
+        pieces[0].sprite.setScale(Vector2f(2.f, 2.f));
+        if (!pieces[0].pTex.loadFromFile("Textures/wp.png"))
+            throw "could not load wp.png";
+        pieces[0].sprite.setTexture(pieces[0].pTex);
+        
+
     }
 
     bool Update() {
@@ -88,6 +101,8 @@ public:
                 win.draw(squares[i][j]);
         }
 
+        // DRAW PIECES
+        drawPiece();
         
         win.display();
         return true;
