@@ -29,6 +29,14 @@ private:
                             {3, 1, 0, 0, 0, 0, -1, -3},
                             {2, 1, 0, 0, 0, 0, -1, -2} };
 
+    void drawSquares() {
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+                win.draw(squares[i][j]);
+        }
+    }
+
     void drawPieces() {
         for (int i = 0; i < 64; i++) {
             if (pieces[i].draw)
@@ -155,11 +163,7 @@ public:
         win.clear(Color::White);
 
         // Draw squares
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++)
-                win.draw(squares[i][j]);
-        }
+        drawSquares();
 
         // DRAW PIECES
         drawPieces();
