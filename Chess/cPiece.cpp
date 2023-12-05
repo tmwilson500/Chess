@@ -15,4 +15,5 @@ public:
 	int ID = 0;
 	float x = 0;
 	float y = 0;
+	int player = 0; // 0 if piece belongs to white, 1 if piece belongs to black
 };
