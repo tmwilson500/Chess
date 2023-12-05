@@ -55,7 +55,7 @@ private:
         }
     }
 
-    bool legalMove(cPiece piece) {
+    bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
@@ -184,7 +184,7 @@ public:
                             if (squares[i][j].getGlobalBounds().contains(mousePos2))
                             {
                                 std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
-                                if (legalMove(pieces[selectIndex]))
+                                if (legalMove(pieces[selectIndex],i,j))
                                 {
                                     pieces[selectIndex].x = sW * i;
                                     pieces[selectIndex].y = sH * j;
