@@ -56,6 +56,8 @@ private:
     }
 
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
+        int oldSqI = piece.x / sW;
+        int oldSqJ = piece.y / sH;
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
