@@ -94,6 +94,10 @@ public:
                 pieces[index].ID = boardMap[i][j];
                 pieces[index].x = sW*i;
                 pieces[index].y = sH * j;
+                if (pieces[index].ID > 0)
+                    pieces[index].player = 1;
+                else if (pieces[index].ID < 0)
+                    pieces[index].player = 0;
                 if (pieces[index].ID != 0) {
                     if (!pieces[index].pTex.loadFromFile(pieceTheme[pieces[index].ID]))
                         throw "could not load texture";
