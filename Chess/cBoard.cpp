@@ -149,11 +149,9 @@ public:
                 }
                 if ((event.mouseButton.button == sf::Mouse::Button::Left) && !pieceSelected)
                 {
-                    //Vector2i mousePos = Mouse::getPosition(win);
                     Vector2f mousePos1 = win.mapPixelToCoords(Mouse::getPosition(win));
                     for (int k = 0; k < 64; k++)
                     {
-                        //FloatRect current = pieces[i].sprite.getGlobalBounds();
                         if (pieces[k].sprite.getGlobalBounds().contains(mousePos1))
                         {
                             selectIndex = k;
