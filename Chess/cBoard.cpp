@@ -110,15 +110,19 @@ public:
         while (win.pollEvent(event))
         {
             // CLOSE WINDOW EVENTS
-            if (event.type == Event::Closed)
+            switch (event.type)
             {
+            case Event::Closed:
                 win.close();
                 return false;
-            }
-            if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-            {
-                win.close();
-                return false;
+                break;
+            case Event::KeyPressed:
+                if (event.key.code == Keyboard::Escape)
+                {
+                    win.close();
+                    return false;
+                }
+                break;
             }
         }
 
