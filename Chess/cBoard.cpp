@@ -123,6 +123,11 @@ public:
                     return false;
                 }
                 break;
+            case Event::MouseButtonPressed:
+                if (event.mouseButton.button == sf::Mouse::Button::Left)
+                {
+
+                }
             }
         }
 
