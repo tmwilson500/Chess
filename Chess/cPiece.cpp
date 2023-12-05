@@ -7,14 +7,12 @@
 using namespace sf;
 
 class cPiece {
-private:
-	
-	bool draw = false;
-	int ID=0;
-	int x = 0;
-	int y = 0;
 
 public:
 	Sprite sprite;
 	Texture pTex;
+	bool draw = false;
+	int ID = 0;
+	float x = 0;
+	float y = 0;
 };
