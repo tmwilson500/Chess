@@ -94,6 +94,9 @@ private:
         case -6:     //Rules for white king
             return true;
             break;
+        default:
+            return false;
+            break;
         }
     }
 
