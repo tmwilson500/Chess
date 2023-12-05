@@ -126,7 +126,16 @@ public:
             case Event::MouseButtonPressed:
                 if (event.mouseButton.button == sf::Mouse::Button::Left)
                 {
-
+                    //Vector2i mousePos = Mouse::getPosition(win);
+                    Vector2f mousePos = win.mapPixelToCoords(Mouse::getPosition(win));
+                    for (int i = 0; i < 64; i++)
+                    {
+                        //FloatRect current = pieces[i].sprite.getGlobalBounds();
+                        if (pieces[i].sprite.getGlobalBounds().contains(mousePos))
+                        {
+                            std::cout << "you clicked piece ID: " << pieces[i].ID << "\n";
+                        }
+                    }
                 }
             }
         }
