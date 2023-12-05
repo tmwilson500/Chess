@@ -40,23 +40,6 @@ private:
             float pScaleY = sH / pieces[i].sprite.getGlobalBounds().height;
             pieces[i].sprite.setScale(Vector2f(pScaleX, pScaleY));
             pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
-
-
-            //std::cout << "piece scale x expected: " << pScaleX << "\n";
-            //std::cout << "piece scale y expected: " << pScaleY << "\n";
-            //Vector2f pScale = pieces[i].sprite.getScale();
-            //std::cout << "piece scale x actual : " << pScale.x << "\n";
-            //std::cout << "piece scale y actual : " << pScale.y << "\n";
-
-            //// print global bounts
-            //FloatRect pBoundsG = pieces[i].sprite.getGlobalBounds();
-            //std::cout << "global piece width x: " << pBoundsG.width << "\n";
-            //std::cout << "global piece height y: " << pBoundsG.height << "\n";
-            //
-            //// print local bounts
-            //FloatRect pBoundsL = pieces[i].sprite.getLocalBounds();
-            //std::cout << "local piece width x: " << pBoundsL.width << "\n";
-            //std::cout << "local piece height y: " << pBoundsL.height << "\n";
         }
     }
 
@@ -119,23 +102,7 @@ public:
                 index++;
             }
         }
-
-
-        //for (int i = 0; i < 1; i++) {
-        //    if (!pieces[i].pTex.loadFromFile("Textures/wp.png"))
-        //        throw "could not load wp.png";
-        //    pieces[i].sprite.setTexture(pieces[i].pTex);
-            scalePieces();
-            /*FloatRect pBounds = pieces[0].sprite.getLocalBounds();
-            Vector2f pScale = pieces[0].sprite.getScale();
-            std::cout << "piece width x: " << pBounds.width << "\n";
-            std::cout << "piece height y: " << pBounds.height << "\n";
-            std::cout << "piece scale x: " << pScale.x << "\n";
-            std::cout << "piece scale y: " << pScale.y << "\n";*/
-        //}
-        
-        
-
+        scalePieces();
     }
 
     bool Update() {
