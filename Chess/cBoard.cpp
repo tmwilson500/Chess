@@ -154,9 +154,13 @@ public:
                     {
                         if (pieces[k].sprite.getGlobalBounds().contains(mousePos1))
                         {
-                            selectIndex = k;
-                            pieceSelected = true;
-                            std::cout << "you clicked piece ID: " << pieces[selectIndex].ID << "\n";
+                            if (pieces[k].player == turn)
+                            {
+                                selectIndex = k;
+                                pieceSelected = true;
+                                std::cout << "you clicked piece ID: " << pieces[selectIndex].ID << "\n";
+                                turn = 1 - turn;
+                            }
                         }
                     }
                 }
