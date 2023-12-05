@@ -8,14 +8,6 @@
 
 using namespace sf;
 
-//int board[8][8] = { {2, 1, 0, 0, 0, 0, -1, -2},
-//                    {3, 1, 0, 0, 0, 0, -1, -3},
-//                    {4, 1, 0, 0, 0, 0, -1, -4},
-//                    {5, 1, 0, 0, 0, 0, -1, -5},
-//                    {6, 1, 0, 0, 0, 0, -1, -6},
-//                    {4, 1, 0, 0, 0, 0, -1, -4},
-//                    {3, 1, 0, 0, 0, 0, -1, -3},
-//                    {2, 1, 0, 0, 0, 0, -1, -2} };
 
 class cBoard {
 private:
@@ -25,44 +17,52 @@ private:
     bool sColor = 1;
     float sW;
     float sH;
-    cPiece pieces[32];
+    cPiece pieces[64];
+    int boardMap[8][8] = {  {2, 1, 0, 0, 0, 0, -1, -2},
+                            {3, 1, 0, 0, 0, 0, -1, -3},
+                            {4, 1, 0, 0, 0, 0, -1, -4},
+                            {5, 1, 0, 0, 0, 0, -1, -5},
+                            {6, 1, 0, 0, 0, 0, -1, -6},
+                            {4, 1, 0, 0, 0, 0, -1, -4},
+                            {3, 1, 0, 0, 0, 0, -1, -3},
+                            {2, 1, 0, 0, 0, 0, -1, -2} };
 
-
-    void drawPiece() {
-        
-        win.draw(pieces[0].sprite);
-        
+    void drawPieces() {
+        for (int i = 0; i < 64; i++) {
+            if (pieces[i].draw)
+                win.draw(pieces[i].sprite);
+        }
     }
 
-    void scalePiece() {
-        for (int i = 0; i < 1; i++) {
+    void scalePieces() {
+        for (int i = 0; i < 64; i++) {
             float pScaleX = sW / pieces[i].sprite.getGlobalBounds().width;
             float pScaleY = sH / pieces[i].sprite.getGlobalBounds().height;
             pieces[i].sprite.setScale(Vector2f(pScaleX, pScaleY));
-            pieces[i].sprite.setPosition(Vector2f(0.f, 0.f));
+            pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
 
 
-            std::cout << "piece scale x expected: " << pScaleX << "\n";
-            std::cout << "piece scale y expected: " << pScaleY << "\n";
-            Vector2f pScale = pieces[i].sprite.getScale();
-            std::cout << "piece scale x actual : " << pScale.x << "\n";
-            std::cout << "piece scale y actual : " << pScale.y << "\n";
+            //std::cout << "piece scale x expected: " << pScaleX << "\n";
+            //std::cout << "piece scale y expected: " << pScaleY << "\n";
+            //Vector2f pScale = pieces[i].sprite.getScale();
+            //std::cout << "piece scale x actual : " << pScale.x << "\n";
+            //std::cout << "piece scale y actual : " << pScale.y << "\n";
 
-            // print global bounts
-            FloatRect pBoundsG = pieces[i].sprite.getGlobalBounds();
-            std::cout << "global piece width x: " << pBoundsG.width << "\n";
-            std::cout << "global piece height y: " << pBoundsG.height << "\n";
-            
-            // print local bounts
-            FloatRect pBoundsL = pieces[i].sprite.getLocalBounds();
-            std::cout << "local piece width x: " << pBoundsL.width << "\n";
-            std::cout << "local piece height y: " << pBoundsL.height << "\n";
+            //// print global bounts
+            //FloatRect pBoundsG = pieces[i].sprite.getGlobalBounds();
+            //std::cout << "global piece width x: " << pBoundsG.width << "\n";
+            //std::cout << "global piece height y: " << pBoundsG.height << "\n";
+            //
+            //// print local bounts
+            //FloatRect pBoundsL = pieces[i].sprite.getLocalBounds();
+            //std::cout << "local piece width x: " << pBoundsL.width << "\n";
+            //std::cout << "local piece height y: " << pBoundsL.height << "\n";
         }
     }
 
 public:
     
-    cBoard(float width, float height, const int boardTheme[2][3]) {
+    cBoard(float width, float height, const int boardTheme[2][3], std::map<int, std::string> pieceTheme) {
         sW = width/ 8;
         sH = height / 8;
 
@@ -103,20 +103,36 @@ public:
         win.create(VideoMode(width, height), "Chess");
 
         // CREATE PIECES
+        int index = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                pieces[index].ID = boardMap[i][j];
+                pieces[index].x = sW*i;
+                pieces[index].y = sH * j;
+                std::cout << "piece[" << index << "] ID: " << pieces[index].ID << "\n";
+                if (pieces[index].ID != 0) {
+                    if (!pieces[index].pTex.loadFromFile(pieceTheme[pieces[index].ID]))
+                        throw "could not load texture";
+                    pieces[index].sprite.setTexture(pieces[index].pTex);
+                    pieces[index].draw = true;
+                }
+                index++;
+            }
+        }
 
 
-        for (int i = 0; i < 1; i++) {
-            if (!pieces[i].pTex.loadFromFile("Textures/wp.png"))
-                throw "could not load wp.png";
-            pieces[i].sprite.setTexture(pieces[i].pTex);
-            scalePiece();
+        //for (int i = 0; i < 1; i++) {
+        //    if (!pieces[i].pTex.loadFromFile("Textures/wp.png"))
+        //        throw "could not load wp.png";
+        //    pieces[i].sprite.setTexture(pieces[i].pTex);
+            scalePieces();
             /*FloatRect pBounds = pieces[0].sprite.getLocalBounds();
             Vector2f pScale = pieces[0].sprite.getScale();
             std::cout << "piece width x: " << pBounds.width << "\n";
             std::cout << "piece height y: " << pBounds.height << "\n";
             std::cout << "piece scale x: " << pScale.x << "\n";
             std::cout << "piece scale y: " << pScale.y << "\n";*/
-        }
+        //}
         
         
 
@@ -149,7 +165,7 @@ public:
         }
 
         // DRAW PIECES
-        drawPiece();
+        drawPieces();
         
         win.display();
         return true;
