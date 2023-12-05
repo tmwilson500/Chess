@@ -72,16 +72,6 @@ public:
                 squares[i][j].setPosition(Vector2f(squares[i][j].getSize().x * i, squares[i][j].getSize().y * j));
                 squares[i][j].setFillColor(sColors[sColor]);
                 sColor = !sColor;
-
-                // print global bounds
-                FloatRect sBoundsG = squares[i][j].getGlobalBounds();
-                std::cout << "global square width x: " << sBoundsG.width << "\n";
-                std::cout << "global square height y: " << sBoundsG.height << "\n";
-
-                // print local bounds
-                FloatRect sBoundsL = squares[i][j].getLocalBounds();
-                std::cout << "local square width x: " << sBoundsL.width << "\n";
-                std::cout << "local square height y: " << sBoundsL.height << "\n";
             }
             sColor = !sColor;
         }
@@ -95,7 +85,6 @@ public:
                 pieces[index].ID = boardMap[i][j];
                 pieces[index].x = sW*i;
                 pieces[index].y = sH * j;
-                std::cout << "piece[" << index << "] ID: " << pieces[index].ID << "\n";
                 if (pieces[index].ID != 0) {
                     if (!pieces[index].pTex.loadFromFile(pieceTheme[pieces[index].ID]))
                         throw "could not load texture";
