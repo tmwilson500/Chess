@@ -10,30 +10,31 @@
 using namespace sf;
 
 
-const std::map<std::string, std::string> pieceTheme1 = { {"bb","Textures/bb.png"},
-                                                         {"bkg","Textures/bkg.png"},
-                                                         {"bkn","Textures/bkn.png"},
-                                                         {"bp","Textures/bp.png"}, 
-                                                         {"bq","Textures/bq.png"}, 
-                                                         {"br","Textures/br.png"}, 
-                                                         {"wb","Textures/wb.png"}, 
-                                                         {"wkg","Textures/wkg.png"}, 
-                                                         {"wkn","Textures/wkn.png"}, 
-                                                         {"wp","Textures/wp.png"}, 
-                                                         {"wq","Textures/wq.png"}, 
-                                                         {"wr","Textures/wr.png"}};
-const std::map<int, std::string> pieceID = { {1, "bp"},
-                                             {2, "br"},
-                                             {3, "bkn"},
-                                             {4, "bb"},
-                                             {5, "bq"},
-                                             {6, "bkg"},
-                                             {-1, "wp"},
-                                             {-2, "wr"},
-                                             {-3, "wkn"},
-                                             {-4, "wb"},
-                                             {-5, "wq"},
-                                             {-6, "wkg"} };
+//const std::map<std::string, std::string> pieceTheme1 = { {"bb","Textures/bb.png"},
+//                                                         {"bkg","Textures/bkg.png"},
+//                                                         {"bkn","Textures/bkn.png"},
+//                                                         {"bp","Textures/bp.png"}, 
+//                                                         {"bq","Textures/bq.png"}, 
+//                                                         {"br","Textures/br.png"}, 
+//                                                         {"wb","Textures/wb.png"}, 
+//                                                         {"wkg","Textures/wkg.png"}, 
+//                                                         {"wkn","Textures/wkn.png"}, 
+//                                                         {"wp","Textures/wp.png"}, 
+//                                                         {"wq","Textures/wq.png"}, 
+//                                                         {"wr","Textures/wr.png"}};
+const std::map<int, std::string> pieceTheme1 = { 
+    {1, "Textures/bp.png"},
+    {2, "Textures/br.png"},
+    {3, "Textures/bkn.png"},
+    {4, "Textures/bb.png"},
+    {5, "Textures/bq.png"},
+    {6, "Textures/bkg.png"},
+    {-1, "Textures/wp.png"},
+    {-2, "Textures/wr.png"},
+    {-3, "Textures/wkn.png"},
+    {-4, "Textures/wb.png"},
+    {-5, "Textures/wq.png"},
+    {-6, "Textures/wkg.png"} };
 
 const int boardTheme1[2][3] = { {118,150,86},
                                 {238,238,210} };
@@ -42,7 +43,7 @@ const int boardTheme1[2][3] = { {118,150,86},
 
 int main()
 {
-    cBoard board(1000.f, 1000.f, boardTheme1);
+    cBoard board(1000.f, 1000.f, boardTheme1, pieceTheme1);
     while (board.Update()) {
 
     }
