@@ -17,6 +17,8 @@ private:
     bool sColor = 1;
     float sW;
     float sH;
+    int selectIndex = -1;
+    bool pieceSelected = false;
     cPiece pieces[64];
     int boardMap[8][8] = {  {2, 1, 0, 0, 0, 0, -1, -2},
                             {3, 1, 0, 0, 0, 0, -1, -3},
@@ -30,6 +32,7 @@ private:
     void drawPieces() {
         for (int i = 0; i < 64; i++) {
             if (pieces[i].draw)
+                pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
                 win.draw(pieces[i].sprite);
         }
     }
@@ -124,16 +127,36 @@ public:
                 }
                 break;
             case Event::MouseButtonPressed:
-                if (event.mouseButton.button == sf::Mouse::Button::Left)
+                if (((event.mouseButton.button == sf::Mouse::Button::Left) && pieceSelected) && selectIndex >= -1)
+                {
+                    Vector2f mousePos2 = win.mapPixelToCoords(Mouse::getPosition(win));
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if (squares[i][j].getGlobalBounds().contains(mousePos2))
+                            {
+                                std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
+                                pieces[selectIndex].x = sW * i;
+                                pieces[selectIndex].y = sH * j;
+                                pieceSelected = false;
+                                selectIndex = -1;
+                            }
+                        }
+                    }
+                }
+                if ((event.mouseButton.button == sf::Mouse::Button::Left) && !pieceSelected)
                 {
                     //Vector2i mousePos = Mouse::getPosition(win);
-                    Vector2f mousePos = win.mapPixelToCoords(Mouse::getPosition(win));
-                    for (int i = 0; i < 64; i++)
+                    Vector2f mousePos1 = win.mapPixelToCoords(Mouse::getPosition(win));
+                    for (int k = 0; k < 64; k++)
                     {
                         //FloatRect current = pieces[i].sprite.getGlobalBounds();
-                        if (pieces[i].sprite.getGlobalBounds().contains(mousePos))
+                        if (pieces[k].sprite.getGlobalBounds().contains(mousePos1))
                         {
-                            std::cout << "you clicked piece ID: " << pieces[i].ID << "\n";
+                            selectIndex = k;
+                            pieceSelected = true;
+                            std::cout << "you clicked piece ID: " << pieces[selectIndex].ID << "\n";
                         }
                     }
                 }
