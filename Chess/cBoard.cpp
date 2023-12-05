@@ -55,6 +55,48 @@ private:
         }
     }
 
+    bool legalMove(cPiece piece) {
+        switch (piece.ID)
+        {
+        case 1:     //Rules for black pawn
+            return true;
+            break;
+        case 2:     //Rules for black rook
+            return true;
+            break;
+        case 3:     //Rules for black knight
+            return true;
+            break;
+        case 4:     //Rules for black bishop
+            return true;
+            break;
+        case 5:     //Rules for black queen
+            return true;
+            break;
+        case 6:     //Rules for black king
+            return true;
+            break;
+        case -1:     //Rules for white pawn
+            return true;
+            break;
+        case -2:     //Rules for white rook
+            return true;
+            break;
+        case -3:     //Rules for white knight
+            return true;
+            break;
+        case -4:     //Rules for white bishop
+            return true;
+            break;
+        case -5:     //Rules for white queen
+            return true;
+            break;
+        case -6:     //Rules for white king
+            return true;
+            break;
+        }
+    }
+
 public:
     
     cBoard(float width, float height, const int boardTheme[2][3], std::map<int, std::string> pieceTheme) {
