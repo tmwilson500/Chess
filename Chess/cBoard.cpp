@@ -61,7 +61,11 @@ private:
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
-            return true;
+            if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
+                return true;
+            else
+                std::cout << "invalid move\n";
+                return false;
             break;
         case 2:     //Rules for black rook
             return true;
@@ -79,7 +83,11 @@ private:
             return true;
             break;
         case -1:     //Rules for white pawn
-            return true;
+            if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
+                return true;
+            else
+                std::cout << "invalid move\n";
+                return false;
             break;
         case -2:     //Rules for white rook
             return true;
