@@ -184,10 +184,13 @@ public:
                             if (squares[i][j].getGlobalBounds().contains(mousePos2))
                             {
                                 std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
-                                pieces[selectIndex].x = sW * i;
-                                pieces[selectIndex].y = sH * j;
-                                pieceSelected = false;
-                                selectIndex = -1;
+                                if (legalMove(pieces[selectIndex]))
+                                {
+                                    pieces[selectIndex].x = sW * i;
+                                    pieces[selectIndex].y = sH * j;
+                                    pieceSelected = false;
+                                    selectIndex = -1;
+                                }
                             }
                         }
                     }
