@@ -202,9 +202,10 @@ public:
                                 {
                                     pieces[selectIndex].x = sW * i;
                                     pieces[selectIndex].y = sH * j;
-                                    pieceSelected = false;
-                                    selectIndex = -1;
+                                    turn = 1 - turn;
                                 }
+                                pieceSelected = false;
+                                selectIndex = -1;
                             }
                         }
                     }
@@ -221,7 +222,6 @@ public:
                                 selectIndex = k;
                                 pieceSelected = true;
                                 std::cout << "you clicked piece ID: " << pieces[selectIndex].ID << "\n";
-                                turn = 1 - turn;
                             }
                         }
                     }
