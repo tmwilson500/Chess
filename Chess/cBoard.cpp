@@ -61,6 +61,8 @@ private:
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
+            if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
+                return true;
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
                 return true;
             else
@@ -83,6 +85,8 @@ private:
             return true;
             break;
         case -1:     //Rules for white pawn
+            if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
+                return true;
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
                 return true;
             else
