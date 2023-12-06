@@ -61,8 +61,11 @@ private:
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
+            // If pawn is on starting square, moving two squares forward is valid
             if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
                 return true;
+
+            // Moving pawn one square forward is always valid, excpt when that square is occupied by another piece
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
                 return true;
             else
@@ -85,8 +88,12 @@ private:
             return true;
             break;
         case -1:     //Rules for white pawn
+
+            // If pawn is on starting square, moving two squares forward is valid
             if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
                 return true;
+
+            // Moving pawn one square forward is always valid, excpt when that square is occupied by another piece
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
                 return true;
             else
