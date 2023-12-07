@@ -62,13 +62,12 @@ private:
         {
         case 1:     //Rules for black pawn
             std::cout << "checking rules for black pawn...\n";
-            // If pawn is on starting square, moving two squares forward is valid,
-            // except when 1 or more of the 2 squares in front are occupied by another piece
+
+            // Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
             if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
                 return true;
 
-            // Moving pawn one square forward is always valid,
-            // excpt when that square is occupied by another piece
+            // Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
             {
                 for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
@@ -107,13 +106,12 @@ private:
             break;
         case -1:     //Rules for white pawn
             std::cout << "checking rules for white pawn...\n";
-            // If pawn is on starting square, moving two squares forward is valid,
-            // except when 1 or more of the 2 squares in front are occupied by another piece
+
+            // Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
             if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
                 return true;
 
-            // Moving pawn one square forward is always valid,
-            // excpt when that square is occupied by another piece
+            // Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
             {
                 for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
