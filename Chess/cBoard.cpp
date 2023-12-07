@@ -89,21 +89,6 @@ private:
                 std::cout << "Invalid move: no rules implemented for desired move\n";
                 return false;
             break;
-        case 2:     //Rules for black rook
-            return true;
-            break;
-        case 3:     //Rules for black knight
-            return true;
-            break;
-        case 4:     //Rules for black bishop
-            return true;
-            break;
-        case 5:     //Rules for black queen
-            return true;
-            break;
-        case 6:     //Rules for black king
-            return true;
-            break;
         case -1:     //Rules for white pawn
             std::cout << "checking rules for white pawn...\n";
 
@@ -130,18 +115,33 @@ private:
             }
             else
                 std::cout << "Invalid move: no rules implemented for desired move\n";
-                return false;
+            return false;
+            break;
+        case 2:     //Rules for black rook
+            return true;
             break;
         case -2:     //Rules for white rook
+            return true;
+            break;
+        case 3:     //Rules for black knight
             return true;
             break;
         case -3:     //Rules for white knight
             return true;
             break;
+        case 4:     //Rules for black bishop
+            return true;
+            break;
         case -4:     //Rules for white bishop
             return true;
             break;
+        case 5:     //Rules for black queen
+            return true;
+            break;
         case -5:     //Rules for white queen
+            return true;
+            break;
+        case 6:     //Rules for black king
             return true;
             break;
         case -6:     //Rules for white king
