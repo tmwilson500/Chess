@@ -61,6 +61,7 @@ private:
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
+            std::cout << "checking rules for black pawn...\n";
             // If pawn is on starting square, moving two squares forward is valid,
             // except when 1 or more of the 2 squares in front are occupied by another piece
             if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
@@ -69,9 +70,24 @@ private:
             // Moving pawn one square forward is always valid,
             // excpt when that square is occupied by another piece
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
+            {
+                for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
+                {
+                    if (!pieces[i].draw) // Skip check if piece is not drawn
+                        continue;
+                    int chkSqI = pieces[i].x / sW;
+                    int chkSqJ = pieces[i].y / sH;
+                    if ((chkSqI == newSqI) && (chkSqJ == newSqJ))
+                    {
+                        std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
+                        std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
+                        return false;
+                    }
+                }
                 return true;
+            }
             else
-                std::cout << "invalid move\n";
+                std::cout << "Invalid move: no rules implemented for desired move\n";
                 return false;
             break;
         case 2:     //Rules for black rook
@@ -90,7 +106,7 @@ private:
             return true;
             break;
         case -1:     //Rules for white pawn
-
+            std::cout << "checking rules for white pawn...\n";
             // If pawn is on starting square, moving two squares forward is valid,
             // except when 1 or more of the 2 squares in front are occupied by another piece
             if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
@@ -99,9 +115,23 @@ private:
             // Moving pawn one square forward is always valid,
             // excpt when that square is occupied by another piece
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
+            {
+                for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
+                {
+                    if (!pieces[i].draw) // Skip check if piece is not drawn
+                        continue;
+                    int chkSqI = pieces[i].x / sW;
+                    int chkSqJ = pieces[i].y / sH;
+                    if ((chkSqI == newSqI) && (chkSqJ == newSqJ))
+                    {
+                        std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
+                        return false;
+                    }
+                }
                 return true;
+            }
             else
-                std::cout << "invalid move\n";
+                std::cout << "Invalid move: no rules implemented for desired move\n";
                 return false;
             break;
         case -2:     //Rules for white rook
@@ -209,12 +239,16 @@ public:
                             if (squares[i][j].getGlobalBounds().contains(mousePos2))
                             {
                                 std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
+                                std::cout << "checking if move was valid for pieces["<<selectIndex<<"]\n";
                                 if (legalMove(pieces[selectIndex],i,j))
                                 {
+                                    std::cout << "move was valid\n";
                                     pieces[selectIndex].x = sW * i;
                                     pieces[selectIndex].y = sH * j;
                                     turn = 1 - turn;
                                 }
+                                else
+                                    std::cout << "Move was not valid\n";
                                 pieceSelected = false;
                                 selectIndex = -1;
                             }
