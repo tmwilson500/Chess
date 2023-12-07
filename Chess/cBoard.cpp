@@ -55,6 +55,24 @@ private:
         }
     }
 
+    // True if square with coordinates [sqI][sqJ] contains a drawn piece, otherwise false
+    bool isOccupied(int sqI, int sqJ) {
+        for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
+        {
+            if (!pieces[i].draw) // Skip check if piece is not drawn
+                continue;
+            int chkSqI = pieces[i].x / sW;
+            int chkSqJ = pieces[i].y / sH;
+            if ((chkSqI == sqI) && (chkSqJ == sqJ))
+            {
+                std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
+                std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
+                return true;
+            }
+        }
+        return false;
+    }
+
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
         int oldSqJ = piece.y / sH;
@@ -70,18 +88,9 @@ private:
             // Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
             {
-                for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
+                if (isOccupied(newSqI, newSqJ))
                 {
-                    if (!pieces[i].draw) // Skip check if piece is not drawn
-                        continue;
-                    int chkSqI = pieces[i].x / sW;
-                    int chkSqJ = pieces[i].y / sH;
-                    if ((chkSqI == newSqI) && (chkSqJ == newSqJ))
-                    {
-                        std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
-                        std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
-                        return false;
-                    }
+                    return false;
                 }
                 return true;
             }
@@ -99,17 +108,9 @@ private:
             // Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
             {
-                for (int i = 0; i < 64; i++) //Check if any piece is already in destination square
+                if (isOccupied(newSqI, newSqJ))
                 {
-                    if (!pieces[i].draw) // Skip check if piece is not drawn
-                        continue;
-                    int chkSqI = pieces[i].x / sW;
-                    int chkSqJ = pieces[i].y / sH;
-                    if ((chkSqI == newSqI) && (chkSqJ == newSqJ))
-                    {
-                        std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
-                        return false;
-                    }
+                    return false;
                 }
                 return true;
             }
