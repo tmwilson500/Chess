@@ -81,7 +81,7 @@ private:
         case 1:     //Rules for black pawn
             std::cout << "checking rules for black pawn...\n";
 
-            // Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
+            //Rule #1: Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
             if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
             {
                 if (isOccupied(newSqI, oldSqJ + 1) || isOccupied(newSqI, newSqJ))
@@ -89,7 +89,7 @@ private:
                 return true;
             }
                 
-            // Pawn can always move 1 space forward, except when the destination is occupied
+            //Rule #2: Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
             {
                 if (isOccupied(newSqI, newSqJ))
@@ -105,7 +105,7 @@ private:
         case -1:     //Rules for white pawn
             std::cout << "checking rules for white pawn...\n";
 
-            // Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
+            //Rule #1: Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
             if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
             {
                 if (isOccupied(newSqI, oldSqJ - 1) || isOccupied(newSqI, newSqJ))
@@ -113,7 +113,7 @@ private:
                 return true;
             }
 
-            // Pawn can always move 1 space forward, except when the destination is occupied
+            //Rule #2: Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
             {
                 if (isOccupied(newSqI, newSqJ))
