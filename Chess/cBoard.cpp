@@ -58,6 +58,7 @@ private:
     }
 
     // True if square with coordinates [sqI][sqJ] contains a drawn piece, otherwise false
+    // NOTE: use getPiece() instead when possible
     bool isOccupied(int sqI, int sqJ) {
         for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
         {
@@ -93,6 +94,7 @@ private:
         }
         return nullptr;
     }
+
 
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
