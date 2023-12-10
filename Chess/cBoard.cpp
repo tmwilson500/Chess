@@ -123,10 +123,16 @@ private:
             //Rule #3: Pawn can move 1 square diagonally if the destinaton is occupied by an enemy piece, thus capturing that piece
             if ((newSqJ == oldSqJ + 1) && ((newSqI == oldSqI - 1) || (newSqI == oldSqI + 1)))
             {
-                if (isOccupied(newSqI, newSqJ))
+                cPiece* foundPiece = getPiece(newSqI, newSqJ);
+                if ((foundPiece != nullptr))
                 {
-                    std::cout << "DIAGONAL MOVE!!\n";
-                    return true;
+                    if (foundPiece->player != turn)
+                    {
+                        std::cout << "CAPTURE!!!!!!!!!!!\n";
+                        foundPiece->draw = false;
+                        return true;
+
+                    }
                 }
                 return false;
             }
@@ -159,10 +165,16 @@ private:
             //Rule #3: Pawn can move 1 square diagonally if the destinaton is occupied by an enemy piece, thus capturing that piece
             if ((newSqJ == oldSqJ - 1) && ((newSqI == oldSqI - 1) || (newSqI == oldSqI + 1)))
             {
-                if (isOccupied(newSqI, newSqJ))
+                cPiece* foundPiece = getPiece(newSqI, newSqJ);
+                if ((foundPiece != nullptr))
                 {
-                    std::cout << "DIAGONAL MOVE!!\n";
-                    return true;
+                    if (foundPiece->player != turn)
+                    {
+                        std::cout << "CAPTURE!!!!!!!!!!!\n";
+                        foundPiece->draw = false;
+                        return true;
+
+                    }
                 }
                 return false;
             }
