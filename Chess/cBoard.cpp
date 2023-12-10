@@ -41,8 +41,10 @@ private:
     void drawPieces() {
         for (int i = 0; i < 64; i++) {
             if (pieces[i].draw)
+            {
                 pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
                 win.draw(pieces[i].sprite);
+            }
         }
     }
 
@@ -71,6 +73,25 @@ private:
             }
         }
         return false;
+    }
+
+    // If square with coordinates [sqI][sqJ] contains a drawn piece, returns a pointer to that piece.
+    // Otherwise, returns nullptr
+    cPiece* getPiece(int sqI, int sqJ) {
+        for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
+        {
+            if (!pieces[i].draw) // Skip check if piece is not drawn
+                continue;
+            int chkSqI = pieces[i].x / sW;
+            int chkSqJ = pieces[i].y / sH;
+            if ((chkSqI == sqI) && (chkSqJ == sqJ))
+            {
+                std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
+                std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
+                return &pieces[i];
+            }
+        }
+        return nullptr;
     }
 
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
