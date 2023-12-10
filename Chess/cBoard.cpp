@@ -118,6 +118,9 @@ private:
         return true;
     }
 
+    // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
+    // Returns true if move is legal, otherwise returns false
+    // NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
         int oldSqJ = piece.y / sH;
