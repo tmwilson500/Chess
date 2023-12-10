@@ -124,6 +124,7 @@ private:
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
         int oldSqJ = piece.y / sH;
+        cPiece* foundPiece = getPiece(newSqI, newSqJ);
         switch (piece.ID)
         {
         case 1:     //Rules for black pawn
@@ -133,14 +134,16 @@ private:
             if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
             {
                 if (isOccupied(newSqI, oldSqJ + 1) || isOccupied(newSqI, newSqJ))
+                {
                     return false;
+                }
                 return true;
             }
                 
             //Rule #2: Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ + 1))
             {
-                if (isOccupied(newSqI, newSqJ))
+                if (foundPiece != nullptr)
                 {
                     return false;
                 }
@@ -150,8 +153,7 @@ private:
             //Rule #3: Pawn can move 1 square diagonally if the destinaton is occupied by an enemy piece, thus capturing that piece
             if ((newSqJ == oldSqJ + 1) && ((newSqI == oldSqI - 1) || (newSqI == oldSqI + 1)))
             {
-                cPiece* foundPiece = getPiece(newSqI, newSqJ);
-                if ((foundPiece != nullptr))
+                if (foundPiece != nullptr)
                 {
                     if (foundPiece->player != turn)
                     {
@@ -172,14 +174,16 @@ private:
             if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
             {
                 if (isOccupied(newSqI, oldSqJ - 1) || isOccupied(newSqI, newSqJ))
+                {
                     return false;
+                }
                 return true;
             }
 
             //Rule #2: Pawn can always move 1 space forward, except when the destination is occupied
             if ((newSqI == oldSqI) && (newSqJ == oldSqJ - 1))
             {
-                if (isOccupied(newSqI, newSqJ))
+                if (foundPiece != nullptr)
                 {
                     return false;
                 }
@@ -189,7 +193,6 @@ private:
             //Rule #3: Pawn can move 1 square diagonally if the destinaton is occupied by an enemy piece, thus capturing that piece
             if ((newSqJ == oldSqJ - 1) && ((newSqI == oldSqI - 1) || (newSqI == oldSqI + 1)))
             {
-                cPiece* foundPiece = getPiece(newSqI, newSqJ);
                 if ((foundPiece != nullptr))
                 {
                     if (foundPiece->player != turn)
