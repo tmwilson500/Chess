@@ -151,10 +151,7 @@ private:
                 {
                     if (foundPiece->player != turn)
                     {
-                        std::cout << "CAPTURE!!!!!!!!!!!\n";
-                        foundPiece->draw = false;
                         return true;
-
                     }
                 }
                 return false;
@@ -193,10 +190,7 @@ private:
                 {
                     if (foundPiece->player != turn)
                     {
-                        std::cout << "CAPTURE!!!!!!!!!!!\n";
-                        foundPiece->draw = false;
                         return true;
-
                     }
                 }
                 return false;
@@ -329,9 +323,15 @@ public:
                                 if (legalMove(pieces[selectIndex],i,j))
                                 {
                                     std::cout << "move was valid\n";
-                                    pieces[selectIndex].x = sW * i;
-                                    pieces[selectIndex].y = sH * j;
-                                    turn = 1 - turn;
+                                    if (doMove(pieces[selectIndex], i, j))
+                                    {
+                                        std::cout << "Move completed!\n";
+                                        turn = 1 - turn;
+                                    }
+                                    else
+                                    {
+                                        std::cout << "Could not complete move\n";
+                                    }
                                 }
                                 else
                                     std::cout << "Move was not valid\n";
