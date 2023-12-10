@@ -95,6 +95,27 @@ private:
         return nullptr;
     }
 
+    // Takes a reference to a piece object and attempts to move it to square at coordinates [targetI][targetJ]
+    // If target square contains enemy piece, capture it
+    // Return true if move was executed successfully, otherwise return false
+    bool doMove(cPiece& piece, int targetI, int targetJ) {
+        cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
+        if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
+        {
+            if (targetPiece->player != turn)
+            {
+                std::cout << "CAPTURE!!!!!!!!!!!\n";
+                targetPiece->draw = false;
+            }
+            else // If target square contains players own piece, return false & do not complete move (double check for move validity)
+            {
+                return false;
+            }
+        }
+        piece.x = sW * targetI;
+        piece.y = sH * targetJ;
+        return true;
+    }
 
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
