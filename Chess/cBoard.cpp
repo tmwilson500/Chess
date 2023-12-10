@@ -98,6 +98,7 @@ private:
     // Takes a reference to a piece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
     // Return true if move was executed successfully, otherwise return false
+    // NOTE: does not fully check legality of move - always check legality using legalMove() first
     bool doMove(cPiece& piece, int targetI, int targetJ) {
         cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
         if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
