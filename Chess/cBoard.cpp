@@ -58,7 +58,7 @@ private:
     }
 
     // True if square with coordinates [sqI][sqJ] contains a drawn piece, otherwise false
-    // NOTE: use getPiece() instead when possible
+    // NOTE: prefer isOccupied() over getPiece() when access to cPiece object attributes is not strictly necessary
     bool isOccupied(int sqI, int sqJ) {
         for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
         {
@@ -78,6 +78,7 @@ private:
 
     // If square with coordinates [sqI][sqJ] contains a drawn piece, returns a pointer to that piece.
     // Otherwise, returns nullptr
+    // NOTE: use only when access to cPiece object attributes is necessary - otherwise use isOccupied()
     cPiece* getPiece(int sqI, int sqJ) {
         for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
         {
