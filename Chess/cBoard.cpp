@@ -374,7 +374,7 @@ public:
                     Vector2f mousePos1 = win.mapPixelToCoords(Mouse::getPosition(win));
                     for (int k = 0; k < 64; k++)
                     {
-                        if (pieces[k].sprite.getGlobalBounds().contains(mousePos1))
+                        if ((pieces[k].sprite.getGlobalBounds().contains(mousePos1)) && pieces[k].draw)
                         {
                             if (pieces[k].player == turn)
                             {
