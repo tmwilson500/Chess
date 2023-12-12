@@ -425,17 +425,16 @@ private:
             //         If the above check passes & the destination square contains an enemy piece, it is captured
             if ((newSqI < oldSqI) && (newSqJ < oldSqJ))
             {
-                for (int i = oldSqI - 1; i > newSqI; i--)
+                int j = oldSqJ - 1;
+                for (int i = oldSqI - 1; i > newSqI; i--) // Check all squares along path
                 {
-                    for (int j = oldSqJ - 1; j > newSqJ;j--) // Check all squares along path
+                    std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                     {
-                        std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
-                        if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
-                        {
-                            std::cout << "OCCUPIED!!!!!!!!!\n";
-                            return false;
-                        }
+                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        return false;
                     }
+                    j--;
                 }
                 cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
                 if (foundPiece != nullptr)
