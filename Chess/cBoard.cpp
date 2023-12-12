@@ -427,7 +427,18 @@ private:
             {
                 return false;
             }
-            //Rule #2: Bishop can move any # of squares diagonally up/left as long as no square along its path is occupied
+
+            //Rule #2: If destination square contains players own piece, move is invalid
+            cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+            if (foundPiece != nullptr)
+            {
+                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                {
+                    return false;
+                }
+            }
+
+            //Rule #3: Bishop can move any # of squares diagonally up/left as long as no square along its path is occupied
             //         If the above check passes & the destination square contains an enemy piece, it is captured
             if ((newSqI < oldSqI) && (newSqJ < oldSqJ))
             {
@@ -442,14 +453,7 @@ private:
                     }
                     j--;
                 }
-                cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
-                if (foundPiece != nullptr)
-                {
-                    if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
-                    {
-                        return false;
-                    }
-                }
+                
                 return true;
             }
             return false;
