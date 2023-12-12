@@ -419,7 +419,8 @@ private:
             break;
         }
         case 4:     //Rules for black bishop are identical to rules for white bishop (fall through when piece is black bishop)
-        case -4:     //Rules for white bishop
+        case -4:    //Rules for white bishop
+        {
             std::cout << "checking rules for bishop...\n";
 
             //Rule #1: Bishop can move any # of squares in any diagonal direction (up/left, up/right, down/left, down/right)
@@ -438,8 +439,7 @@ private:
                 }
             }
 
-            //Rule #3: Bishop can move any # of squares diagonally up/left as long as no square along its path is occupied
-            //         If the above check passes & the destination square contains an enemy piece, it is captured
+            //Rule #3: Bishop move is invalid if any square along its path is occupied
             if ((newSqI < oldSqI) && (newSqJ < oldSqJ))
             {
                 int j = oldSqJ - 1;
@@ -453,11 +453,12 @@ private:
                     }
                     j--;
                 }
-                
+
                 return true;
             }
             return false;
             break;
+        }
         case 5:     //Rules for black queen
             return true;
             break;
