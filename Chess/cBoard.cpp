@@ -276,6 +276,28 @@ private:
                 }
                 return true;
             }
+
+            //Rule #2: Rook can move any # of squares backward, as long as no square along its path is occupied.
+            //         If the above check passes & the destination square contains an enemy piece, it is captured
+            if ((newSqI == oldSqI) && (newSqJ > oldSqJ))
+            {
+                for (int j = oldSqJ + 1; j < newSqJ;j++) //Check all squares along path to destination
+                {
+                    if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
+                    {
+                        return false;
+                    }
+                }
+                cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+                if (foundPiece != nullptr)
+                {
+                    if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
             return false;
             break;
         case 3:     //Rules for black knight
