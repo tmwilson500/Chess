@@ -390,8 +390,33 @@ private:
             return false;
             break;
         case 3:     //Rules for black knight
-            return true;
+        {
+            std::cout << "checking rules for black knight...\n";
+
+            //Rule #1: For knight at square [i][j], there are up to 8 possible moves, defined as [i+X[index]][j+Y[index]]
+            //         where the vectors X & Y are: X[8] = { 2, 2, -2, -2,  1, 1, -1, -1} 
+            //                                      Y[8] = {-1, 1, -1,  1, -2, 2, -2,  2}
+            // If the destination square is occupied by players own piece, move is invalid
+            int X[8] = { 2, 2, -2, -2,  1, 1, -1, -1 };
+            int Y[8] = { -1, 1, -1,  1, -2, 2, -2,  2 };
+            for (int index = 0; index < 8; index++)
+            {
+                if ((newSqI == (oldSqI + X[index])) && (newSqJ == (oldSqJ + Y[index])))
+                {
+                    cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+                    if (foundPiece != nullptr)
+                    {
+                        if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
             break;
+        }
         case -3:     //Rules for white knight
             return true;
             break;
