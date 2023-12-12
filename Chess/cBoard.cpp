@@ -389,9 +389,10 @@ private:
             }
             return false;
             break;
-        case 3:     //Rules for black knight
+        case 3:     //Rules for black knight are identical to rules for white knight (fall through when piece is black knight)
+        case -3:    //Rules for white knight
         {
-            std::cout << "checking rules for black knight...\n";
+            std::cout << "checking rules for knight...\n";
 
             //Rule #1: For knight at square [i][j], there are up to 8 possible moves, defined as [i+X[index]][j+Y[index]]
             //         where the vectors X & Y are: X[8] = { 2, 2, -2, -2,  1, 1, -1, -1} 
@@ -417,9 +418,6 @@ private:
             return false;
             break;
         }
-        case -3:     //Rules for white knight
-            return true;
-            break;
         case 4:     //Rules for black bishop
             return true;
             break;
