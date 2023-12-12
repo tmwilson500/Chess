@@ -419,7 +419,34 @@ private:
             break;
         }
         case 4:     //Rules for black bishop
-            return true;
+            std::cout << "checking rules for bishop...\n";
+            //Rule #1: Bishop can move any # of squares diagonally up/left as long as no square along its path is occupied
+            //         If the above check passes & the destination square contains an enemy piece, it is captured
+            if ((newSqI < oldSqI) && (newSqJ < oldSqJ))
+            {
+                for (int i = oldSqI - 1; i > newSqI; i--)
+                {
+                    for (int j = oldSqJ - 1; j > newSqJ;j--) // Check all squares along path
+                    {
+                        std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                        if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
+                        {
+                            std::cout << "OCCUPIED!!!!!!!!!\n";
+                            return false;
+                        }
+                    }
+                }
+                cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+                if (foundPiece != nullptr)
+                {
+                    if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
             break;
         case -4:     //Rules for white bishop
             return true;
