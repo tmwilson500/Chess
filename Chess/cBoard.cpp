@@ -513,6 +513,27 @@ private:
         case 5:     //Rules for black queen are identical to rules for white queen (fall through when piece is black queen)
         case -5:     //Rules for white queen
         {
+            //Rule #1: Queen can move any # of squares in any diagonal direction (up/left, up/right, down/left, down/right),
+            //          OR in any cardinal direction (up, down, left, right)
+            bool diagonal = false;
+            bool horizontal = false;
+            bool vertical = false;
+            if (std::abs(oldSqI - newSqI) == std::abs(oldSqJ - newSqJ)) //Check if move is diagonal
+            {
+                diagonal = true;
+            }
+            else if (oldSqJ == newSqJ) //Check if move is horizontal
+            {
+                horizontal = true;
+            }
+            else if (oldSqI == newSqI) //check if move is vertical
+            {
+                vertical = true;
+            }
+            else                       //If move is not diagonal, vertical, or horizontal, it is not valid
+            {
+                return false;
+            }
             return true;
             break;
         }
