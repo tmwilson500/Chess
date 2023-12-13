@@ -525,16 +525,30 @@ private:
             else if (oldSqJ == newSqJ) //Check if move is horizontal
             {
                 horizontal = true;
+                return true;
             }
             else if (oldSqI == newSqI) //check if move is vertical
             {
                 vertical = true;
+                return true;
             }
             else                       //If move is not diagonal, vertical, or horizontal, it is not valid
             {
                 return false;
             }
-            return true;
+
+            //Rule #2: If destination square contains players own piece, move is invalid
+            cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+            if (foundPiece != nullptr)
+            {
+                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                {
+                    return false;
+                }
+            }
+
+            
+            return false;
             break;
         }
         case 6:     //Rules for black king
