@@ -473,6 +473,23 @@ private:
                 }
                 return true;
             }
+
+            if ((newSqI < oldSqI) && (newSqJ > oldSqJ)) //Check path for down/left moves
+            {
+                std::cout << "DOWN/LEFT MOVE\n";
+                int j = oldSqJ + 1;
+                for (int i = oldSqI - 1; i > newSqI; i--)
+                {
+                    std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
+                    {
+                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        return false;
+                    }
+                    j++;
+                }
+                return true;
+            }
             return false;
             break;
         }
