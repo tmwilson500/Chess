@@ -440,8 +440,9 @@ private:
             }
 
             //Rule #3: Bishop move is invalid if any square along its path is occupied
-            if ((newSqI < oldSqI) && (newSqJ < oldSqJ))
+            if ((newSqI < oldSqI) && (newSqJ < oldSqJ)) //Check path for up/left moves
             {
+                std::cout << "UP/LEFT MOVE\n";
                 int j = oldSqJ - 1;
                 for (int i = oldSqI - 1; i > newSqI; i--) // Check all squares along path
                 {
@@ -453,7 +454,23 @@ private:
                     }
                     j--;
                 }
+                return true;
+            }
 
+            if ((newSqI > oldSqI) && (newSqJ < oldSqJ)) //Check path for up/right moves
+            {
+                std::cout << "UP/RIGHT MOVE\n";
+                int j = oldSqJ - 1;
+                for (int i = oldSqI + 1; i < newSqI; i++)
+                {
+                    std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
+                    {
+                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        return false;
+                    }
+                    j--;
+                }
                 return true;
             }
             return false;
