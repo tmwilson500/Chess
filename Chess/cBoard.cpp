@@ -510,12 +510,12 @@ private:
             return false;
             break;
         }
-        case 5:     //Rules for black queen
-            return true;
-            break;
+        case 5:     //Rules for black queen are identical to rules for white queen (fall through when piece is black queen)
         case -5:     //Rules for white queen
+        {
             return true;
             break;
+        }
         case 6:     //Rules for black king
             return true;
             break;
