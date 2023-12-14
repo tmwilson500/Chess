@@ -304,7 +304,7 @@ private:
             //         If the above check passes & the destination square contains an enemy piece, it is captured
             if ((newSqI == oldSqI) && (newSqJ < oldSqJ))
             {
-                for (int j = oldSqJ - 1; j < newSqJ;j--) //Check all squares along path to destination
+                for (int j = oldSqJ - 1; j > newSqJ;j--) //Check all squares along path to destination
                 {
                     if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
                     {
