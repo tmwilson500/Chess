@@ -300,7 +300,7 @@ private:
         case -2:     //Rules for white rook
             std::cout << "checking rules for white rook...\n";
 
-            //Rule #1: Rook can move any # of squares forward, as long as no square along its path is occupied.
+            //Rule #1: Rook can move any # of squares up, as long as no square along its path is occupied.
             //         If the above check passes & the destination square contains an enemy piece, it is captured
             if ((newSqI == oldSqI) && (newSqJ < oldSqJ))
             {
@@ -322,7 +322,7 @@ private:
                 return true;
             }
 
-            //Rule #2: Rook can move any # of squares backward, as long as no square along its path is occupied.
+            //Rule #2: Rook can move any # of squares down, as long as no square along its path is occupied.
             //         If the above check passes & the destination square contains an enemy piece, it is captured
             if ((newSqI == oldSqI) && (newSqJ > oldSqJ))
             {
