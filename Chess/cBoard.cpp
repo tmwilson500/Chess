@@ -709,8 +709,21 @@ private:
             break;
         }
         case -6:     //Rules for white king
+        {
+            std::cout << "Checking rules for white king\n";
+
+            //Rule #1: If destination square contains players own piece, move is invalid
+            cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+            if (foundPiece != nullptr)
+            {
+                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                {
+                    return false;
+                }
+            }
             return true;
             break;
+        }
         default:
             return false;
             break;
