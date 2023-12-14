@@ -690,15 +690,22 @@ private:
                 }
             }
 
-            ////Rule #2: King can move 1 square in any direction
-            //for (int i = -1; i <= 1; i++)
-            //{
-            //    for (int j = -1; j <= 1; j++)
-            //    {
-            //        if ((i != 0) && (j ))
-            //    }
-            //}
-            return true;
+            //Rule #2: King can move 1 square in any direction
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++) //Check if destination is oldSqI +/- 1 & oldSqJ +/- 1
+                {
+                    if ((i == 0) && (j == 0))
+                    {
+                        continue;
+                    }
+                    if ((newSqI == oldSqI+i) && (newSqJ == oldSqJ+j))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
             break;
         }
         case -6:     //Rules for white king
