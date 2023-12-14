@@ -677,6 +677,15 @@ private:
             break;
         }
         case 6:     //Rules for black king
+            //Rule #1: If destination square contains players own piece, move is invalid
+            cPiece * foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+            if (foundPiece != nullptr)
+            {
+                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                {
+                    return false;
+                }
+            }
             return true;
             break;
         case -6:     //Rules for white king
