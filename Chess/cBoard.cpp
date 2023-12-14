@@ -677,8 +677,11 @@ private:
             break;
         }
         case 6:     //Rules for black king
+        {
+            std::cout << "Checking rules for black king\n";
+
             //Rule #1: If destination square contains players own piece, move is invalid
-            cPiece * foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
+            cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
                 if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
@@ -686,8 +689,18 @@ private:
                     return false;
                 }
             }
+
+            ////Rule #2: King can move 1 square in any direction
+            //for (int i = -1; i <= 1; i++)
+            //{
+            //    for (int j = -1; j <= 1; j++)
+            //    {
+            //        if ((i != 0) && (j ))
+            //    }
+            //}
             return true;
             break;
+        }
         case -6:     //Rules for white king
             return true;
             break;
