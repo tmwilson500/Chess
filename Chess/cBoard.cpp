@@ -527,7 +527,6 @@ private:
             else if (oldSqJ == newSqJ) //Check if move is horizontal
             {
                 horizontal = true;
-                return true;
             }
             else if (oldSqI == newSqI) //check if move is vertical
             {
@@ -623,7 +622,7 @@ private:
             if (vertical) //Check path for vertical moves
             {
                 std::cout << "VERTICAL MOVE!!!!!\n";
-                if (newSqJ < oldSqJ) //Check path for up moves
+                if (newSqJ < oldSqJ) //Check path for vertical-up moves
                 {
                     std::cout << "GOING UP\n";
                     for (int j = oldSqJ - 1; j > newSqJ;j--) //Check all squares along path to destination
@@ -636,7 +635,7 @@ private:
                     }
                     return true;
                 }
-                if (newSqJ > oldSqJ) //Check path for down moves
+                if (newSqJ > oldSqJ) //Check path for vertical-down moves
                 {
                     std::cout << "GOING DOWN\n";
                     for (int j = oldSqJ + 1; j < newSqJ;j++) //Check all squares along path to destination
@@ -651,7 +650,28 @@ private:
             }
             if (horizontal) //Check path for horizontal moves
             {
-
+                if (newSqI < oldSqI) //Check path for horizontal-left moves
+                {
+                    for (int i = oldSqI - 1; i > newSqI;i--) //Check all squares along path to destination
+                    {
+                        if (isOccupied(i, newSqJ)) //If any squares along path are occupied, move is invalid
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                if (newSqI > oldSqI) //Check path for horizontal-right moves
+                {
+                    for (int i = oldSqI + 1; i < newSqI;i++) //Check all squares along path to destination
+                    {
+                        if (isOccupied(i, newSqJ)) //If any squares along path are occupied, move is invalid
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
             }
             return false;
             break;
