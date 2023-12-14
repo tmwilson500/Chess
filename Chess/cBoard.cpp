@@ -511,8 +511,10 @@ private:
             break;
         }
         case 5:     //Rules for black queen are identical to rules for white queen (fall through when piece is black queen)
-        case -5:     //Rules for white queen
+        case -5:    //Rules for white queen
         {
+            std::cout << "checking rules for queen...\n";
+
             //Rule #1: Queen can move any # of squares in any diagonal direction (up/left, up/right, down/left, down/right),
             //          OR in any cardinal direction (up, down, left, right)
             bool diagonal = false;
@@ -530,7 +532,6 @@ private:
             else if (oldSqI == newSqI) //check if move is vertical
             {
                 vertical = true;
-                return true;
             }
             else                       //If move is not diagonal, vertical, or horizontal, it is not valid
             {
@@ -548,7 +549,7 @@ private:
             }
 
             //Rule #3: Queen move is invalid if any square along its path is occupied
-            if (diagonal) //Check for diagonal moves
+            if (diagonal) //Check path for diagonal moves
             {
                 if ((newSqI < oldSqI) && (newSqJ < oldSqJ)) //Check path for up/left moves
                 {
@@ -617,14 +618,40 @@ private:
                     }
                     return true;
                 }
-                if (vertical)
-                {
+            }
 
-                }
-                if (horizontal)
+            if (vertical) //Check path for vertical moves
+            {
+                std::cout << "VERTICAL MOVE!!!!!\n";
+                if (newSqJ < oldSqJ) //Check path for up moves
                 {
-
+                    std::cout << "GOING UP\n";
+                    for (int j = oldSqJ - 1; j > newSqJ;j--) //Check all squares along path to destination
+                    {
+                        std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << newSqI << "][" << j << "]\n";
+                        if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
+                if (newSqJ > oldSqJ) //Check path for down moves
+                {
+                    std::cout << "GOING DOWN\n";
+                    for (int j = oldSqJ + 1; j < newSqJ;j++) //Check all squares along path to destination
+                    {
+                        if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            if (horizontal) //Check path for horizontal moves
+            {
+
             }
             return false;
             break;
