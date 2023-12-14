@@ -125,7 +125,7 @@ private:
     bool legalMove(cPiece piece, int newSqI, int newSqJ) {
         int oldSqI = piece.x / sW;
         int oldSqJ = piece.y / sH;
-        switch (piece.ID)
+        switch (piece.ID) //Check rules based on piece ID
         {
         case 1:     //Rules for black pawn
             std::cout << "checking rules for black pawn...\n";
