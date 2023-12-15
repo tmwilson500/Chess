@@ -9,6 +9,11 @@
 using namespace sf;
 
 
+struct {
+    int startI, startJ, endI, endJ;
+    cPiece& piece;
+}move;
+
 class cBoard {
 private:
     RenderWindow win;
