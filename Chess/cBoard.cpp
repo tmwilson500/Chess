@@ -9,13 +9,7 @@
 using namespace sf;
 
 
-struct move
-{
-    int startI, startJ, endI, endJ;
-    cPiece& movPiece;  //The piece that was moved
-    cPiece& movPiece2; //The second piece that was moved (used only for castle moves)
-    cPiece& capPiece;  //The piece that was captured (nullptr if move did not result in capture)
-};
+
 
 class cBoard {
 private:
@@ -29,7 +23,6 @@ private:
     bool pieceSelected = false;
     int turn = 0; // 0 for white to move, 1 for black to move
     cPiece pieces[64];
-    std::vector<move> moves;
     int boardMap[8][8] = {  {2, 1, 0, 0, 0, 0, -1, -2},
                             {3, 1, 0, 0, 0, 0, -1, -3},
                             {4, 1, 0, 0, 0, 0, -1, -4},
