@@ -9,10 +9,11 @@
 using namespace sf;
 
 
-struct {
+struct move
+{
     int startI, startJ, endI, endJ;
     cPiece& piece;
-}move;
+};
 
 class cBoard {
 private:
