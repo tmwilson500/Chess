@@ -98,6 +98,11 @@ private:
         return nullptr;
     }
 
+    bool doMove2(cPiece& piece, int targetI, int targetJ)
+    {
+
+    }
+
     // Takes a reference to a piece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
     // Return true if move was executed successfully, otherwise return false
