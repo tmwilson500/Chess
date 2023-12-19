@@ -103,14 +103,15 @@ private:
         cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
         if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
         {
-            if (targetPiece->player != turn)
-            {
-                std::cout << "CAPTURE!!!!!!!!!!!\n";
-                targetPiece->draw = false;
-            }
-            else // If target square contains players own piece, return false & do not complete move (double check for move validity)
+            if (targetPiece->player == turn)// If target square contains players own piece, return false & do not complete move (double check for move validity)
             {
                 return false;
+            }
+            else //target square contains enemy piece, so execute capture & add move to moveHist for both pieces
+            {
+                std::cout << "CAPTURE!!!!!!!!!!!\n";
+                piece.moveHist.push_back({ piece.x, piece.y, targetI, targetJ, movPiece2, capPiece });
+                targetPiece->draw = false;
             }
         }
         piece.x = sW * targetI;
