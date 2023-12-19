@@ -110,7 +110,7 @@ private:
             else //target square contains enemy piece, so execute capture & add move to moveHist for both pieces
             {
                 std::cout << "CAPTURE!!!!!!!!!!!\n";
-                piece.moveHist.push_back({ piece.x, piece.y, targetI, targetJ, movPiece2, capPiece });
+                //piece.moveHist.push_back({ piece.x, piece.y, targetI, targetJ, nullptr, targetPiece });
                 targetPiece->draw = false;
             }
         }
