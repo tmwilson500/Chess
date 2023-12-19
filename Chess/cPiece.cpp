@@ -6,19 +6,19 @@
 
 using namespace sf;
 
-struct move
-{
-	int startI, startJ, endI, endJ;
-	cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
-	cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
-};
+//struct move
+//{
+//	int startI, startJ, endI, endJ;
+//	cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
+//	cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
+//};
 
 class cPiece {
 
 public:
 	Sprite sprite;
 	Texture pTex;
-	std::vector<move> moveHist;
+	//std::vector<move> moveHist;
 	bool draw = false;
 	int ID = 0;
 	float x = 0;
