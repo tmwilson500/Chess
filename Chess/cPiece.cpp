@@ -18,7 +18,7 @@ class cPiece {
 public:
 	Sprite sprite;
 	Texture pTex;
-	std::vector<move> moves;
+	std::vector<move> moveHist;
 	bool draw = false;
 	int ID = 0;
 	float x = 0;
