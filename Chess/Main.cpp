@@ -4,7 +4,7 @@
 #include <SFML/System.hpp>
 #include <cstdlib>
 #include <map>
-#include "cBoard.cpp"
+#include "cBoard.h"
 
 
 using namespace sf;

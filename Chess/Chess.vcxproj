@@ -156,6 +156,7 @@
     <ClCompile Include="cPiece.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cBoard.h" />
     <ClInclude Include="cPiece.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

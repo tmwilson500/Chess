@@ -29,5 +29,8 @@
     <ClInclude Include="cPiece.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
