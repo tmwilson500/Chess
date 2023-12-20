@@ -2,7 +2,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <cstdlib>
-#include "cPiece.cpp"
+#include "cPiece.h"
 
 
 using namespace sf;
