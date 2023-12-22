@@ -1,20 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <cstdlib>
 
 using namespace sf;
 
 class cPiece; //Forward declaration of cPiece class
 
-struct cMove
-{
-	int startX = 0; 
-	int startY = 0;
-	int endX = 0;
-	int endY = 0;
-	cPiece* movPiece2 = nullptr; //The second piece that was moved (used only for castle moves)
-	cPiece* capPiece = nullptr;  //The piece that was captured (nullptr if move did not result in capture)
-};
+//struct cMove
+//{
+//	int startX = 0; 
+//	int startY = 0;
+//	int endX = 0;
+//	int endY = 0;
+//	cPiece* movPiece2 = nullptr; //The second piece that was moved (used only for castle moves)
+//	cPiece* capPiece = nullptr;  //The piece that was captured (nullptr if move did not result in capture)
+//};
 
 class cPiece {
 
