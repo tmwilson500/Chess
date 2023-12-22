@@ -13,6 +13,7 @@ struct cMove
     int startY = 0;
     int endX = 0;
     int endY = 0;
+    cPiece* movPiece = nullptr;  //The primary piece that was moved
     cPiece* movPiece2 = nullptr; //The second piece that was moved (used only for castle moves)
     cPiece* capPiece = nullptr;  //The piece that was captured (nullptr if move did not result in capture)
 };
