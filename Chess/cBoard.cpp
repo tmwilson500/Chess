@@ -220,6 +220,13 @@ bool cBoard::doMove2(cPiece& piece, int targetI, int targetJ)
             targetPiece->draw = false;
         }
     }
+    //Create a new 'move' object and add it to the moveHist vector
+    /*cMove move;
+    move.startX = piece.x;
+    move.startY = piece.y;
+    move.endX = sW * targetI;
+    move.endY = sH * targetJ;
+    piece.moveHist.push_back(move);*/
     piece.x = sW * targetI;
     piece.y = sH * targetJ;
     return true;
