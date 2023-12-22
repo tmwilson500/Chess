@@ -20,7 +20,7 @@ class cPiece {
 public:
 	Sprite sprite;
 	Texture pTex;
-	std::vector<cMove> moveHist;
+	//std::vector<cMove> moveHist;
 	bool draw = false;
 	int ID = 0;
 	float x = 0;
