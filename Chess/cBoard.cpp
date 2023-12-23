@@ -206,7 +206,7 @@ cPiece* cBoard::getPiece(int sqI, int sqJ) {
         {
             std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
             std::cout << "pieces[" << i << "] has ID: " << pieces[i]->ID << "\n";
-            return &pieces[i];
+            return pieces[i];
         }
     }
     return nullptr;
