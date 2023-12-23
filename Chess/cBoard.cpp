@@ -63,10 +63,10 @@ cBoard::cBoard(float width, float height, const int boardTheme[2][3], std::map<i
 }
 
 cBoard::~cBoard() {
-    /*for (int i = 0; i < 64; i++)
+    for (int i = 0; i < 64; i++)
     {
         delete pieces[i];
-    }*/
+    }
 }
 
 bool cBoard::Update() {
