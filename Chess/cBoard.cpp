@@ -99,10 +99,10 @@ bool cBoard::Update() {
                         {
                             std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
                             std::cout << "checking if move was valid for pieces[" << selectIndex << "]\n";
-                            /*if (legalMove(pieces[selectIndex], i, j))
+                            if (legalMove(*(pieces[selectIndex]), i, j))
                             {
                                 std::cout << "move was valid\n";
-                                if (doMove(pieces[selectIndex], i, j))
+                                /*if (doMove(pieces[selectIndex], i, j))
                                 {
                                     std::cout << "Move completed!\n";
                                     turn = 1 - turn;
@@ -110,10 +110,10 @@ bool cBoard::Update() {
                                 else
                                 {
                                     std::cout << "Could not complete move\n";
-                                }
+                                }*/
                             }
                             else
-                                std::cout << "Move was not valid\n";*/
+                                std::cout << "Move was not valid\n";
                             pieceSelected = false;
                             selectIndex = -1;
                         }
