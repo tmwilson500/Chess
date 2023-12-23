@@ -68,11 +68,11 @@ private:
 
     bool doMove2(cPiece& piece, int targetI, int targetJ);
 
-    // Takes a reference to a piece object and attempts to move it to square at coordinates [targetI][targetJ]
+    // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
     // Return true if move was executed successfully, otherwise return false
     // NOTE: does not fully check legality of move - always check legality using legalMove() first
-    bool doMove(cPiece& piece, int targetI, int targetJ);
+    bool doMove(cPiece* piece, int targetI, int targetJ);
 
     // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
     // Returns true if move is legal, otherwise returns false

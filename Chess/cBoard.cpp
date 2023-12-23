@@ -102,7 +102,7 @@ bool cBoard::Update() {
                             if (legalMove(*(pieces[selectIndex]), i, j))
                             {
                                 std::cout << "move was valid\n";
-                                /*if (doMove(pieces[selectIndex], i, j))
+                                if (doMove(pieces[selectIndex], i, j))
                                 {
                                     std::cout << "Move completed!\n";
                                     turn = 1 - turn;
@@ -110,7 +110,7 @@ bool cBoard::Update() {
                                 else
                                 {
                                     std::cout << "Could not complete move\n";
-                                }*/
+                                }
                             }
                             else
                                 std::cout << "Move was not valid\n";
@@ -240,7 +240,7 @@ bool cBoard::doMove2(cPiece& piece, int targetI, int targetJ)
     return true;
 }
 
-bool cBoard::doMove(cPiece& piece, int targetI, int targetJ) {
+bool cBoard::doMove(cPiece* piece, int targetI, int targetJ) {
     cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
     if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
     {
@@ -254,8 +254,8 @@ bool cBoard::doMove(cPiece& piece, int targetI, int targetJ) {
             return false;
         }
     }
-    piece.x = sW * targetI;
-    piece.y = sH * targetJ;
+    piece->x = sW * targetI;
+    piece->y = sH * targetJ;
     return true;
 }
 
