@@ -9,16 +9,17 @@ using namespace sf;
 
 struct cMove
 {
-    int startX = 0;
-    int startY = 0;
-    int endX = 0;
-    int endY = 0;
+    int startX;
+    int startY;
+    int endX;
+    int endY;
     cPiece* movPiece;  //The primary piece that was moved
     cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
     cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
     
     //Constructor to initialize pointer members
-    cMove(cPiece* primary = nullptr, cPiece* cap = nullptr, cPiece* secondary = nullptr) : movPiece(primary), capPiece(cap), movPiece2(secondary) {}
+    cMove(cPiece* primary = nullptr, int sX = 0, int sY = 0, int eX = 0, int eY = 0, cPiece* cap = nullptr, cPiece* secondary = nullptr) 
+        : movPiece(primary), startX(sX), startY(sY), endX(eX), endY(eY), capPiece(cap), movPiece2(secondary) {}
 };
 
 class cBoard {
