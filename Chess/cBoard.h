@@ -18,7 +18,7 @@ struct cMove
     cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
     
     //Constructor to initialize pointer members
-    cMove(cPiece* p1 = nullptr, cPiece* p2 = nullptr, cPiece* p3 = nullptr) : movPiece(p1), capPiece(p2), movPiece2(p3) {}
+    cMove(cPiece* primary = nullptr, cPiece* cap = nullptr, cPiece* secondary = nullptr) : movPiece(primary), capPiece(cap), movPiece2(secondary) {}
 };
 
 class cBoard {
