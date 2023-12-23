@@ -13,9 +13,12 @@ struct cMove
     int startY = 0;
     int endX = 0;
     int endY = 0;
-    cPiece* movPiece = nullptr;  //The primary piece that was moved
-    cPiece* movPiece2 = nullptr; //The second piece that was moved (used only for castle moves)
-    cPiece* capPiece = nullptr;  //The piece that was captured (nullptr if move did not result in capture)
+    cPiece* movPiece;  //The primary piece that was moved
+    cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
+    cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
+    
+    //Constructor to initialize pointer members
+    cMove(cPiece* p1 = nullptr, cPiece* p2 = nullptr, cPiece* p3 = nullptr) : movPiece(p1), capPiece(p2), movPiece2(p3) {}
 };
 
 class cBoard {
