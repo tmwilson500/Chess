@@ -42,18 +42,19 @@ cBoard::cBoard(float width, float height, const int boardTheme[2][3], std::map<i
     int index = 0;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            pieces[index].ID = boardMap[i][j];
-            pieces[index].x = sW * i;
-            pieces[index].y = sH * j;
-            if (pieces[index].ID > 0)
-                pieces[index].player = 1;
-            else if (pieces[index].ID < 0)
-                pieces[index].player = 0;
-            if (pieces[index].ID != 0) {
-                if (!pieces[index].pTex.loadFromFile(pieceTheme[pieces[index].ID]))
+            pieces[index] = new cPiece;
+            pieces[index]->ID = boardMap[i][j];
+            pieces[index]->x = sW * i;
+            pieces[index]->y = sH * j;
+            if (pieces[index]->ID > 0)
+                pieces[index]->player = 1;
+            else if (pieces[index]->ID < 0)
+                pieces[index]->player = 0;
+            if (pieces[index]->ID != 0) {
+                if (!pieces[index]->pTex.loadFromFile(pieceTheme[pieces[index]->ID]))
                     throw "could not load texture";
-                pieces[index].sprite.setTexture(pieces[index].pTex);
-                pieces[index].draw = true;
+                pieces[index]->sprite.setTexture(pieces[index]->pTex);
+                pieces[index]->draw = true;
             }
             index++;
         }
@@ -98,7 +99,7 @@ bool cBoard::Update() {
                         {
                             std::cout << "you clicked square: [" << i << "][" << j << "]" << "\n";
                             std::cout << "checking if move was valid for pieces[" << selectIndex << "]\n";
-                            if (legalMove(pieces[selectIndex], i, j))
+                            /*if (legalMove(pieces[selectIndex], i, j))
                             {
                                 std::cout << "move was valid\n";
                                 if (doMove(pieces[selectIndex], i, j))
@@ -112,7 +113,7 @@ bool cBoard::Update() {
                                 }
                             }
                             else
-                                std::cout << "Move was not valid\n";
+                                std::cout << "Move was not valid\n";*/
                             pieceSelected = false;
                             selectIndex = -1;
                         }
@@ -124,13 +125,13 @@ bool cBoard::Update() {
                 Vector2f mousePos1 = win.mapPixelToCoords(Mouse::getPosition(win));
                 for (int k = 0; k < 64; k++)
                 {
-                    if ((pieces[k].sprite.getGlobalBounds().contains(mousePos1)) && pieces[k].draw)
+                    if ((pieces[k]->sprite.getGlobalBounds().contains(mousePos1)) && pieces[k]->draw)
                     {
-                        if (pieces[k].player == turn)
+                        if (pieces[k]->player == turn)
                         {
                             selectIndex = k;
                             pieceSelected = true;
-                            std::cout << "you clicked piece ID: " << pieces[selectIndex].ID << "\n";
+                            std::cout << "you clicked piece ID: " << pieces[selectIndex]->ID << "\n";
                         }
                     }
                 }
@@ -160,34 +161,34 @@ void cBoard::drawSquares() {
 
 void cBoard::drawPieces() {
     for (int i = 0; i < 64; i++) {
-        if (pieces[i].draw)
+        if (pieces[i]->draw)
         {
-            pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
-            win.draw(pieces[i].sprite);
+            pieces[i]->sprite.setPosition(Vector2f(pieces[i]->x, pieces[i]->y));
+            win.draw(pieces[i]->sprite);
         }
     }
 }
 
 void cBoard::scalePieces() {
     for (int i = 0; i < 64; i++) {
-        float pScaleX = sW / pieces[i].sprite.getGlobalBounds().width;
-        float pScaleY = sH / pieces[i].sprite.getGlobalBounds().height;
-        pieces[i].sprite.setScale(Vector2f(pScaleX, pScaleY));
-        pieces[i].sprite.setPosition(Vector2f(pieces[i].x, pieces[i].y));
+        float pScaleX = sW / pieces[i]->sprite.getGlobalBounds().width;
+        float pScaleY = sH / pieces[i]->sprite.getGlobalBounds().height;
+        pieces[i]->sprite.setScale(Vector2f(pScaleX, pScaleY));
+        pieces[i]->sprite.setPosition(Vector2f(pieces[i]->x, pieces[i]->y));
     }
 }
 
 bool cBoard::isOccupied(int sqI, int sqJ) {
     for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
     {
-        if (!pieces[i].draw) // Skip check if piece is not drawn
+        if (!pieces[i]->draw) // Skip check if piece is not drawn
             continue;
-        int chkSqI = pieces[i].x / sW;
-        int chkSqJ = pieces[i].y / sH;
+        int chkSqI = pieces[i]->x / sW;
+        int chkSqJ = pieces[i]->y / sH;
         if ((chkSqI == sqI) && (chkSqJ == sqJ))
         {
             std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
-            std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
+            std::cout << "pieces[" << i << "] has ID: " << pieces[i]->ID << "\n";
             return true;
         }
     }
@@ -197,14 +198,14 @@ bool cBoard::isOccupied(int sqI, int sqJ) {
 cPiece* cBoard::getPiece(int sqI, int sqJ) {
     for (int i = 0; i < 64; i++) //Loop through all pieces, checking if coordinates match sqI & sqJ
     {
-        if (!pieces[i].draw) // Skip check if piece is not drawn
+        if (!pieces[i]->draw) // Skip check if piece is not drawn
             continue;
-        int chkSqI = pieces[i].x / sW;
-        int chkSqJ = pieces[i].y / sH;
+        int chkSqI = pieces[i]->x / sW;
+        int chkSqJ = pieces[i]->y / sH;
         if ((chkSqI == sqI) && (chkSqJ == sqJ))
         {
             std::cout << "Invalid move: space was occupied by pieces[" << i << "]\n";
-            std::cout << "pieces[" << i << "] has ID: " << pieces[i].ID << "\n";
+            std::cout << "pieces[" << i << "] has ID: " << pieces[i]->ID << "\n";
             return &pieces[i];
         }
     }

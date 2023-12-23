@@ -39,7 +39,7 @@ private:
     int selectIndex = -1;
     bool pieceSelected = false;
     int turn = 0; // 0 for white to move, 1 for black to move
-    cPiece pieces[64];
+    cPiece* pieces[64]; 
     std::vector<cMove> moveHist;
     int boardMap[8][8] = { {2, 1, 0, 0, 0, 0, -1, -2},
                             {3, 1, 0, 0, 0, 0, -1, -3},
