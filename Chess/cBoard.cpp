@@ -212,7 +212,7 @@ cPiece* cBoard::getPiece(int sqI, int sqJ) {
     return nullptr;
 }
 
-bool cBoard::doMove2(cPiece& piece, int targetI, int targetJ)
+bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
 {
     cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
     if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)

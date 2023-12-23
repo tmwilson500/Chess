@@ -66,7 +66,7 @@ private:
     // NOTE: use only when access to cPiece object attributes is necessary - otherwise use isOccupied()
     cPiece* getPiece(int sqI, int sqJ);
 
-    bool doMove2(cPiece& piece, int targetI, int targetJ);
+    bool doMove2(cPiece* piece, int targetI, int targetJ);
 
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
