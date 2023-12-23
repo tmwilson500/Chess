@@ -226,9 +226,9 @@ bool cBoard::doMove2(cPiece& piece, int targetI, int targetJ)
     move.startY = piece.y;
     move.endX = sW * targetI;
     move.endY = sH * targetJ;
-    piece.moveHist.push_back(move);*/
+    moveHist.push_back(move);
     piece.x = sW * targetI;
-    piece.y = sH * targetJ;
+    piece.y = sH * targetJ;*/
     return true;
 }
 
