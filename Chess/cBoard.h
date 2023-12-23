@@ -25,6 +25,7 @@ class cBoard {
 public:
 
     cBoard(float width, float height, const int boardTheme[2][3], std::map<int, std::string> pieceTheme);
+    ~cBoard();
 
     bool Update();
 

@@ -61,6 +61,13 @@ cBoard::cBoard(float width, float height, const int boardTheme[2][3], std::map<i
     scalePieces();
 }
 
+cBoard::~cBoard() {
+    /*for (int i = 0; i < 64; i++)
+    {
+        delete pieces[i];
+    }*/
+}
+
 bool cBoard::Update() {
     Event event;
     while (win.pollEvent(event))
