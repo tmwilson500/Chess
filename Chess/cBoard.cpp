@@ -230,6 +230,10 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
             std::cout << "CAPTURE!!!!!!!!!!!\n";
             //piece.moveHist.push_back({ piece.x, piece.y, targetI, targetJ, nullptr, targetPiece });
             targetPiece->draw = false;
+            moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
+            piece->x = sW * targetI;
+            piece->y = sH * targetJ;
+            return true;
         }
     }
     //Create a new cMove instance and add it to the moveHist vector
@@ -250,11 +254,15 @@ void cBoard::printHist() {
     for (auto ir = moveHist.rbegin(); ir != moveHist.rend(); ++ir)
     {
         std::cout << "-----------------------------------------------------\n";
-        std::cout << "Piece ID: " << (*ir)->movPiece->ID << "\n";
+        std::cout << "Moved piece ID: " << (*ir)->movPiece->ID << "\n";
         std::cout << "Start X: " << (*ir)->startX/sW << "\n";
         std::cout << "Start Y: " << (*ir)->startY / sH << "\n";
         std::cout << "End X: " << (*ir)->endX / sW << "\n";
         std::cout << "End Y: " << (*ir)->endY / sH << "\n";
+        if ((*ir)->capPiece != nullptr)
+        {
+            std::cout << "Captured piece ID: " << (*ir)->capPiece->ID << "\n";
+        }
         std::cout << "-----------------------------------------------------\n";
     }
     std::cout << "*************END OF MOVE HISTORY************\n";
