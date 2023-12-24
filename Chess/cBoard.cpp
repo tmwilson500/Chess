@@ -102,7 +102,7 @@ bool cBoard::Update() {
                             if (legalMove(*(pieces[selectIndex]), i, j))
                             {
                                 std::cout << "move was valid\n";
-                                if (doMove(pieces[selectIndex], i, j))
+                                if (doMove2(pieces[selectIndex], i, j))
                                 {
                                     std::cout << "Move completed!\n";
                                     turn = 1 - turn;
