@@ -86,6 +86,10 @@ bool cBoard::Update() {
                 win.close();
                 return false;
             }
+            else if (event.key.code == Keyboard::H)
+            {
+                printHist();
+            }
             break;
         case Event::MouseButtonPressed:
             if (((event.mouseButton.button == sf::Mouse::Button::Left) && pieceSelected) && selectIndex >= -1)
