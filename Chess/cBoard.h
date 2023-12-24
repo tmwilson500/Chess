@@ -69,6 +69,8 @@ private:
 
     bool doMove2(cPiece* piece, int targetI, int targetJ);
 
+    void printHist();
+
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
     // Return true if move was executed successfully, otherwise return false

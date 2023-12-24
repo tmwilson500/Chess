@@ -233,10 +233,27 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     move.startY = piece->y;
     move.endX = sW * targetI;
     move.endY = sH * targetJ;*/
+
     moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
+
     return true;
+}
+
+void cBoard::printHist() {
+    std::cout << "***********PRINTING MOVE HISTORY************\n";
+    for (auto ir = moveHist.rbegin(); ir != moveHist.rend(); ++ir)
+    {
+        std::cout << "-----------------------------------------------------\n";
+        std::cout << "Piece ID: " << (*ir)->movPiece->ID << "\n";
+        std::cout << "Start X: " << (*ir)->startX/sW << "\n";
+        std::cout << "Start Y: " << (*ir)->startY / sH << "\n";
+        std::cout << "End X: " << (*ir)->endX / sW << "\n";
+        std::cout << "End Y: " << (*ir)->endY / sH << "\n";
+        std::cout << "-----------------------------------------------------\n";
+    }
+    std::cout << "*************END OF MOVE HISTORY************\n";
 }
 
 bool cBoard::doMove(cPiece* piece, int targetI, int targetJ) {
