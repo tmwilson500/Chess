@@ -90,6 +90,17 @@ bool cBoard::Update() {
             {
                 printHist();
             }
+            else if (event.key.code == Keyboard::U)
+            {
+                if (unDoMove())
+                {
+                    std::cout << "MOVE UN-DONE\n";
+                }
+                else
+                {
+                    std::cout << "COULD NOT UN-DO MOVE\n";
+                }
+            }
             break;
         case Event::MouseButtonPressed:
             if (((event.mouseButton.button == sf::Mouse::Button::Left) && pieceSelected) && selectIndex >= -1)
