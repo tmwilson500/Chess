@@ -261,13 +261,13 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
 }
 
 bool cBoard::unDoMove() {
-    if (moveHist.empty())//If vestor is empty (no moves to undo) return false
+    if (moveHist.empty())//If vector is empty (no moves to undo) return false
     {
         return false;
     }
 
     cMove* last = moveHist.back();
-    last->movPiece->x = last->startX;
+    last->movPiece->x = last->startX; //Revert x and y members of primary moved piece
     last->movPiece->y = last->startY;
 
     if (last->capPiece != nullptr) //If piece was captured in move, re-draw it
