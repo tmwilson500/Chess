@@ -276,8 +276,8 @@ bool cBoard::unDoMove() {
     }
 
     turn = 1 - turn; //Revert turn
-
-    moveHist.pop_back();
+    moveHist.pop_back(); // Remove last element from moveHist
+    delete last; // Free memory for un-used cMove object
     return true;
 }
 
