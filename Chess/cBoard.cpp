@@ -270,6 +270,12 @@ bool cBoard::unDoMove() {
     last->movPiece->x = last->startX;
     last->movPiece->y = last->startY;
 
+    if (last->capPiece != nullptr) //If piece was captured in move, re-draw it
+    {
+        last->capPiece->draw = true;
+    }
+
+    turn = 1 - turn; //Revert turn
 
     moveHist.pop_back();
     return true;
