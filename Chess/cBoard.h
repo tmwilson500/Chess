@@ -71,6 +71,11 @@ private:
 
     void printHist();
 
+    // un-does the last move, removing it from the moveHist vector and returning all pieces to their 
+    // original position before that move
+    // Returns true if move could be un-done, otherwise returns false
+    bool unDoMove();
+
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
     // Return true if move was executed successfully, otherwise return false

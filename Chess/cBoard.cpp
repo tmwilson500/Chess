@@ -249,6 +249,15 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     return true;
 }
 
+bool cBoard::unDoMove() {
+    if (moveHist.empty())//If vestor is empty (no moves to undo) return false
+    {
+        return false;
+    }
+    moveHist.pop_back();
+    return true;
+}
+
 void cBoard::printHist() {
     std::cout << "***********PRINTING MOVE HISTORY************\n";
     for (auto ir = moveHist.rbegin(); ir != moveHist.rend(); ++ir)
