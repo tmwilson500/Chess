@@ -267,8 +267,8 @@ bool cBoard::unDoMove() {
     }
 
     cMove* last = moveHist.back();
-    last->movPiece->x = last->startX*sW;
-    last->movPiece->y = last->startY*sH;
+    last->movPiece->x = last->startX;
+    last->movPiece->y = last->startY;
 
 
     moveHist.pop_back();
