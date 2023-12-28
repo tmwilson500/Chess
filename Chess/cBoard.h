@@ -82,6 +82,10 @@ private:
     // NOTE: does not fully check legality of move - always check legality using legalMove() first
     bool doMove(cPiece* piece, int targetI, int targetJ);
 
+    //Checks if king belonging to player is in check
+    //If player's king is in check, return true, otherwise return false
+    bool checkCheck(int player);
+
     // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
     // Returns true if move is legal, otherwise returns false
     // NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality

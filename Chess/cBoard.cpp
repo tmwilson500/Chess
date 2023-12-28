@@ -319,6 +319,9 @@ bool cBoard::doMove(cPiece* piece, int targetI, int targetJ) {
     return true;
 }
 
+bool cBoard::checkCheck(int player) {
+
+}
 
 bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     int oldSqI = piece.x / sW;
