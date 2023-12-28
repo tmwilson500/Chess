@@ -320,7 +320,31 @@ bool cBoard::doMove(cPiece* piece, int targetI, int targetJ) {
 }
 
 bool cBoard::checkCheck(int player) {
-
+    cPiece* king = nullptr;
+    std::vector<cPiece*> enemyPieces;
+    for (int i = 0; i < 64; i++) // Loop through all pieces
+    {
+        if ((std::abs(pieces[i]->ID) == 6) && pieces[i]->player == player) // Save pointer to player's king
+        {
+            king = pieces[i];
+        }
+        else if ((pieces[i]->player != player) && pieces[i]->draw) //Add all drawn enemy pieces to the vector enemyPieces
+        {
+            enemyPieces.push_back(pieces[i]);
+        }
+    }
+    if (king != nullptr) //Ensure king pointer was set to valid piece
+    {
+        while (!enemyPieces.empty())//For each enemy piece, check if moving to kngs current square is a valid move
+        {
+            if (legalMove(*(enemyPieces.back()), (king->x) * sW, (king->y) * sH))
+            {
+                return true; // If enemy piece can legally move to kings square, king is in check
+            }
+            enemyPieces.pop_back();
+        }
+    }
+    return false; //No enemy piece can move to kings current square, so king is not in check
 }
 
 bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
