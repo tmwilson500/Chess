@@ -364,7 +364,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     switch (piece.ID) //Check rules based on piece ID
     {
     case 1:     //Rules for black pawn
-        std::cout << "checking rules for black pawn...\n";
+        //std::cout << "checking rules for black pawn...\n";
 
         //Rule #1: Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
         if ((oldSqJ == 1) && (newSqI == oldSqI) && (newSqJ == oldSqJ + 2))
@@ -399,11 +399,11 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         }
 
         else
-            std::cout << "Invalid move: no rules implemented for desired move\n";
+            //std::cout << "Invalid move: no rules implemented for desired move\n";
             return false;
         break;
     case -1:     //Rules for white pawn
-        std::cout << "checking rules for white pawn...\n";
+        //std::cout << "checking rules for white pawn...\n";
 
         //Rule #1: Pawn on starting square can move 2 spaces forward only when neither of those spaces is occupied
         if ((oldSqJ == 6) && (newSqI == oldSqI) && (newSqJ == oldSqJ - 2))
@@ -437,11 +437,11 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             return false;
         }
         else
-            std::cout << "Invalid move: no rules implemented for desired move\n";
+            //std::cout << "Invalid move: no rules implemented for desired move\n";
         return false;
         break;
     case 2:     //Rules for black rook
-        std::cout << "checking rules for black rook...\n";
+        //std::cout << "checking rules for black rook...\n";
 
         //Rule #1: Rook can move any # of squares forward, as long as no square along its path is occupied.
         //         If the above check passes & the destination square contains an enemy piece, it is captured
@@ -534,7 +534,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         return false;
         break;
     case -2:     //Rules for white rook
-        std::cout << "checking rules for white rook...\n";
+        //std::cout << "checking rules for white rook...\n";
 
         //Rule #1: Rook can move any # of squares up, as long as no square along its path is occupied.
         //         If the above check passes & the destination square contains an enemy piece, it is captured
@@ -628,7 +628,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     case 3:     //Rules for black knight are identical to rules for white knight (fall through when piece is black knight)
     case -3:    //Rules for white knight
     {
-        std::cout << "checking rules for knight...\n";
+        //std::cout << "checking rules for knight...\n";
 
         //Rule #1: For knight at square [i][j], there are up to 8 possible moves, defined as [i+X[index]][j+Y[index]]
         //         where the vectors X & Y are: X[8] = { 2, 2, -2, -2,  1, 1, -1, -1} 
@@ -657,7 +657,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     case 4:     //Rules for black bishop are identical to rules for white bishop (fall through when piece is black bishop)
     case -4:    //Rules for white bishop
     {
-        std::cout << "checking rules for bishop...\n";
+        //std::cout << "checking rules for bishop...\n";
 
         //Rule #1: Bishop can move any # of squares in any diagonal direction (up/left, up/right, down/left, down/right)
         if (std::abs(oldSqI - newSqI) != std::abs(oldSqJ - newSqJ))
@@ -678,14 +678,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         //Rule #3: Bishop move is invalid if any square along its path is occupied
         if ((newSqI < oldSqI) && (newSqJ < oldSqJ)) //Check path for up/left moves
         {
-            std::cout << "UP/LEFT MOVE\n";
+            //std::cout << "UP/LEFT MOVE\n";
             int j = oldSqJ - 1;
             for (int i = oldSqI - 1; i > newSqI; i--) // Check all squares along path
             {
-                std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                //std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                 if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                 {
-                    std::cout << "OCCUPIED!!!!!!!!!\n";
+                    //std::cout << "OCCUPIED!!!!!!!!!\n";
                     return false;
                 }
                 j--;
@@ -695,14 +695,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
         if ((newSqI > oldSqI) && (newSqJ < oldSqJ)) //Check path for up/right moves
         {
-            std::cout << "UP/RIGHT MOVE\n";
+            //std::cout << "UP/RIGHT MOVE\n";
             int j = oldSqJ - 1;
             for (int i = oldSqI + 1; i < newSqI; i++)
             {
-                std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                //std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                 if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                 {
-                    std::cout << "OCCUPIED!!!!!!!!!\n";
+                    //std::cout << "OCCUPIED!!!!!!!!!\n";
                     return false;
                 }
                 j--;
@@ -712,14 +712,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
         if ((newSqI < oldSqI) && (newSqJ > oldSqJ)) //Check path for down/left moves
         {
-            std::cout << "DOWN/LEFT MOVE\n";
+            //std::cout << "DOWN/LEFT MOVE\n";
             int j = oldSqJ + 1;
             for (int i = oldSqI - 1; i > newSqI; i--)
             {
-                std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                //std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                 if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                 {
-                    std::cout << "OCCUPIED!!!!!!!!!\n";
+                    //std::cout << "OCCUPIED!!!!!!!!!\n";
                     return false;
                 }
                 j++;
@@ -729,14 +729,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
         if ((newSqI > oldSqI) && (newSqJ > oldSqJ)) //Check path for down/right moves
         {
-            std::cout << "DOWN/RIGHT MOVE\n";
+            //std::cout << "DOWN/RIGHT MOVE\n";
             int j = oldSqJ + 1;
             for (int i = oldSqI + 1; i < newSqI; i++)
             {
-                std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                //std::cout << "BISHOP - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                 if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                 {
-                    std::cout << "OCCUPIED!!!!!!!!!\n";
+                    //std::cout << "OCCUPIED!!!!!!!!!\n";
                     return false;
                 }
                 j++;
@@ -749,7 +749,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     case 5:     //Rules for black queen are identical to rules for white queen (fall through when piece is black queen)
     case -5:    //Rules for white queen
     {
-        std::cout << "checking rules for queen...\n";
+        //std::cout << "checking rules for queen...\n";
 
         //Rule #1: Queen can move any # of squares in any diagonal direction (up/left, up/right, down/left, down/right),
         //          OR in any cardinal direction (up, down, left, right)
@@ -788,14 +788,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         {
             if ((newSqI < oldSqI) && (newSqJ < oldSqJ)) //Check path for up/left moves
             {
-                std::cout << "UP/LEFT MOVE\n";
+                //std::cout << "UP/LEFT MOVE\n";
                 int j = oldSqJ - 1;
                 for (int i = oldSqI - 1; i > newSqI; i--) // Check all squares along path
                 {
-                    std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    //std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                     if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                     {
-                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        //std::cout << "OCCUPIED!!!!!!!!!\n";
                         return false;
                     }
                     j--;
@@ -805,14 +805,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
             if ((newSqI > oldSqI) && (newSqJ < oldSqJ)) //Check path for up/right moves
             {
-                std::cout << "UP/RIGHT MOVE\n";
+                //std::cout << "UP/RIGHT MOVE\n";
                 int j = oldSqJ - 1;
                 for (int i = oldSqI + 1; i < newSqI; i++)
                 {
-                    std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    //std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                     if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                     {
-                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        //std::cout << "OCCUPIED!!!!!!!!!\n";
                         return false;
                     }
                     j--;
@@ -822,14 +822,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
             if ((newSqI < oldSqI) && (newSqJ > oldSqJ)) //Check path for down/left moves
             {
-                std::cout << "DOWN/LEFT MOVE\n";
+                //std::cout << "DOWN/LEFT MOVE\n";
                 int j = oldSqJ + 1;
                 for (int i = oldSqI - 1; i > newSqI; i--)
                 {
-                    std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    //std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                     if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                     {
-                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        //std::cout << "OCCUPIED!!!!!!!!!\n";
                         return false;
                     }
                     j++;
@@ -839,14 +839,14 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
             if ((newSqI > oldSqI) && (newSqJ > oldSqJ)) //Check path for down/right moves
             {
-                std::cout << "DOWN/RIGHT MOVE\n";
+                //std::cout << "DOWN/RIGHT MOVE\n";
                 int j = oldSqJ + 1;
                 for (int i = oldSqI + 1; i < newSqI; i++)
                 {
-                    std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
+                    //std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << i << "][" << j << "]\n";
                     if (isOccupied(i, j)) //If any squares along path are occupied, move is invalid
                     {
-                        std::cout << "OCCUPIED!!!!!!!!!\n";
+                        //std::cout << "OCCUPIED!!!!!!!!!\n";
                         return false;
                     }
                     j++;
@@ -857,13 +857,13 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
 
         if (vertical) //Check path for vertical moves
         {
-            std::cout << "VERTICAL MOVE!!!!!\n";
+            //std::cout << "VERTICAL MOVE!!!!!\n";
             if (newSqJ < oldSqJ) //Check path for vertical-up moves
             {
-                std::cout << "GOING UP\n";
+                //std::cout << "GOING UP\n";
                 for (int j = oldSqJ - 1; j > newSqJ;j--) //Check all squares along path to destination
                 {
-                    std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << newSqI << "][" << j << "]\n";
+                    //std::cout << "QUEEN - CHECKING SQUARE ALONG PATH: [" << newSqI << "][" << j << "]\n";
                     if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
                     {
                         return false;
@@ -873,7 +873,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             }
             if (newSqJ > oldSqJ) //Check path for vertical-down moves
             {
-                std::cout << "GOING DOWN\n";
+                //std::cout << "GOING DOWN\n";
                 for (int j = oldSqJ + 1; j < newSqJ;j++) //Check all squares along path to destination
                 {
                     if (isOccupied(newSqI, j)) //If any squares along path are occupied, move is invalid
@@ -914,7 +914,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     }
     case 6:     //Rules for black king
     {
-        std::cout << "Checking rules for black king\n";
+        //std::cout << "Checking rules for black king\n";
 
         //Rule #1: If destination square contains players own piece, move is invalid
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
@@ -946,7 +946,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     }
     case -6:     //Rules for white king
     {
-        std::cout << "Checking rules for white king\n";
+        //std::cout << "Checking rules for white king\n";
 
         //Rule #1: If destination square contains players own piece, move is invalid
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
