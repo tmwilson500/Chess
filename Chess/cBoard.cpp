@@ -238,11 +238,20 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
         }
         else //target square contains enemy piece, so execute capture & add move to moveHist for both pieces
         {
-            std::cout << "CAPTURE!!!!!!!!!!!\n";
             targetPiece->draw = false;
             moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
             piece->x = sW * targetI;
             piece->y = sH * targetJ;
+            if (checkCheck(piece->player))//If move puts player in check, undo it
+            {
+                std::cout << "!!!CANNOT MOVE INTO CHECK - MOVE WILL BE UNDONE!!!\n";
+                unDoMove();
+            }
+            else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
+            {
+                std::cout << "!!!!CHECK!!!!\n";
+            }
+            std::cout << "CAPTURE!!!!!!!!!!!\n";
             return true;
         }
     }
@@ -250,6 +259,14 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
+    if (checkCheck(piece->player))//If move puts player in check, undo it
+    {
+        unDoMove();
+    }
+    else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
+    {
+        std::cout << "!!!!CHECK!!!!\n";
+    }
 
     return true;
 }
@@ -331,7 +348,7 @@ bool cBoard::checkCheck(int player) {
     {
         while (!enemyPieces.empty())//For each enemy piece, check if moving to kngs current square is a valid move
         {
-            if (legalMove(*(enemyPieces.back()), (king->x) * sW, (king->y) * sH))
+            if (legalMove(*(enemyPieces.back()), (king->x), (king->y)))
             {
                 return true; // If enemy piece can legally move to kings square, king is in check
             }
