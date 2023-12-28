@@ -239,7 +239,6 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
         else //target square contains enemy piece, so execute capture & add move to moveHist for both pieces
         {
             std::cout << "CAPTURE!!!!!!!!!!!\n";
-            //piece.moveHist.push_back({ piece.x, piece.y, targetI, targetJ, nullptr, targetPiece });
             targetPiece->draw = false;
             moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
             piece->x = sW * targetI;
@@ -248,11 +247,6 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
         }
     }
     //Create a new cMove instance and add it to the moveHist vector
-    /*move.startX = piece->x;
-    move.startY = piece->y;
-    move.endX = sW * targetI;
-    move.endY = sH * targetJ;*/
-
     moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
