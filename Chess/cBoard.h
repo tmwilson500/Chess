@@ -74,6 +74,7 @@ private:
     // Returns true if move could be un-done, otherwise returns false
     bool unDoMove();
 
+    //Prints current move history for the entire game to the console
     void printHist();
 
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
