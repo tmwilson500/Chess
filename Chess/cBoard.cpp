@@ -404,7 +404,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ);
             if ((foundPiece != nullptr))
             {
-                if (foundPiece->player != turn)
+                if (foundPiece->player != piece.player)
                 {
                     return true;
                 }
@@ -443,7 +443,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ);
             if ((foundPiece != nullptr))
             {
-                if (foundPiece->player != turn)
+                if (foundPiece->player != piece.player)
                 {
                     return true;
                 }
@@ -471,7 +471,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -493,7 +493,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -515,7 +515,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -537,7 +537,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -564,7 +564,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -586,7 +586,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -608,7 +608,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -630,7 +630,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
             cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
             if (foundPiece != nullptr)
             {
-                if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                 {
                     return false;
                 }
@@ -657,7 +657,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
                 cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
                 if (foundPiece != nullptr)
                 {
-                    if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+                    if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
                     {
                         return false;
                     }
@@ -683,7 +683,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
         if (foundPiece != nullptr)
         {
-            if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+            if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
             {
                 return false;
             }
@@ -791,7 +791,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
         if (foundPiece != nullptr)
         {
-            if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+            if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
             {
                 return false;
             }
@@ -934,7 +934,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
         if (foundPiece != nullptr)
         {
-            if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+            if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
             {
                 return false;
             }
@@ -966,7 +966,7 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         cPiece* foundPiece = getPiece(newSqI, newSqJ); //Check for piece at destination
         if (foundPiece != nullptr)
         {
-            if (foundPiece->player == turn) //If piece at destination does not belong to enemy, move is invalid
+            if (foundPiece->player == piece.player) //If piece at destination does not belong to enemy, move is invalid
             {
                 return false;
             }
