@@ -246,6 +246,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
             {
                 std::cout << "!!!CANNOT MOVE INTO CHECK - MOVE WILL BE UNDONE!!!\n";
                 unDoMove();
+                return false;
             }
             else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
             {
@@ -261,7 +262,9 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     piece->y = sH * targetJ;
     if (checkCheck(piece->player))//If move puts player in check, undo it
     {
+        std::cout << "!!!CANNOT MOVE INTO CHECK - MOVE WILL BE UNDONE!!!\n";
         unDoMove();
+        return false;
     }
     else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
     {
@@ -331,12 +334,15 @@ bool cBoard::doMove(cPiece* piece, int targetI, int targetJ) {
 }
 
 bool cBoard::checkCheck(int player) {
+    std::cout << "-----------------------------------------\n";
+    std::cout << "Checking check for player: " << player << "\n";
     cPiece* king = nullptr;
     std::vector<cPiece*> enemyPieces;
     for (int i = 0; i < 64; i++) // Loop through all pieces
     {
         if ((std::abs(pieces[i]->ID) == 6) && pieces[i]->player == player) // Save pointer to player's king
         {
+            //std::cout << "King found for player: " << player << "\n";
             king = pieces[i];
         }
         else if ((pieces[i]->player != player) && pieces[i]->draw) //Add all drawn enemy pieces to the vector enemyPieces
@@ -344,17 +350,25 @@ bool cBoard::checkCheck(int player) {
             enemyPieces.push_back(pieces[i]);
         }
     }
+
+    std::cout << enemyPieces.size() << " Enemy pieces found\n";
+
     if (king != nullptr) //Ensure king pointer was set to valid piece
     {
         while (!enemyPieces.empty())//For each enemy piece, check if moving to kngs current square is a valid move
         {
-            if (legalMove(*(enemyPieces.back()), (king->x), (king->y)))
+            //std::cout << "Checking if piece can move to square: [" << (king->x)/sW << "][" << (king->y)/sH << "]\n";
+            if (legalMove(*(enemyPieces.back()), (king->x)/sW, (king->y)/sH))
             {
                 return true; // If enemy piece can legally move to kings square, king is in check
+                std::cout << "Check found for player: " << player << "\n";
+                std::cout << "-----------------------------------------\n";
             }
             enemyPieces.pop_back();
         }
     }
+    std::cout << "No check found for player: " << player << "\n";
+    std::cout << "-----------------------------------------\n";
     return false; //No enemy piece can move to kings current square, so king is not in check
 }
 
