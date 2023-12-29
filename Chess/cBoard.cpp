@@ -120,7 +120,7 @@ bool cBoard::Update() {
                                 if (doMove2(pieces[selectIndex], i, j))
                                 {
                                     std::cout << "Move completed!\n";
-                                    turn = 1 - turn;
+                                    
                                 }
                                 else
                                 {
@@ -242,6 +242,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
             moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
             piece->x = sW * targetI;
             piece->y = sH * targetJ;
+            turn = 1 - turn;
             if (checkCheck(piece->player))//If move puts player in check, undo it
             {
                 std::cout << "!!!CANNOT MOVE INTO CHECK - MOVE WILL BE UNDONE!!!\n";
@@ -260,6 +261,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
+    turn = 1 - turn;
     if (checkCheck(piece->player))//If move puts player in check, undo it
     {
         std::cout << "!!!CANNOT MOVE INTO CHECK - MOVE WILL BE UNDONE!!!\n";
