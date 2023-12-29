@@ -69,12 +69,12 @@ private:
 
     bool doMove2(cPiece* piece, int targetI, int targetJ);
 
-    void printHist();
-
     // un-does the last move, removing it from the moveHist vector and returning all pieces to their 
     // original position before that move
     // Returns true if move could be un-done, otherwise returns false
     bool unDoMove();
+
+    void printHist();
 
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
     // If target square contains enemy piece, capture it
@@ -91,6 +91,3 @@ private:
     // NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality
     bool legalMove(cPiece piece, int newSqI, int newSqJ);
 };
-
-
-

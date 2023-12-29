@@ -998,8 +998,3 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     }
 }
 
-
-
-
-
-
