@@ -374,6 +374,11 @@ bool cBoard::checkCheck(int player) {
     return false; //No enemy piece can move to kings current square, so king is not in check
 }
 
+bool cBoard::mateCheck(int player)
+{
+    return false;
+}
+
 bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
     int oldSqI = piece.x / sW;
     int oldSqJ = piece.y / sH;

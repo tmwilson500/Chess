@@ -87,6 +87,9 @@ private:
     //If player's king is in check, return true, otherwise return false
     bool checkCheck(int player);
 
+    //Returns true if player is in checkmate, otherwise returns false
+    bool mateCheck(int player);
+
     // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
     // Returns true if move is legal, otherwise returns false
     // NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality
