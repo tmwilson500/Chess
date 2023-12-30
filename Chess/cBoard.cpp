@@ -276,6 +276,11 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     }
     else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
     {
+        if (mateCheck(1 - (piece->player)))
+        {
+            std::cout << "***************GAME OVER***************\n";
+            return true;
+        }
         std::cout << "!!!!CHECK!!!!\n";
     }
 
