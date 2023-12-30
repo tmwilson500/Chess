@@ -239,6 +239,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
         else //target square contains enemy piece, so execute capture & add move to moveHist for both pieces
         {
             targetPiece->draw = false;
+            std::cout << "CAPTURE!!!!!!!!!!!\n";
             moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
             piece->x = sW * targetI;
             piece->y = sH * targetJ;
@@ -249,11 +250,16 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
                 unDoMove();
                 return false;
             }
-            else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, print CHECK
+            else if (checkCheck(1 - (piece->player)))//If move puts enemy in check, look for checkmate
             {
+                if (mateCheck(1 - (piece->player)))
+                {
+                    std::cout << "***************GAME OVER***************\n";
+                    return true;
+                }
                 std::cout << "!!!!CHECK!!!!\n";
             }
-            std::cout << "CAPTURE!!!!!!!!!!!\n";
+            
             return true;
         }
     }
@@ -388,7 +394,7 @@ bool cBoard::mateCheck(int player)
         plr = "Black";
         opponent = "White";
     }
-    std::cout << "-----------------------------------------\n";
+    std::cout << "#########################################\n";
     std::cout << "Checking checkmate for player: " << plr << "\n";
     std::vector<cPiece*> friendlyPieces;
     for (int i = 0; i < 64; i++) // Loop through all pieces
@@ -413,7 +419,7 @@ bool cBoard::mateCheck(int player)
                     {
                         std::cout << "Legal move found for player: " << plr << "\n";
                         std::cout << plr << " can move piece ID " << friendlyPieces.back()->ID << " to square ["<< i << "][" << j << "]\n";
-                        std::cout << "-----------------------------------------\n";
+                        std::cout << "#########################################\n";
                         unDoMove();
                         return false; //At least one legal move found which escapes check, so player is not in checkmate
                     }
@@ -425,7 +431,7 @@ bool cBoard::mateCheck(int player)
     }
     std::cout << "No valid moves found for player: " << plr << "\n";
     std::cout << "CHECKMATE! PLAYER " << opponent << " WINS!!!!!!!\n";
-    std::cout << "-----------------------------------------\n";
+    std::cout << "#########################################\n";
     return true; //No valid moves found to escape check, so player is in checkmate
 }
 
