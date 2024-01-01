@@ -1055,6 +1055,13 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
                 }
             }
         }
+
+        //Rule #3: King can move 2 squares toward either friendly rook (castle) if the following criteria are met:
+        // 1) King has not yet moved from starting position
+        // 2) The rook the king is moving toward has not yet moved from the starting position
+        // 3) There are no pieces (enemy or friendly) between the king and castling rook
+        // 4) The king is not in check & does not pass through check at any square along its path
+        // *If all above criteria are met, move is valid and castling rook should be moved 1 square past king
         return false;
         break;
     }
