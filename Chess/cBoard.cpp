@@ -259,7 +259,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
                     return true;
                 }
             }
-            
+            piece->startPos = false;
             return true;
         }
     }
@@ -283,7 +283,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
             return true;
         }
     }
-
+    piece->startPos = false;
     return true;
 }
 
