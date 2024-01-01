@@ -232,7 +232,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
     if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
     {
-        if (targetPiece->player == turn)// If target square contains players own piece, return false & do not complete move (double check for move validity)
+        if (targetPiece->player == piece->player)// If target square contains players own piece, return false & do not complete move (double check for move validity)
         {
             return false;
         }
