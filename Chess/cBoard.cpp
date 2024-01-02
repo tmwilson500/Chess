@@ -268,7 +268,41 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
     //----------SPECIAL MOVES----------
     if (piece->ID == -6)//White king castle moves
     {
-
+        if ((targetI == 2) && (targetJ == 7) && (piece->x/sW == 4) && (piece->y/sH == 7))//Queen side castle
+        {
+            int pX = piece->x; //Save initial piece x & y
+            int pY = piece->y;
+            if (checkCheck(piece->player)) //Check if player is already in check
+            {
+                std::cout << "!!!CANNOT CASTLE OUT OF CHECK - MOVE WILL BE UNDONE!!!\n";
+                return false;
+            }
+            piece->x = 3 * sW; //Move king 1 square along castle path & re-check for check
+            if (checkCheck(piece->player)) //If 1st move along castle path results in check, move king back to original position & return false
+            {
+                std::cout << "!!!CANNOT CASTLE THROUGH CHECK - MOVE WILL BE UNDONE!!!\n";
+                piece->x = pX;
+                return false;
+            }
+            else //1st move did not result in check, so continue along castle path
+            {
+                piece->x = 2 * sW; //move king to 2nd square along castle path
+                if (checkCheck(piece->player)) //If 2nd move along castle path results in check, move king back to original position & return false
+                {
+                    std::cout << "!!!CANNOT CASTLE THROUGH CHECK - MOVE WILL BE UNDONE!!!\n";
+                    piece->x = pX;
+                    return false;
+                }
+                else //No moves along castle path caused check, so move rook & add move to moveHist
+                {
+                    cPiece* rook = getPiece(0, 7);
+                    rook->x = 3 * sW;
+                    moveHist.push_back(new cMove(piece, pX, pY, (sW * targetI), (sH * targetJ), nullptr, rook, -1));
+                    turn = 1 - turn;
+                    return true;
+                }
+            }
+        }
     }
     if (piece->ID == 6)//Black king castle moves
     {
