@@ -363,9 +363,24 @@ void cBoard::printHist() {
         std::cout << "Start Y: " << (*ir)->startY / sH << "\n";
         std::cout << "End X: " << (*ir)->endX / sW << "\n";
         std::cout << "End Y: " << (*ir)->endY / sH << "\n";
-        if ((*ir)->capPiece != nullptr)
+        if ((*ir)->capPiece != nullptr) //Print ID for captured piece if it exists
         {
             std::cout << "Captured piece ID: " << (*ir)->capPiece->ID << "\n";
+        }
+        if ((*ir)->movPiece2 != nullptr) //Print info for castle move if it exists
+        {
+            if ((*ir)->castleSide == -1)
+            {
+                std::cout << "Castle move - Queen side\n";
+            }
+            else if ((*ir)->castleSide == 1)
+            {
+                std::cout << "Castle move - King side\n";
+            }
+            else
+            {
+                std::cout << "Castle move - invalid (you should never see this)\n";
+            }
         }
         std::cout << "-----------------------------------------------------\n";
     }
