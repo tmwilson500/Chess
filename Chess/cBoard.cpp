@@ -1062,6 +1062,30 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
         // 3) There are no pieces (enemy or friendly) between the king and castling rook
         // 4) The king is not in check & does not pass through check at any square along its path
         // *If all above criteria are met, move is valid and castling rook should be moved 1 square past king
+        if ((newSqI == 2) && (newSqJ == 7))//Queen side castle
+        {
+            if (piece.startPos) // Check if king has moved from starting position
+            {
+                cPiece* rook = getPiece(0, 7); //Get pointer to queen side rook
+                if (rook != nullptr) //Ensure piece was found at rook starting position
+                {
+                    if ((rook->ID == -2) && (rook->startPos)) //Check that found piece is white rook, and if rook has moved from starting position
+                    {
+                        for (int i = 1; i < 4; i++) //Check if any square between king and rook is occupied
+                        {
+                            if (isOccupied(i, newSqJ))
+                            {
+                                return false;
+                            }
+                        }
+                        std::cout << "CASTLE!!!!!!!!!!!!!!!\n";
+                        return true;
+                    }
+                }
+            }
+            
+            
+        }
         return false;
         break;
     }
