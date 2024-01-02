@@ -347,6 +347,20 @@ bool cBoard::unDoMove() {
         last->capPiece->draw = true;
     }
 
+    if (last->movPiece2 != nullptr) //If move was castle move, also revert startPos for king and rook, and revert x & y for rook
+    {
+        if (last->movPiece->player == 0) //White castle moves
+        {
+            if (last->castleSide == -1)//Queen side castle
+            {
+                last->movPiece2->x = 0*sW; //Revert x and y members of secondary moved piece (rook)
+                last->movPiece2->y = 7*sH;
+            }
+        }
+        last->movPiece->startPos = true;
+        last->movPiece2->startPos = true;
+    }
+
     turn = 1 - turn; //Revert turn
     moveHist.pop_back(); // Remove last element from moveHist
     delete last; // Free memory for un-used cMove object
