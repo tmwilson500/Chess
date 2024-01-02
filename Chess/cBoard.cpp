@@ -230,6 +230,8 @@ cPiece* cBoard::getPiece(int sqI, int sqJ) {
 bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
 {
     cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
+
+    //----------CAPTURE MOVES----------
     if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
     {
         if (targetPiece->player == piece->player)// If target square contains players own piece, return false & do not complete move (double check for move validity)
@@ -263,8 +265,17 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
             return true;
         }
     }
-    //Create a new cMove instance and add it to the moveHist vector
-    moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));
+    //----------SPECIAL MOVES----------
+    if (piece->ID == -6)//White king castle moves
+    {
+
+    }
+    if (piece->ID == 6)//Black king castle moves
+    {
+
+    }
+    //----------NON-CAPTURE, NON-SPECIAL MOVES----------
+    moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));//Create a new cMove instance and add it to the moveHist vector
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
     turn = 1 - turn;
