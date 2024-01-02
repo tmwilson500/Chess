@@ -231,6 +231,12 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
 {
     cPiece* targetPiece = getPiece(targetI, targetJ); // get pointer to piece at target square if it exists
 
+    bool start = false; //True if piece has never been moved before (it is at its starting position)
+    if (piece->startPos)
+    {
+        start = true;
+    }
+
     //----------CAPTURE MOVES----------
     if ((targetPiece != nullptr)) //If piece was found at target square, it is captured (stop drawing capture piece)
     {
@@ -242,7 +248,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
         {
             targetPiece->draw = false;
             std::cout << "CAPTURE!!!!!!!!!!!\n";
-            moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), targetPiece));
+            moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI), (sH * targetJ), start, targetPiece));
             piece->x = sW * targetI;
             piece->y = sH * targetJ;
             turn = 1 - turn;
@@ -297,8 +303,10 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
                 {
                     cPiece* rook = getPiece(0, 7);
                     rook->x = 3 * sW;
-                    moveHist.push_back(new cMove(piece, pX, pY, (sW * targetI), (sH * targetJ), nullptr, rook, -1));
+                    moveHist.push_back(new cMove(piece, pX, pY, (sW * targetI), (sH * targetJ), true, nullptr, rook, -1));
                     turn = 1 - turn;
+                    rook->startPos = false;
+                    piece->startPos = false;
                     return true;
                 }
             }
@@ -309,7 +317,7 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
 
     }
     //----------NON-CAPTURE, NON-SPECIAL MOVES----------
-    moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ)));//Create a new cMove instance and add it to the moveHist vector
+    moveHist.push_back(new cMove(piece, piece->x, piece->y, (sW * targetI),(sH * targetJ), start));//Create a new cMove instance and add it to the moveHist vector
     piece->x = sW * targetI;
     piece->y = sH * targetJ;
     turn = 1 - turn;
