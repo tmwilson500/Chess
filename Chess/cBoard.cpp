@@ -350,6 +350,11 @@ bool cBoard::unDoMove() {
     last->movPiece->x = last->startX; //Revert x and y members of primary moved piece
     last->movPiece->y = last->startY;
 
+    if (last->wasStart) //revert cPiece startPos member if moved piece originated at its starting position
+    {
+        last->movPiece->startPos = true;
+    }
+
     if (last->capPiece != nullptr) //If piece was captured in move, re-draw it
     {
         last->capPiece->draw = true;
@@ -365,7 +370,6 @@ bool cBoard::unDoMove() {
                 last->movPiece2->y = 7*sH;
             }
         }
-        last->movPiece->startPos = true;
         last->movPiece2->startPos = true;
     }
 
