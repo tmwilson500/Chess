@@ -14,13 +14,14 @@ struct cMove
     int endX;
     int endY;
     int castleSide;//-1 for queen side castle, 1 for king side castle, 0 for non-castle moves (default)
+    bool wasStart; //True when moved piece originated at its starting position
     cPiece* movPiece;  //The primary piece that was moved
     cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
     cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
     
     //Constructor to initialize pointer members
-    cMove(cPiece* primary = nullptr, int sX = 0, int sY = 0, int eX = 0, int eY = 0, cPiece* cap = nullptr, cPiece* secondary = nullptr, int castle = 0) 
-        : movPiece(primary), startX(sX), startY(sY), endX(eX), endY(eY), capPiece(cap), movPiece2(secondary), castleSide(castle) {}
+    cMove(cPiece* primary = nullptr, int sX = 0, int sY = 0, int eX = 0, int eY = 0, bool start = false, cPiece* cap = nullptr, cPiece* secondary = nullptr, int castle = 0) 
+        : movPiece(primary), startX(sX), startY(sY), endX(eX), endY(eY), wasStart(start), capPiece(cap), movPiece2(secondary), castleSide(castle) {}
 };
 
 class cBoard {
