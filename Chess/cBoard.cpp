@@ -385,6 +385,7 @@ void cBoard::printHist() {
         std::cout << "Start Y: " << (*ir)->startY / sH << "\n";
         std::cout << "End X: " << (*ir)->endX / sW << "\n";
         std::cout << "End Y: " << (*ir)->endY / sH << "\n";
+        std::cout << "Piece was at starting position: " << (*ir)->wasStart << "\n";
         if ((*ir)->capPiece != nullptr) //Print ID for captured piece if it exists
         {
             std::cout << "Captured piece ID: " << (*ir)->capPiece->ID << "\n";
