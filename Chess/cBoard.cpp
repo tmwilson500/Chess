@@ -1230,6 +1230,28 @@ bool cBoard::legalMove(cPiece piece, int newSqI, int newSqJ) {
                 }
             }
         }
+        if ((newSqI == 6) && (newSqJ == 0))//King side castle
+        {
+            if (piece.startPos) // Check if king has moved from starting position
+            {
+                cPiece* rook = getPiece(7, 0); //Get pointer to queen side rook
+                if (rook != nullptr) //Ensure piece was found at rook starting position
+                {
+                    if ((rook->ID == 2) && (rook->startPos)) //Check that found piece is white rook, and if rook has moved from starting position
+                    {
+                        for (int i = 5; i < 7; i++) //Check if any square between king and rook is occupied
+                        {
+                            if (isOccupied(i, newSqJ))
+                            {
+                                return false;
+                            }
+                        }
+                        std::cout << "KING SIDE CASTLE!!!!!!!!!!!!!!!\n";
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
         break;
     }
