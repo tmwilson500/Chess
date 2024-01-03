@@ -492,6 +492,11 @@ bool cBoard::unDoMove() {
                 last->movPiece2->x = 0 * sW; //Revert x and y members of secondary moved piece (rook)
                 last->movPiece2->y = 0 * sH;
             }
+            else if (last->castleSide == 1)//King side castle
+            {
+                last->movPiece2->x = 7 * sW; //Revert x and y members of secondary moved piece (rook)
+                last->movPiece2->y = 0 * sH;
+            }
         }
         else
         {
