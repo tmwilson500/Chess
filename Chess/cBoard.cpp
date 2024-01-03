@@ -448,6 +448,19 @@ bool cBoard::unDoMove() {
                 last->movPiece2->y = 7 * sH;
             }
         }
+        else if (last->movPiece->player == 1) //Black castle moves
+        {
+            if (last->castleSide == -1)//Queen side castle
+            {
+                last->movPiece2->x = 0 * sW; //Revert x and y members of secondary moved piece (rook)
+                last->movPiece2->y = 0 * sH;
+            }
+        }
+        else
+        {
+            std::cout << "CASTLE MOVE OF UNKNOWN COLOR (you should never see this)\n";
+            return false;
+        }
         last->movPiece2->startPos = true;
     }
 
