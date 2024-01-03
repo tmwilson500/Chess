@@ -311,6 +311,43 @@ bool cBoard::doMove2(cPiece* piece, int targetI, int targetJ)
                 }
             }
         }
+        if ((targetI == 6) && (targetJ == 7) && (piece->x / sW == 4) && (piece->y / sH == 7))//King side castle
+        {
+            int pX = piece->x; //Save initial piece x & y
+            int pY = piece->y;
+            if (checkCheck(piece->player)) //Check if player is already in check
+            {
+                std::cout << "!!!CANNOT CASTLE OUT OF CHECK - MOVE WILL BE UNDONE!!!\n";
+                return false;
+            }
+            piece->x = 5 * sW; //Move king 1 square along castle path & re-check for check
+            if (checkCheck(piece->player)) //If 1st move along castle path results in check, move king back to original position & return false
+            {
+                std::cout << "!!!CANNOT CASTLE THROUGH CHECK - MOVE WILL BE UNDONE!!!\n";
+                piece->x = pX;
+                return false;
+            }
+            else //1st move did not result in check, so continue along castle path
+            {
+                piece->x = 6 * sW; //move king to 2nd square along castle path
+                if (checkCheck(piece->player)) //If 2nd move along castle path results in check, move king back to original position & return false
+                {
+                    std::cout << "!!!CANNOT CASTLE THROUGH CHECK - MOVE WILL BE UNDONE!!!\n";
+                    piece->x = pX;
+                    return false;
+                }
+                else //No moves along castle path caused check, so move rook & add move to moveHist
+                {
+                    cPiece* rook = getPiece(7, 7);
+                    rook->x = 5 * sW;
+                    moveHist.push_back(new cMove(piece, pX, pY, (sW * targetI), (sH * targetJ), true, nullptr, rook, 1));
+                    turn = 1 - turn;
+                    rook->startPos = false;
+                    piece->startPos = false;
+                    return true;
+                }
+            }
+        }
     }
     if (piece->ID == 6)//Black king castle moves
     {
