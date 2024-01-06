@@ -80,14 +80,22 @@ $(function() {
   <div class="headertitle"><div class="title">cBoard Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which represents the chess board &amp; handles all updates to the board state.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="c_board_8h_source.html">cBoard.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73cc8574b696c4ac1aeb481ed17c9fe4" id="r_a73cc8574b696c4ac1aeb481ed17c9fe4"><td class="memItemLeft" align="right" valign="top"><a id="a73cc8574b696c4ac1aeb481ed17c9fe4" name="a73cc8574b696c4ac1aeb481ed17c9fe4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>cBoard</b> (float width, float height, const int boardTheme[2][3], std::map&lt; int, std::string &gt; pieceTheme)</td></tr>
+<tr class="memitem:a73cc8574b696c4ac1aeb481ed17c9fe4" id="r_a73cc8574b696c4ac1aeb481ed17c9fe4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73cc8574b696c4ac1aeb481ed17c9fe4">cBoard</a> (float width, float height, const int boardTheme[2][3], std::map&lt; int, std::string &gt; pieceTheme)</td></tr>
+<tr class="memdesc:a73cc8574b696c4ac1aeb481ed17c9fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classc_board.html" title="A class which represents the chess board &amp; handles all updates to the board state.">cBoard</a> class constructor  <br /></td></tr>
 <tr class="separator:a73cc8574b696c4ac1aeb481ed17c9fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a35c1c874fe9c41a88e7776b8addf2e" id="r_a6a35c1c874fe9c41a88e7776b8addf2e"><td class="memItemLeft" align="right" valign="top"><a id="a6a35c1c874fe9c41a88e7776b8addf2e" name="a6a35c1c874fe9c41a88e7776b8addf2e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memitem:a1a1afe34658c3d79c6d727b67a25fe00" id="r_a1a1afe34658c3d79c6d727b67a25fe00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a1afe34658c3d79c6d727b67a25fe00">~cBoard</a> ()</td></tr>
+<tr class="memdesc:a1a1afe34658c3d79c6d727b67a25fe00"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classc_board.html" title="A class which represents the chess board &amp; handles all updates to the board state.">cBoard</a> class destructor  <br /></td></tr>
+<tr class="separator:a1a1afe34658c3d79c6d727b67a25fe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a35c1c874fe9c41a88e7776b8addf2e" id="r_a6a35c1c874fe9c41a88e7776b8addf2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a35c1c874fe9c41a88e7776b8addf2e">Update</a> ()</td></tr>
+<tr class="memdesc:a6a35c1c874fe9c41a88e7776b8addf2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles all MouseButtonPressed/KeyPressed events &amp; updates the board state accordingly.  <br /></td></tr>
 <tr class="separator:a6a35c1c874fe9c41a88e7776b8addf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -167,6 +175,73 @@ std::vector&lt; <a class="el" href="structc_move.html">cMove</a> * &gt;&#160;</t
 <tr class="memitem:acda39afbc354b40730eb91d1b6853603" id="r_acda39afbc354b40730eb91d1b6853603"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acda39afbc354b40730eb91d1b6853603">boardMap</a> [8][8]</td></tr>
 <tr class="separator:acda39afbc354b40730eb91d1b6853603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class which represents the chess board &amp; handles all updates to the board state. </p>
+<p>This class draws &amp; scales the board/pieces, handles click/keyboard events, checks move legality, and updates the locations of pieces </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a73cc8574b696c4ac1aeb481ed17c9fe4" name="a73cc8574b696c4ac1aeb481ed17c9fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73cc8574b696c4ac1aeb481ed17c9fe4">&#9670;&#160;</a></span>cBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cBoard::cBoard </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>boardTheme</em>[2][3], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; int, std::string &gt;</td>          <td class="paramname"><span class="paramname"><em>pieceTheme</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classc_board.html" title="A class which represents the chess board &amp; handles all updates to the board state.">cBoard</a> class constructor </p>
+<p>Sets the board scale &amp; color, creates the SFML window, and initializes all chess pieces (<a class="el" href="classc_piece.html">cPiece</a> objects) including loading and setting their textures</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the game window </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the game window </td></tr>
+    <tr><td class="paramname">boardTheme[2][3]</td><td>The RGB color codes of dark &amp; light squares on the board, reresented as: { {dark.r, dark.g, dark.b}, {light.r, light.g, light.b} } </td></tr>
+    <tr><td class="paramname">pieceTheme</td><td>A std::map which correlates the chess piece ID (int) with the path (string) to the texture for that piece (a PNG file) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1a1afe34658c3d79c6d727b67a25fe00" name="a1a1afe34658c3d79c6d727b67a25fe00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a1afe34658c3d79c6d727b67a25fe00">&#9670;&#160;</a></span>~cBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cBoard::~cBoard </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classc_board.html" title="A class which represents the chess board &amp; handles all updates to the board state.">cBoard</a> class destructor </p>
+<p>Frees all memory allocated for <a class="el" href="classc_piece.html">cPiece</a> objects used by the <a class="el" href="classc_board.html" title="A class which represents the chess board &amp; handles all updates to the board state.">cBoard</a> class </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9bf3289315cb694a4731e59e8a33920a" name="a9bf3289315cb694a4731e59e8a33920a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9bf3289315cb694a4731e59e8a33920a">&#9670;&#160;</a></span>isOccupied()</h2>
@@ -205,6 +280,27 @@ std::vector&lt; <a class="el" href="structc_move.html">cMove</a> * &gt;&#160;</t
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>prefer <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> over getPiece() when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is not strictly necessary </dd></dl>
+
+</div>
+</div>
+<a id="a6a35c1c874fe9c41a88e7776b8addf2e" name="a6a35c1c874fe9c41a88e7776b8addf2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a35c1c874fe9c41a88e7776b8addf2e">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cBoard::Update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles all MouseButtonPressed/KeyPressed events &amp; updates the board state accordingly. </p>
+<p>Polls for mouse/keyboard events, checks move legality &amp; updates piece positions when necessary, then re-draws chess board/pieces to the screen</p>
+<dl class="section return"><dt>Returns</dt><dd>always true </dd></dl>
 
 </div>
 </div>

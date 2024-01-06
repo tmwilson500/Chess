@@ -1,14 +1,23 @@
 \doxysection{c\+Board Class Reference}
 \hypertarget{classc_board}{}\label{classc_board}\index{cBoard@{cBoard}}
+
+
+A class which represents the chess board \& handles all updates to the board state.  
+
+
+
+
+{\ttfamily \#include $<$c\+Board.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4}\label{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4} 
-{\bfseries c\+Board} (float width, float height, const int board\+Theme\mbox{[}2\mbox{]}\mbox{[}3\mbox{]}, std\+::map$<$ int, std\+::string $>$ piece\+Theme)
-\item 
-\Hypertarget{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}\label{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e} 
-bool {\bfseries Update} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4}{c\+Board}} (float width, float height, const int board\+Theme\mbox{[}2\mbox{]}\mbox{[}3\mbox{]}, std\+::map$<$ int, std\+::string $>$ piece\+Theme)
+\begin{DoxyCompactList}\small\item\em \doxylink{classc_board}{c\+Board} class constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classc_board_a1a1afe34658c3d79c6d727b67a25fe00}{\texorpdfstring{$\sim$}{\string~}c\+Board}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classc_board}{c\+Board} class destructor \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Handles all Mouse\+Button\+Pressed/\+Key\+Pressed events \& updates the board state accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,6 +96,47 @@ int \mbox{\hyperlink{classc_board_acda39afbc354b40730eb91d1b6853603}{board\+Map}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A class which represents the chess board \& handles all updates to the board state. 
+
+This class draws \& scales the board/pieces, handles click/keyboard events, checks move legality, and updates the locations of pieces 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4}\label{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4} 
+\index{cBoard@{cBoard}!cBoard@{cBoard}}
+\index{cBoard@{cBoard}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{cBoard()}{cBoard()}}
+{\footnotesize\ttfamily c\+Board\+::c\+Board (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{height,  }\item[{const int}]{board\+Theme\mbox{[}2\mbox{]}\mbox{[}3\mbox{]},  }\item[{std\+::map$<$ int, std\+::string $>$}]{piece\+Theme }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classc_board}{c\+Board} class constructor 
+
+Sets the board scale \& color, creates the SFML window, and initializes all chess pieces (\doxylink{classc_piece}{c\+Piece} objects) including loading and setting their textures
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the game window \\
+\hline
+{\em height} & The height of the game window \\
+\hline
+{\em board\+Theme\mbox{[}2\mbox{]}\mbox{[}3\mbox{]}} & The RGB color codes of dark \& light squares on the board, reresented as\+: \{ \{dark.\+r, dark.\+g, dark.\+b\}, \{light.\+r, light.\+g, light.\+b\} \} \\
+\hline
+{\em piece\+Theme} & A std\+::map which correlates the chess piece ID (int) with the path (string) to the texture for that piece (a PNG file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classc_board_a1a1afe34658c3d79c6d727b67a25fe00}\label{classc_board_a1a1afe34658c3d79c6d727b67a25fe00} 
+\index{cBoard@{cBoard}!````~cBoard@{\texorpdfstring{$\sim$}{\string~}cBoard}}
+\index{````~cBoard@{\texorpdfstring{$\sim$}{\string~}cBoard}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}cBoard()}{\string~cBoard()}}
+{\footnotesize\ttfamily c\+Board\+::\texorpdfstring{$\sim$}{\string~}c\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classc_board}{c\+Board} class destructor 
+
+Frees all memory allocated for \doxylink{classc_piece}{c\+Piece} objects used by the \doxylink{classc_board}{c\+Board} class 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classc_board_a9bf3289315cb694a4731e59e8a33920a}\label{classc_board_a9bf3289315cb694a4731e59e8a33920a} 
 \index{cBoard@{cBoard}!isOccupied@{isOccupied}}
@@ -110,6 +160,21 @@ Returns true if the given square currently contains any piece, otherwise returns
 \begin{DoxyNote}{Note}
 prefer \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} over get\+Piece() when access to \doxylink{classc_piece}{c\+Piece} object attributes is not strictly necessary 
 \end{DoxyNote}
+\Hypertarget{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}\label{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e} 
+\index{cBoard@{cBoard}!Update@{Update}}
+\index{Update@{Update}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool c\+Board\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles all Mouse\+Button\+Pressed/\+Key\+Pressed events \& updates the board state accordingly. 
+
+Polls for mouse/keyboard events, checks move legality \& updates piece positions when necessary, then re-\/draws chess board/pieces to the screen
+
+\begin{DoxyReturn}{Returns}
+always true 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
