@@ -86,6 +86,9 @@ private:
     */
     void drawSquares();
 
+    /**
+     * @brief Sets position of all chess pieces & draws them to the screen
+    */
     void drawPieces();
 
     void scalePieces();
