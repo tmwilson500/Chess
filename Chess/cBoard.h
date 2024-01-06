@@ -59,10 +59,6 @@ private:
 
     void scalePieces();
 
-    // True if square with coordinates [sqI][sqJ] contains a drawn piece, otherwise false
-    // NOTE: prefer isOccupied() over getPiece() when access to cPiece object attributes is not strictly necessary
-
-
     /**
      * @brief Checks if a given square on the chess board is occupied by any piece
      * 
