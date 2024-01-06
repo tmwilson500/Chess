@@ -91,6 +91,9 @@ private:
     */
     void drawPieces();
 
+    /**
+     * @brief Sets scale of all chess pieces to fit within squares on the board
+    */
     void scalePieces();
 
     /**

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['Update',['../classc_board.html#a6a35c1c874fe9c41a88e7776b8addf2e',1,'cBoard']]]
+  ['scalepieces_0',['scalePieces',['../classc_board.html#afb51d861a93f0af56d7d728f8e2a8549',1,'cBoard']]]
 ];

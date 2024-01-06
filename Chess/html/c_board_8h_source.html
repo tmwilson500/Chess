@@ -144,44 +144,44 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classc_board.html#a41ce55a2280150fe72d9ab071691e106">drawPieces</a>();</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> scalePieces();</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classc_board.html#a9bf3289315cb694a4731e59e8a33920a">isOccupied</a>(<span class="keywordtype">int</span> sqI, <span class="keywordtype">int</span> sqJ);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// If square with coordinates [sqI][sqJ] contains a drawn piece, returns a pointer to that piece.</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// Otherwise, returns nullptr</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// NOTE: use only when access to cPiece object attributes is necessary - otherwise use isOccupied()</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_class" href="classc_piece.html">cPiece</a>* getPiece(<span class="keywordtype">int</span> sqI, <span class="keywordtype">int</span> sqJ);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> doMove2(<a class="code hl_class" href="classc_piece.html">cPiece</a>* piece, <span class="keywordtype">int</span> targetI, <span class="keywordtype">int</span> targetJ);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// un-does the last move, removing it from the moveHist vector and returning all pieces to their </span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">// original position before that move</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">// Returns true if move could be un-done, otherwise returns false</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">bool</span> unDoMove();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">//Prints current move history for the entire game to the console</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> printHist();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classc_board.html#afb51d861a93f0af56d7d728f8e2a8549">scalePieces</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classc_board.html#a9bf3289315cb694a4731e59e8a33920a">isOccupied</a>(<span class="keywordtype">int</span> sqI, <span class="keywordtype">int</span> sqJ);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">// If square with coordinates [sqI][sqJ] contains a drawn piece, returns a pointer to that piece.</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">// Otherwise, returns nullptr</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// NOTE: use only when access to cPiece object attributes is necessary - otherwise use isOccupied()</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_class" href="classc_piece.html">cPiece</a>* getPiece(<span class="keywordtype">int</span> sqI, <span class="keywordtype">int</span> sqJ);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">bool</span> doMove2(<a class="code hl_class" href="classc_piece.html">cPiece</a>* piece, <span class="keywordtype">int</span> targetI, <span class="keywordtype">int</span> targetJ);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// un-does the last move, removing it from the moveHist vector and returning all pieces to their </span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// original position before that move</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// Returns true if move could be un-done, otherwise returns false</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">bool</span> unDoMove();</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment">// If target square contains enemy piece, capture it</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// Return true if move was executed successfully, otherwise return false</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">// NOTE: does not fully check legality of move - always check legality using legalMove() first</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">bool</span> doMove(<a class="code hl_class" href="classc_piece.html">cPiece</a>* piece, <span class="keywordtype">int</span> targetI, <span class="keywordtype">int</span> targetJ);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">//Checks if king belonging to player is in check</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">//If player&#39;s king is in check, return true, otherwise return false</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">bool</span> checkCheck(<span class="keywordtype">int</span> player);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">//Returns true if player is in checkmate, otherwise returns false</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">bool</span> mateCheck(<span class="keywordtype">int</span> player);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//Prints current move history for the entire game to the console</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">void</span> printHist();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">// Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">// If target square contains enemy piece, capture it</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">// Return true if move was executed successfully, otherwise return false</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">// NOTE: does not fully check legality of move - always check legality using legalMove() first</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">bool</span> doMove(<a class="code hl_class" href="classc_piece.html">cPiece</a>* piece, <span class="keywordtype">int</span> targetI, <span class="keywordtype">int</span> targetJ);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">//Checks if king belonging to player is in check</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">//If player&#39;s king is in check, return true, otherwise return false</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">bool</span> checkCheck(<span class="keywordtype">int</span> player);</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment">// Checks if moving cPiece object &#39;piece&#39; to square with coords [newSqI][newSqJ] is legal</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">// Returns true if move is legal, otherwise returns false</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">bool</span> legalMove(<a class="code hl_class" href="classc_piece.html">cPiece</a> piece, <span class="keywordtype">int</span> newSqI, <span class="keywordtype">int</span> newSqJ);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>};</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment">//Returns true if player is in checkmate, otherwise returns false</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">bool</span> mateCheck(<span class="keywordtype">int</span> player);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="comment">// Checks if moving cPiece object &#39;piece&#39; to square with coords [newSqI][newSqJ] is legal</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">// Returns true if move is legal, otherwise returns false</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">// NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">bool</span> legalMove(<a class="code hl_class" href="classc_piece.html">cPiece</a> piece, <span class="keywordtype">int</span> newSqI, <span class="keywordtype">int</span> newSqJ);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
 </div>
 <div class="ttc" id="aclassc_board_html"><div class="ttname"><a href="classc_board.html">cBoard</a></div><div class="ttdoc">A class which represents the chess board &amp; handles all updates to the board state.</div><div class="ttdef"><b>Definition</b> cBoard.h:32</div></div>
 <div class="ttc" id="aclassc_board_html_a1a1afe34658c3d79c6d727b67a25fe00"><div class="ttname"><a href="classc_board.html#a1a1afe34658c3d79c6d727b67a25fe00">cBoard::~cBoard</a></div><div class="ttdeci">~cBoard()</div><div class="ttdoc">cBoard class destructor</div><div class="ttdef"><b>Definition</b> cBoard.cpp:65</div></div>
@@ -202,6 +202,7 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclassc_board_html_acda39afbc354b40730eb91d1b6853603"><div class="ttname"><a href="classc_board.html#acda39afbc354b40730eb91d1b6853603">cBoard::boardMap</a></div><div class="ttdeci">int boardMap[8][8]</div><div class="ttdef"><b>Definition</b> cBoard.h:75</div></div>
 <div class="ttc" id="aclassc_board_html_acdb0c6e60b6afa3081bd3fd0862315d1"><div class="ttname"><a href="classc_board.html#acdb0c6e60b6afa3081bd3fd0862315d1">cBoard::squares</a></div><div class="ttdeci">RectangleShape squares[8][8]</div><div class="ttdef"><b>Definition</b> cBoard.h:65</div></div>
 <div class="ttc" id="aclassc_board_html_af7cc392bdc866ae2b049d44261d79421"><div class="ttname"><a href="classc_board.html#af7cc392bdc866ae2b049d44261d79421">cBoard::pieces</a></div><div class="ttdeci">cPiece * pieces[64]</div><div class="ttdef"><b>Definition</b> cBoard.h:73</div></div>
+<div class="ttc" id="aclassc_board_html_afb51d861a93f0af56d7d728f8e2a8549"><div class="ttname"><a href="classc_board.html#afb51d861a93f0af56d7d728f8e2a8549">cBoard::scalePieces</a></div><div class="ttdeci">void scalePieces()</div><div class="ttdoc">Sets scale of all chess pieces to fit within squares on the board.</div><div class="ttdef"><b>Definition</b> cBoard.cpp:187</div></div>
 <div class="ttc" id="aclassc_piece_html"><div class="ttname"><a href="classc_piece.html">cPiece</a></div><div class="ttdef"><b>Definition</b> cPiece.h:18</div></div>
 <div class="ttc" id="astructc_move_html"><div class="ttname"><a href="structc_move.html">cMove</a></div><div class="ttdef"><b>Definition</b> cBoard.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
