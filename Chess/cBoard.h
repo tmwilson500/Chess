@@ -32,6 +32,16 @@ struct cMove
 class cBoard {
 public:
 
+    /**
+     * @brief cBoard class constructor
+     *
+     * Sets the board scale & color, creates the SFML window, and initializes all chess pieces (cPiece objects) including loading and setting their textures
+     *
+     * @param width The width of the game window
+     * @param height The height of the game window
+     * @param boardTheme[2][3] The RGB color codes of dark & light squares on the board, reresented as: { {dark.r, dark.g, dark.b}, {light.r, light.g, light.b} }
+     * @param pieceTheme A std::map which correlates the chess piece ID (int) with the path (string) to the texture for that piece (a PNG file)
+    */
     cBoard(float width, float height, const int boardTheme[2][3], std::map<int, std::string> pieceTheme);
     ~cBoard();
 
