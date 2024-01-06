@@ -56,7 +56,7 @@ public:
      * 
      * Polls for mouse/keyboard events, checks move legality & updates piece positions when necessary, then re-draws chess board/pieces to the screen
      * 
-     * @note This function will always return true
+     * @return always true
     */
     bool Update();
 
