@@ -43,6 +43,12 @@ public:
      * @param pieceTheme A std::map which correlates the chess piece ID (int) with the path (string) to the texture for that piece (a PNG file)
     */
     cBoard(float width, float height, const int boardTheme[2][3], std::map<int, std::string> pieceTheme);
+    
+    /**
+     * @brief cBoard class destructor
+     * 
+     * Frees all memory allocated for cPiece objects used by the cBoard class
+    */
     ~cBoard();
 
     bool Update();
