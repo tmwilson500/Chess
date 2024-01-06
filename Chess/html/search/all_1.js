@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['isoccupied_0',['isOccupied',['../classc_board.html#a9bf3289315cb694a4731e59e8a33920a',1,'cBoard']]]
+  ['cboard_0',['cBoard',['../classc_board.html',1,'cBoard'],['../classc_board.html#a73cc8574b696c4ac1aeb481ed17c9fe4',1,'cBoard::cBoard()']]],
+  ['cmove_1',['cMove',['../structc_move.html',1,'']]],
+  ['cpiece_2',['cPiece',['../classc_piece.html',1,'']]]
 ];

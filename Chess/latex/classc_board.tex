@@ -59,38 +59,27 @@ bool {\bfseries legal\+Move} (\mbox{\hyperlink{classc_piece}{c\+Piece}} piece, i
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}\label{classc_board_a54d58a006e8b841320267c7f8c6e3c6f} 
-Render\+Window {\bfseries win}
+Render\+Window \mbox{\hyperlink{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}{win}}
 \item 
-\Hypertarget{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}\label{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1} 
-Rectangle\+Shape {\bfseries squares} \mbox{[}8\mbox{]}\mbox{[}8\mbox{]}
+Rectangle\+Shape \mbox{\hyperlink{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}{squares}} \mbox{[}8\mbox{]}\mbox{[}8\mbox{]}
 \item 
-\Hypertarget{classc_board_a73ad176f97652c7d17c1eef08aa6e644}\label{classc_board_a73ad176f97652c7d17c1eef08aa6e644} 
-Color {\bfseries s\+Colors} \mbox{[}2\mbox{]}
+Color \mbox{\hyperlink{classc_board_a73ad176f97652c7d17c1eef08aa6e644}{s\+Colors}} \mbox{[}2\mbox{]}
 \item 
-\Hypertarget{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}\label{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4} 
-bool {\bfseries s\+Color} = 1
+bool \mbox{\hyperlink{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}{s\+Color}} = 1
 \item 
-\Hypertarget{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}\label{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1} 
-float {\bfseries sW}
+float \mbox{\hyperlink{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}{sW}}
 \item 
-\Hypertarget{classc_board_a38237fa9e608b8f49a214452150f03d0}\label{classc_board_a38237fa9e608b8f49a214452150f03d0} 
-float {\bfseries sH}
+float \mbox{\hyperlink{classc_board_a38237fa9e608b8f49a214452150f03d0}{sH}}
 \item 
-\Hypertarget{classc_board_a3edd67210471079eb566375af47b5b47}\label{classc_board_a3edd67210471079eb566375af47b5b47} 
-int {\bfseries select\+Index} = -\/1
+int \mbox{\hyperlink{classc_board_a3edd67210471079eb566375af47b5b47}{select\+Index}} = -\/1
 \item 
-\Hypertarget{classc_board_a92b3719badd9823b04d963c8804e2d55}\label{classc_board_a92b3719badd9823b04d963c8804e2d55} 
-bool {\bfseries piece\+Selected} = false
+bool \mbox{\hyperlink{classc_board_a92b3719badd9823b04d963c8804e2d55}{piece\+Selected}} = false
 \item 
-\Hypertarget{classc_board_ab67c1761efdbb28e4742dfe0022ae869}\label{classc_board_ab67c1761efdbb28e4742dfe0022ae869} 
-int {\bfseries turn} = 0
+int \mbox{\hyperlink{classc_board_ab67c1761efdbb28e4742dfe0022ae869}{turn}} = 0
 \item 
-\Hypertarget{classc_board_af7cc392bdc866ae2b049d44261d79421}\label{classc_board_af7cc392bdc866ae2b049d44261d79421} 
-\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} {\bfseries pieces} \mbox{[}64\mbox{]}
+\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classc_board_af7cc392bdc866ae2b049d44261d79421}{pieces}} \mbox{[}64\mbox{]}
 \item 
-\Hypertarget{classc_board_a7be074a616bec2c8533aeabf2cc01356}\label{classc_board_a7be074a616bec2c8533aeabf2cc01356} 
-std\+::vector$<$ \mbox{\hyperlink{structc_move}{c\+Move}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries move\+Hist}
+std\+::vector$<$ \mbox{\hyperlink{structc_move}{c\+Move}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classc_board_a7be074a616bec2c8533aeabf2cc01356}{move\+Hist}}
 \item 
 int \mbox{\hyperlink{classc_board_acda39afbc354b40730eb91d1b6853603}{board\+Map}} \mbox{[}8\mbox{]}\mbox{[}8\mbox{]}
 \end{DoxyCompactItemize}
@@ -196,7 +185,73 @@ always true
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\}\ \}}
 
 \end{DoxyCode}
+An 8x8 array which defines the starting positions of all pieces on the board (value of each element represents a piece ID, and the i-\/j indices of that element are the x-\/y coordinates of its square on the board) \Hypertarget{classc_board_a7be074a616bec2c8533aeabf2cc01356}\label{classc_board_a7be074a616bec2c8533aeabf2cc01356} 
+\index{cBoard@{cBoard}!moveHist@{moveHist}}
+\index{moveHist@{moveHist}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{moveHist}{moveHist}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structc_move}{c\+Move}}\texorpdfstring{$\ast$}{*}$>$ c\+Board\+::move\+Hist\hspace{0.3cm}{\ttfamily [private]}}
 
+A vector of references to \doxylink{structc_move}{c\+Move} objects, which represents the history of all moves completed in the game \Hypertarget{classc_board_af7cc392bdc866ae2b049d44261d79421}\label{classc_board_af7cc392bdc866ae2b049d44261d79421} 
+\index{cBoard@{cBoard}!pieces@{pieces}}
+\index{pieces@{pieces}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{pieces}{pieces}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classc_piece}{c\+Piece}}\texorpdfstring{$\ast$}{*} c\+Board\+::pieces\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+An array of references to \doxylink{classc_piece}{c\+Piece} objects representing pieces on the board (each piece occupies 1 square initially, \& pieces with ID of 0 are never drawn) \Hypertarget{classc_board_a92b3719badd9823b04d963c8804e2d55}\label{classc_board_a92b3719badd9823b04d963c8804e2d55} 
+\index{cBoard@{cBoard}!pieceSelected@{pieceSelected}}
+\index{pieceSelected@{pieceSelected}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{pieceSelected}{pieceSelected}}
+{\footnotesize\ttfamily bool c\+Board\+::piece\+Selected = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Boolean value indicating whether or not a piece is currently selected \Hypertarget{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}\label{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4} 
+\index{cBoard@{cBoard}!sColor@{sColor}}
+\index{sColor@{sColor}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{sColor}{sColor}}
+{\footnotesize\ttfamily bool c\+Board\+::s\+Color = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+Boolean value used to alternate between light \& dark color theme when setting color of squares on the board \Hypertarget{classc_board_a73ad176f97652c7d17c1eef08aa6e644}\label{classc_board_a73ad176f97652c7d17c1eef08aa6e644} 
+\index{cBoard@{cBoard}!sColors@{sColors}}
+\index{sColors@{sColors}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{sColors}{sColors}}
+{\footnotesize\ttfamily Color c\+Board\+::s\+Colors\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+An array of 2 SFML Color objects representing the displayed color of dark \& light squares on the board \Hypertarget{classc_board_a3edd67210471079eb566375af47b5b47}\label{classc_board_a3edd67210471079eb566375af47b5b47} 
+\index{cBoard@{cBoard}!selectIndex@{selectIndex}}
+\index{selectIndex@{selectIndex}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{selectIndex}{selectIndex}}
+{\footnotesize\ttfamily int c\+Board\+::select\+Index = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+The index of the currently selected piece in the array pieces\mbox{[}64\mbox{]} (set to -\/1 when no piece is selected) \Hypertarget{classc_board_a38237fa9e608b8f49a214452150f03d0}\label{classc_board_a38237fa9e608b8f49a214452150f03d0} 
+\index{cBoard@{cBoard}!sH@{sH}}
+\index{sH@{sH}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{sH}{sH}}
+{\footnotesize\ttfamily float c\+Board\+::sH\hspace{0.3cm}{\ttfamily [private]}}
+
+The height of one square on the board, scaled to fit the game window \Hypertarget{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}\label{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1} 
+\index{cBoard@{cBoard}!squares@{squares}}
+\index{squares@{squares}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{squares}{squares}}
+{\footnotesize\ttfamily Rectangle\+Shape c\+Board\+::squares\mbox{[}8\mbox{]}\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+An 8x8 array of SFML Rectangle\+Shape objects representing the squares on the chess board \Hypertarget{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}\label{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1} 
+\index{cBoard@{cBoard}!sW@{sW}}
+\index{sW@{sW}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{sW}{sW}}
+{\footnotesize\ttfamily float c\+Board\+::sW\hspace{0.3cm}{\ttfamily [private]}}
+
+The with of one square on the board, scaled to fit the game window \Hypertarget{classc_board_ab67c1761efdbb28e4742dfe0022ae869}\label{classc_board_ab67c1761efdbb28e4742dfe0022ae869} 
+\index{cBoard@{cBoard}!turn@{turn}}
+\index{turn@{turn}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{turn}{turn}}
+{\footnotesize\ttfamily int c\+Board\+::turn = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+Integer representing which player\textquotesingle{}s turn it is (0 for white to move, 1 for black to move) \Hypertarget{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}\label{classc_board_a54d58a006e8b841320267c7f8c6e3c6f} 
+\index{cBoard@{cBoard}!win@{win}}
+\index{win@{win}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{win}{win}}
+{\footnotesize\ttfamily Render\+Window c\+Board\+::win\hspace{0.3cm}{\ttfamily [private]}}
+
+SFML Render\+Window instance used to draw board \& pieces to the screen 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -61,17 +61,17 @@ public:
     bool Update();
 
 private:
-    RenderWindow win;
-    RectangleShape squares[8][8];
-    Color sColors[2];
-    bool sColor = 1;
-    float sW;
-    float sH;
-    int selectIndex = -1;
-    bool pieceSelected = false;
-    int turn = 0; // 0 for white to move, 1 for black to move
-    cPiece* pieces[64]; 
-    std::vector<cMove*> moveHist;
+    RenderWindow win; /**< SFML RenderWindow instance used to draw board & pieces to the screen*/
+    RectangleShape squares[8][8]; /**< An 8x8 array of SFML RectangleShape objects representing the squares on the chess board*/
+    Color sColors[2]; /**< An array of 2 SFML Color objects representing the displayed color of dark & light squares on the board*/
+    bool sColor = 1; /**< Boolean value used to alternate between light & dark color theme when setting color of squares on the board*/
+    float sW; /**< The with of one square on the board, scaled to fit the game window*/
+    float sH; /**< The height of one square on the board, scaled to fit the game window*/
+    int selectIndex = -1; /**< The index of the currently selected piece in the array pieces[64] (set to -1 when no piece is selected)*/
+    bool pieceSelected = false; /**< Boolean value indicating whether or not a piece is currently selected*/
+    int turn = 0; /**< Integer representing which player's turn it is (0 for white to move, 1 for black to move)*/
+    cPiece* pieces[64]; /**< An array of references to cPiece objects representing pieces on the board (each piece occupies 1 square initially, & pieces with ID of 0 are never drawn)*/
+    std::vector<cMove*> moveHist; /**< A vector of references to cMove objects, which represents the history of all moves completed in the game*/
     int boardMap[8][8] = { {2, 1, 0, 0, 0, 0, -1, -2},
                             {3, 1, 0, 0, 0, 0, -1, -3},
                             {4, 1, 0, 0, 0, 0, -1, -4},
@@ -79,7 +79,7 @@ private:
                             {6, 1, 0, 0, 0, 0, -1, -6},
                             {4, 1, 0, 0, 0, 0, -1, -4},
                             {3, 1, 0, 0, 0, 0, -1, -3},
-                            {2, 1, 0, 0, 0, 0, -1, -2} };
+                            {2, 1, 0, 0, 0, 0, -1, -2} }; /**< An 8x8 array which defines the starting positions of all pieces on the board (value of each element represents a piece ID, and the i-j indices of that element are the x-y coordinates of its square on the board) */
 
     void drawSquares();
 
