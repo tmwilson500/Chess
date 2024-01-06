@@ -24,6 +24,11 @@ struct cMove
         : movPiece(primary), startX(sX), startY(sY), endX(eX), endY(eY), wasStart(start), capPiece(cap), movPiece2(secondary), castleSide(castle) {}
 };
 
+/**
+ * @brief A class which represents the chess board & handles all updates to the board state
+ * 
+ * This class draws & scales the board/pieces, handles click/keyboard events, checks move legality, and updates the locations of pieces
+*/
 class cBoard {
 public:
 
