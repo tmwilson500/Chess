@@ -61,6 +61,18 @@ private:
 
     // True if square with coordinates [sqI][sqJ] contains a drawn piece, otherwise false
     // NOTE: prefer isOccupied() over getPiece() when access to cPiece object attributes is not strictly necessary
+
+
+    /**
+     * @brief Checks if a given square on the chess board is occupied by any piece
+     * 
+     * Returns true if the given square currently contains any piece, otherwise returns false
+     * 
+     * @param sqI The x-coordinate of the square being checked
+     * @param sqJ The y-coordinate of the square being checked
+     * 
+     * @note prefer isOccupied() over getPiece() when access to cPiece object attributes is not strictly necessary
+    */
     bool isOccupied(int sqI, int sqJ);
 
 
