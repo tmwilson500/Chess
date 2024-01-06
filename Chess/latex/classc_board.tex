@@ -9,6 +9,128 @@
 \Hypertarget{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}\label{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e} 
 bool {\bfseries Update} ()
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classc_board_a97bb593cf962f42ade0d1c12734622b0}\label{classc_board_a97bb593cf962f42ade0d1c12734622b0} 
+void {\bfseries draw\+Squares} ()
+\item 
+\Hypertarget{classc_board_a41ce55a2280150fe72d9ab071691e106}\label{classc_board_a41ce55a2280150fe72d9ab071691e106} 
+void {\bfseries draw\+Pieces} ()
+\item 
+\Hypertarget{classc_board_afb51d861a93f0af56d7d728f8e2a8549}\label{classc_board_afb51d861a93f0af56d7d728f8e2a8549} 
+void {\bfseries scale\+Pieces} ()
+\item 
+bool \mbox{\hyperlink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied}} (int sqI, int sqJ)
+\begin{DoxyCompactList}\small\item\em Checks if a given square on the chess board is occupied by any piece. \end{DoxyCompactList}\item 
+\Hypertarget{classc_board_a19130e06e820c10e9c085572e8bd993c}\label{classc_board_a19130e06e820c10e9c085572e8bd993c} 
+\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Piece} (int sqI, int sqJ)
+\item 
+\Hypertarget{classc_board_ab5eef12ba0d65df145ab18848571eb63}\label{classc_board_ab5eef12ba0d65df145ab18848571eb63} 
+bool {\bfseries do\+Move2} (\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}piece, int targetI, int targetJ)
+\item 
+\Hypertarget{classc_board_a2bd5f5dff6bc47669ef9eb004d106425}\label{classc_board_a2bd5f5dff6bc47669ef9eb004d106425} 
+bool {\bfseries un\+Do\+Move} ()
+\item 
+\Hypertarget{classc_board_a92f12e54c619a311690d0c2900ca7cb0}\label{classc_board_a92f12e54c619a311690d0c2900ca7cb0} 
+void {\bfseries print\+Hist} ()
+\item 
+\Hypertarget{classc_board_ae540695862ac7ba766518328f11c032c}\label{classc_board_ae540695862ac7ba766518328f11c032c} 
+bool {\bfseries do\+Move} (\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}piece, int targetI, int targetJ)
+\item 
+\Hypertarget{classc_board_a80885309fb08afa1bb2b8c343b210bb6}\label{classc_board_a80885309fb08afa1bb2b8c343b210bb6} 
+bool {\bfseries check\+Check} (int player)
+\item 
+\Hypertarget{classc_board_a530e62c9e0550703290498259743f6ed}\label{classc_board_a530e62c9e0550703290498259743f6ed} 
+bool {\bfseries mate\+Check} (int player)
+\item 
+\Hypertarget{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}\label{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3} 
+bool {\bfseries legal\+Move} (\mbox{\hyperlink{classc_piece}{c\+Piece}} piece, int new\+SqI, int new\+SqJ)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}\label{classc_board_a54d58a006e8b841320267c7f8c6e3c6f} 
+Render\+Window {\bfseries win}
+\item 
+\Hypertarget{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}\label{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1} 
+Rectangle\+Shape {\bfseries squares} \mbox{[}8\mbox{]}\mbox{[}8\mbox{]}
+\item 
+\Hypertarget{classc_board_a73ad176f97652c7d17c1eef08aa6e644}\label{classc_board_a73ad176f97652c7d17c1eef08aa6e644} 
+Color {\bfseries s\+Colors} \mbox{[}2\mbox{]}
+\item 
+\Hypertarget{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}\label{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4} 
+bool {\bfseries s\+Color} = 1
+\item 
+\Hypertarget{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}\label{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1} 
+float {\bfseries sW}
+\item 
+\Hypertarget{classc_board_a38237fa9e608b8f49a214452150f03d0}\label{classc_board_a38237fa9e608b8f49a214452150f03d0} 
+float {\bfseries sH}
+\item 
+\Hypertarget{classc_board_a3edd67210471079eb566375af47b5b47}\label{classc_board_a3edd67210471079eb566375af47b5b47} 
+int {\bfseries select\+Index} = -\/1
+\item 
+\Hypertarget{classc_board_a92b3719badd9823b04d963c8804e2d55}\label{classc_board_a92b3719badd9823b04d963c8804e2d55} 
+bool {\bfseries piece\+Selected} = false
+\item 
+\Hypertarget{classc_board_ab67c1761efdbb28e4742dfe0022ae869}\label{classc_board_ab67c1761efdbb28e4742dfe0022ae869} 
+int {\bfseries turn} = 0
+\item 
+\Hypertarget{classc_board_af7cc392bdc866ae2b049d44261d79421}\label{classc_board_af7cc392bdc866ae2b049d44261d79421} 
+\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} {\bfseries pieces} \mbox{[}64\mbox{]}
+\item 
+\Hypertarget{classc_board_a7be074a616bec2c8533aeabf2cc01356}\label{classc_board_a7be074a616bec2c8533aeabf2cc01356} 
+std\+::vector$<$ \mbox{\hyperlink{structc_move}{c\+Move}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries move\+Hist}
+\item 
+int \mbox{\hyperlink{classc_board_acda39afbc354b40730eb91d1b6853603}{board\+Map}} \mbox{[}8\mbox{]}\mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classc_board_a9bf3289315cb694a4731e59e8a33920a}\label{classc_board_a9bf3289315cb694a4731e59e8a33920a} 
+\index{cBoard@{cBoard}!isOccupied@{isOccupied}}
+\index{isOccupied@{isOccupied}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{isOccupied()}{isOccupied()}}
+{\footnotesize\ttfamily bool c\+Board\+::is\+Occupied (\begin{DoxyParamCaption}\item[{int}]{sqI,  }\item[{int}]{sqJ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if a given square on the chess board is occupied by any piece. 
+
+Returns true if the given square currently contains any piece, otherwise returns false
+
+
+\begin{DoxyParams}{Parameters}
+{\em sqI} & The x-\/coordinate of the square being checked \\
+\hline
+{\em sqJ} & The y-\/coordinate of the square being checked\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+prefer \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} over get\+Piece() when access to \doxylink{classc_piece}{c\+Piece} object attributes is not strictly necessary 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classc_board_acda39afbc354b40730eb91d1b6853603}\label{classc_board_acda39afbc354b40730eb91d1b6853603} 
+\index{cBoard@{cBoard}!boardMap@{boardMap}}
+\index{boardMap@{boardMap}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{boardMap}{boardMap}}
+{\footnotesize\ttfamily int c\+Board\+::board\+Map\mbox{[}8\mbox{]}\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{5,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/5\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{6,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/6\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\}\ \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
