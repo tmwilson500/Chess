@@ -81,6 +81,9 @@ private:
                             {3, 1, 0, 0, 0, 0, -1, -3},
                             {2, 1, 0, 0, 0, 0, -1, -2} }; /**< An 8x8 array which defines the starting positions of all pieces on the board (value of each element represents a piece ID, and the i-j indices of that element are the x-y coordinates of its square on the board) */
 
+    /**
+     * @brief Draws all squares of the chess board to the screen
+    */
     void drawSquares();
 
     void drawPieces();

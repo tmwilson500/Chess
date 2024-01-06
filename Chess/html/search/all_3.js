@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['movehist_0',['moveHist',['../classc_board.html#a7be074a616bec2c8533aeabf2cc01356',1,'cBoard']]]
+  ['isoccupied_0',['isOccupied',['../classc_board.html#a9bf3289315cb694a4731e59e8a33920a',1,'cBoard']]]
 ];
