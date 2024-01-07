@@ -176,8 +176,14 @@ private:
     // NOTE: does not fully check legality of move - always check legality using legalMove() first
     bool doMove(cPiece* piece, int targetI, int targetJ);
 
-    //Checks if king belonging to player is in check
-    //If player's king is in check, return true, otherwise return false
+    /**
+    * @brief Checks if the given player is in check
+    * 
+    * Prints whether or not given player is in check to the console
+    * 
+    * @param player The player being checked for check (0 for white, 1 for black)
+    * @return True if the given player is in check, otherwise false
+    */
     bool checkCheck(int player);
 
     //Returns true if player is in checkmate, otherwise returns false

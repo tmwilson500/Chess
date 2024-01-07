@@ -131,8 +131,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printHist</b> ()</td>
 <tr class="memitem:ae540695862ac7ba766518328f11c032c" id="r_ae540695862ac7ba766518328f11c032c"><td class="memItemLeft" align="right" valign="top"><a id="ae540695862ac7ba766518328f11c032c" name="ae540695862ac7ba766518328f11c032c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>doMove</b> (<a class="el" href="classc_piece.html">cPiece</a> *piece, int targetI, int targetJ)</td></tr>
 <tr class="separator:ae540695862ac7ba766518328f11c032c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80885309fb08afa1bb2b8c343b210bb6" id="r_a80885309fb08afa1bb2b8c343b210bb6"><td class="memItemLeft" align="right" valign="top"><a id="a80885309fb08afa1bb2b8c343b210bb6" name="a80885309fb08afa1bb2b8c343b210bb6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkCheck</b> (int player)</td></tr>
+<tr class="memitem:a80885309fb08afa1bb2b8c343b210bb6" id="r_a80885309fb08afa1bb2b8c343b210bb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80885309fb08afa1bb2b8c343b210bb6">checkCheck</a> (int player)</td></tr>
+<tr class="memdesc:a80885309fb08afa1bb2b8c343b210bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given player is in check.  <br /></td></tr>
 <tr class="separator:a80885309fb08afa1bb2b8c343b210bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a530e62c9e0550703290498259743f6ed" id="r_a530e62c9e0550703290498259743f6ed"><td class="memItemLeft" align="right" valign="top"><a id="a530e62c9e0550703290498259743f6ed" name="a530e62c9e0550703290498259743f6ed"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>mateCheck</b> (int player)</td></tr>
@@ -236,6 +236,41 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a80885309fb08afa1bb2b8c343b210bb6" name="a80885309fb08afa1bb2b8c343b210bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80885309fb08afa1bb2b8c343b210bb6">&#9670;&#160;</a></span>checkCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cBoard::checkCheck </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>player</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the given player is in check. </p>
+<p>Prints whether or not given player is in check to the console</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>The player being checked for check (0 for white, 1 for black) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the given player is in check, otherwise false </dd></dl>
+
+</div>
+</div>
 <a id="ab5eef12ba0d65df145ab18848571eb63" name="ab5eef12ba0d65df145ab18848571eb63"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5eef12ba0d65df145ab18848571eb63">&#9670;&#160;</a></span>doMove2()</h2>
 

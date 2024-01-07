@@ -44,9 +44,8 @@ void {\bfseries print\+Hist} ()
 \Hypertarget{classc_board_ae540695862ac7ba766518328f11c032c}\label{classc_board_ae540695862ac7ba766518328f11c032c} 
 bool {\bfseries do\+Move} (\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}piece, int targetI, int targetJ)
 \item 
-\Hypertarget{classc_board_a80885309fb08afa1bb2b8c343b210bb6}\label{classc_board_a80885309fb08afa1bb2b8c343b210bb6} 
-bool {\bfseries check\+Check} (int player)
-\item 
+bool \mbox{\hyperlink{classc_board_a80885309fb08afa1bb2b8c343b210bb6}{check\+Check}} (int player)
+\begin{DoxyCompactList}\small\item\em Checks if the given player is in check. \end{DoxyCompactList}\item 
 \Hypertarget{classc_board_a530e62c9e0550703290498259743f6ed}\label{classc_board_a530e62c9e0550703290498259743f6ed} 
 bool {\bfseries mate\+Check} (int player)
 \item 
@@ -124,6 +123,26 @@ Sets the board scale \& color, creates the SFML window, and initializes all ches
 Frees all memory allocated for \doxylink{classc_piece}{c\+Piece} objects used by the \doxylink{classc_board}{c\+Board} class 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classc_board_a80885309fb08afa1bb2b8c343b210bb6}\label{classc_board_a80885309fb08afa1bb2b8c343b210bb6} 
+\index{cBoard@{cBoard}!checkCheck@{checkCheck}}
+\index{checkCheck@{checkCheck}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{checkCheck()}{checkCheck()}}
+{\footnotesize\ttfamily bool c\+Board\+::check\+Check (\begin{DoxyParamCaption}\item[{int}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the given player is in check. 
+
+Prints whether or not given player is in check to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & The player being checked for check (0 for white, 1 for black) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the given player is in check, otherwise false 
+\end{DoxyReturn}
 \Hypertarget{classc_board_ab5eef12ba0d65df145ab18848571eb63}\label{classc_board_ab5eef12ba0d65df145ab18848571eb63} 
 \index{cBoard@{cBoard}!doMove2@{doMove2}}
 \index{doMove2@{doMove2}!cBoard@{cBoard}}
