@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['Update',['../classc_board.html#a6a35c1c874fe9c41a88e7776b8addf2e',1,'cBoard']]]
+  ['turn_0',['turn',['../classc_board.html#ab67c1761efdbb28e4742dfe0022ae869',1,'cBoard']]]
 ];

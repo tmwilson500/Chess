@@ -108,12 +108,43 @@ private:
     */
     bool isOccupied(int sqI, int sqJ);
 
-
-    // If square with coordinates [sqI][sqJ] contains a drawn piece, returns a pointer to that piece.
-    // Otherwise, returns nullptr
-    // NOTE: use only when access to cPiece object attributes is necessary - otherwise use isOccupied()
+    /**
+     * @brief Returns a pointer to the chess piece at a target square
+     *  
+     * @param sqI The x-index of the target square
+     * @param sqJ The y-index of the target square
+     * @return Pointer to a cPiece object if the target square was occupied, otherwise nullptr
+     * @note Use only when access to cPiece object attributes is necessary - otherwise use isOccupied()
+    */
     cPiece* getPiece(int sqI, int sqJ);
+    
 
+    /**
+     * @brief Attempts to move a target piece to a target square & if move is completed successfully, adds it to the move history
+     * 
+     * Checks rules for check & checkmate, and checks rules for special-case moves (i.e. castle moves) to determine if move is legal.\n 
+     * If move is deemed illegal, it is not completed. If move is deemed legal, the following actions are taken based on move type:\n 
+     * 
+     * - Normal moves:\n 
+     *    1) Target piece is moved to the given destination square ( cPiece position members are updated )\n 
+     *    2) cMove instance for a normal move is created & added to the move history\n 
+     * 
+     * - Capture moves:\n 
+     *    1) Enemy piece at destination square is removed from the board\n 
+     *    2) Target piece is moved to the given destination square ( cPiece position members are updated )\n 
+     *    3)  cMove instance for a capture move is created & added to the move history\n 
+     * 
+     * - Castle moves:\n 
+     *    1) Target piece (king) is moved to the given destination square ( cPiece position members are updated )\n 
+     *    2) Secondary piece (rook) is moved to the appropriate destination square based on destination square of the king ( cPiece position members are updated )\n 
+     *    3) cMove instance for a castle move is created & added to the move history\n 
+     * 
+     * @param piece A pointer to the chess piece that is being moved
+     * @param targetI The x-index of the target square
+     * @param targetJ The y-index of the target square
+     * @return true if the piece was moved successfully (move deemed legal), otherwise false
+     * @note This function only checks rules for check, checkmate, and castle moves. Always call legalMove() first to check general movement rules for the given piece
+    */
     bool doMove2(cPiece* piece, int targetI, int targetJ);
 
     // un-does the last move, removing it from the moveHist vector and returning all pieces to their 

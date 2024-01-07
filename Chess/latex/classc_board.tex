@@ -32,12 +32,10 @@ void {\bfseries scale\+Pieces} ()
 \begin{DoxyCompactList}\small\item\em Sets scale of all chess pieces to fit within squares on the board. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied}} (int sqI, int sqJ)
 \begin{DoxyCompactList}\small\item\em Checks if a given square on the chess board is occupied by any piece. \end{DoxyCompactList}\item 
-\Hypertarget{classc_board_a19130e06e820c10e9c085572e8bd993c}\label{classc_board_a19130e06e820c10e9c085572e8bd993c} 
-\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Piece} (int sqI, int sqJ)
-\item 
-\Hypertarget{classc_board_ab5eef12ba0d65df145ab18848571eb63}\label{classc_board_ab5eef12ba0d65df145ab18848571eb63} 
-bool {\bfseries do\+Move2} (\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}piece, int targetI, int targetJ)
-\item 
+\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classc_board_a19130e06e820c10e9c085572e8bd993c}{get\+Piece}} (int sqI, int sqJ)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the chess piece at a target square. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classc_board_ab5eef12ba0d65df145ab18848571eb63}{do\+Move2}} (\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}piece, int targetI, int targetJ)
+\begin{DoxyCompactList}\small\item\em Attempts to move a target piece to a target square \& if move is completed successfully, adds it to the move history. \end{DoxyCompactList}\item 
 \Hypertarget{classc_board_a2bd5f5dff6bc47669ef9eb004d106425}\label{classc_board_a2bd5f5dff6bc47669ef9eb004d106425} 
 bool {\bfseries un\+Do\+Move} ()
 \item 
@@ -127,6 +125,76 @@ Sets the board scale \& color, creates the SFML window, and initializes all ches
 Frees all memory allocated for \doxylink{classc_piece}{c\+Piece} objects used by the \doxylink{classc_board}{c\+Board} class 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classc_board_ab5eef12ba0d65df145ab18848571eb63}\label{classc_board_ab5eef12ba0d65df145ab18848571eb63} 
+\index{cBoard@{cBoard}!doMove2@{doMove2}}
+\index{doMove2@{doMove2}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{doMove2()}{doMove2()}}
+{\footnotesize\ttfamily bool c\+Board\+::do\+Move2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*}}]{piece,  }\item[{int}]{targetI,  }\item[{int}]{targetJ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to move a target piece to a target square \& if move is completed successfully, adds it to the move history. 
+
+Checks rules for check \& checkmate, and checks rules for special-\/case moves (i.\+e. castle moves) to determine if move is legal.~\newline
+ If move is deemed illegal, it is not completed. If move is deemed legal, the following actions are taken based on move type\+:~\newline
+
+
+
+\begin{DoxyItemize}
+\item Normal moves\+:~\newline
+ 1) Target piece is moved to the given destination square ( \doxylink{classc_piece}{c\+Piece} position members are updated )~\newline
+ 2) \doxylink{structc_move}{c\+Move} instance for a normal move is created \& added to the move history~\newline
+
+\item Capture moves\+:~\newline
+ 1) Enemy piece at destination square is removed from the board~\newline
+ 2) Target piece is moved to the given destination square ( \doxylink{classc_piece}{c\+Piece} position members are updated )~\newline
+ 3) \doxylink{structc_move}{c\+Move} instance for a capture move is created \& added to the move history~\newline
+
+\item Castle moves\+:~\newline
+ 1) Target piece (king) is moved to the given destination square ( \doxylink{classc_piece}{c\+Piece} position members are updated )~\newline
+ 2) Secondary piece (rook) is moved to the appropriate destination square based on destination square of the king ( \doxylink{classc_piece}{c\+Piece} position members are updated )~\newline
+ 3) \doxylink{structc_move}{c\+Move} instance for a castle move is created \& added to the move history~\newline
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & A pointer to the chess piece that is being moved \\
+\hline
+{\em targetI} & The x-\/index of the target square \\
+\hline
+{\em targetJ} & The y-\/index of the target square \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the piece was moved successfully (move deemed legal), otherwise false 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function only checks rules for check, checkmate, and castle moves. Always call legal\+Move() first to check general movement rules for the given piece 
+\end{DoxyNote}
+\Hypertarget{classc_board_a19130e06e820c10e9c085572e8bd993c}\label{classc_board_a19130e06e820c10e9c085572e8bd993c} 
+\index{cBoard@{cBoard}!getPiece@{getPiece}}
+\index{getPiece@{getPiece}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{getPiece()}{getPiece()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classc_piece}{c\+Piece}} \texorpdfstring{$\ast$}{*} c\+Board\+::get\+Piece (\begin{DoxyParamCaption}\item[{int}]{sqI,  }\item[{int}]{sqJ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns a pointer to the chess piece at a target square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sqI} & The x-\/index of the target square \\
+\hline
+{\em sqJ} & The y-\/index of the target square \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a \doxylink{classc_piece}{c\+Piece} object if the target square was occupied, otherwise nullptr 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use only when access to \doxylink{classc_piece}{c\+Piece} object attributes is necessary -\/ otherwise use \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} 
+\end{DoxyNote}
 \Hypertarget{classc_board_a9bf3289315cb694a4731e59e8a33920a}\label{classc_board_a9bf3289315cb694a4731e59e8a33920a} 
 \index{cBoard@{cBoard}!isOccupied@{isOccupied}}
 \index{isOccupied@{isOccupied}!cBoard@{cBoard}}
@@ -147,7 +215,7 @@ Returns true if the given square currently contains any piece, otherwise returns
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
-prefer \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} over get\+Piece() when access to \doxylink{classc_piece}{c\+Piece} object attributes is not strictly necessary 
+prefer \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} over \doxylink{classc_board_a19130e06e820c10e9c085572e8bd993c}{get\+Piece()} when access to \doxylink{classc_piece}{c\+Piece} object attributes is not strictly necessary 
 \end{DoxyNote}
 \Hypertarget{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}\label{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e} 
 \index{cBoard@{cBoard}!Update@{Update}}

@@ -64,39 +64,36 @@
 \DoxyCodeLine{00098\ }
 \DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{isOccupied}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
 \DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ If\ square\ with\ coordinates\ [sqI][sqJ]\ contains\ a\ drawn\ piece,\ returns\ a\ pointer\ to\ that\ piece.}}
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ returns\ nullptr}}
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ use\ only\ when\ access\ to\ cPiece\ object\ attributes\ is\ necessary\ -\/\ otherwise\ use\ isOccupied()}}
-\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ getPiece(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMove2(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ un-\/does\ the\ last\ move,\ removing\ it\ from\ the\ moveHist\ vector\ and\ returning\ all\ pieces\ to\ their\ }}
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ original\ position\ before\ that\ move}}
-\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ could\ be\ un-\/done,\ otherwise\ returns\ false}}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ unDoMove();}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//Prints\ current\ move\ history\ for\ the\ entire\ game\ to\ the\ console}}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ printHist();}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ Takes\ a\ pointer\ to\ a\ cPiece\ object\ and\ attempts\ to\ move\ it\ to\ square\ at\ coordinates\ [targetI][targetJ]}}
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ If\ target\ square\ contains\ enemy\ piece,\ capture\ it}}
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ move\ was\ executed\ successfully,\ otherwise\ return\ false}}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ fully\ check\ legality\ of\ move\ -\/\ always\ check\ legality\ using\ legalMove()\ first}}
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMove(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//Checks\ if\ king\ belonging\ to\ player\ is\ in\ check}}
-\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//If\ player's\ king\ is\ in\ check,\ return\ true,\ otherwise\ return\ false}}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkCheck(\textcolor{keywordtype}{int}\ player);}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//Returns\ true\ if\ player\ is\ in\ checkmate,\ otherwise\ returns\ false}}
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ mateCheck(\textcolor{keywordtype}{int}\ player);}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ moving\ cPiece\ object\ 'piece'\ to\ square\ with\ coords\ [newSqI][newSqJ]\ is\ legal}}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ is\ legal,\ otherwise\ returns\ false}}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ execute\ move\ or\ modify\ any\ pieces\ -\/\ use\ doMove()\ to\ execute\ move\ after\ checking\ legality}}
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ legalMove(\mbox{\hyperlink{classc_piece}{cPiece}}\ piece,\ \textcolor{keywordtype}{int}\ newSqI,\ \textcolor{keywordtype}{int}\ newSqJ);}
-\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{classc_board_a19130e06e820c10e9c085572e8bd993c}{getPiece}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
+\DoxyCodeLine{00120\ \ \ \ \ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_ab5eef12ba0d65df145ab18848571eb63}{doMove2}}(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ un-\/does\ the\ last\ move,\ removing\ it\ from\ the\ moveHist\ vector\ and\ returning\ all\ pieces\ to\ their\ }}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ original\ position\ before\ that\ move}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ could\ be\ un-\/done,\ otherwise\ returns\ false}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{bool}\ unDoMove();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//Prints\ current\ move\ history\ for\ the\ entire\ game\ to\ the\ console}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ printHist();}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ Takes\ a\ pointer\ to\ a\ cPiece\ object\ and\ attempts\ to\ move\ it\ to\ square\ at\ coordinates\ [targetI][targetJ]}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ If\ target\ square\ contains\ enemy\ piece,\ capture\ it}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ move\ was\ executed\ successfully,\ otherwise\ return\ false}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ fully\ check\ legality\ of\ move\ -\/\ always\ check\ legality\ using\ legalMove()\ first}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMove(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//Checks\ if\ king\ belonging\ to\ player\ is\ in\ check}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//If\ player's\ king\ is\ in\ check,\ return\ true,\ otherwise\ return\ false}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkCheck(\textcolor{keywordtype}{int}\ player);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//Returns\ true\ if\ player\ is\ in\ checkmate,\ otherwise\ returns\ false}}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ mateCheck(\textcolor{keywordtype}{int}\ player);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ moving\ cPiece\ object\ 'piece'\ to\ square\ with\ coords\ [newSqI][newSqJ]\ is\ legal}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ is\ legal,\ otherwise\ returns\ false}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ execute\ move\ or\ modify\ any\ pieces\ -\/\ use\ doMove()\ to\ execute\ move\ after\ checking\ legality}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{bool}\ legalMove(\mbox{\hyperlink{classc_piece}{cPiece}}\ piece,\ \textcolor{keywordtype}{int}\ newSqI,\ \textcolor{keywordtype}{int}\ newSqJ);}
+\DoxyCodeLine{00177\ \};}
 
 \end{DoxyCode}

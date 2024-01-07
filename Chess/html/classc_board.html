@@ -115,11 +115,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>scalePieces</b> ()</t
 <tr class="memitem:a9bf3289315cb694a4731e59e8a33920a" id="r_a9bf3289315cb694a4731e59e8a33920a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bf3289315cb694a4731e59e8a33920a">isOccupied</a> (int sqI, int sqJ)</td></tr>
 <tr class="memdesc:a9bf3289315cb694a4731e59e8a33920a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a given square on the chess board is occupied by any piece.  <br /></td></tr>
 <tr class="separator:a9bf3289315cb694a4731e59e8a33920a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19130e06e820c10e9c085572e8bd993c" id="r_a19130e06e820c10e9c085572e8bd993c"><td class="memItemLeft" align="right" valign="top"><a id="a19130e06e820c10e9c085572e8bd993c" name="a19130e06e820c10e9c085572e8bd993c"></a>
-<a class="el" href="classc_piece.html">cPiece</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPiece</b> (int sqI, int sqJ)</td></tr>
+<tr class="memitem:a19130e06e820c10e9c085572e8bd993c" id="r_a19130e06e820c10e9c085572e8bd993c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classc_piece.html">cPiece</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19130e06e820c10e9c085572e8bd993c">getPiece</a> (int sqI, int sqJ)</td></tr>
+<tr class="memdesc:a19130e06e820c10e9c085572e8bd993c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the chess piece at a target square.  <br /></td></tr>
 <tr class="separator:a19130e06e820c10e9c085572e8bd993c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5eef12ba0d65df145ab18848571eb63" id="r_ab5eef12ba0d65df145ab18848571eb63"><td class="memItemLeft" align="right" valign="top"><a id="ab5eef12ba0d65df145ab18848571eb63" name="ab5eef12ba0d65df145ab18848571eb63"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>doMove2</b> (<a class="el" href="classc_piece.html">cPiece</a> *piece, int targetI, int targetJ)</td></tr>
+<tr class="memitem:ab5eef12ba0d65df145ab18848571eb63" id="r_ab5eef12ba0d65df145ab18848571eb63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5eef12ba0d65df145ab18848571eb63">doMove2</a> (<a class="el" href="classc_piece.html">cPiece</a> *piece, int targetI, int targetJ)</td></tr>
+<tr class="memdesc:ab5eef12ba0d65df145ab18848571eb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to move a target piece to a target square &amp; if move is completed successfully, adds it to the move history.  <br /></td></tr>
 <tr class="separator:ab5eef12ba0d65df145ab18848571eb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bd5f5dff6bc47669ef9eb004d106425" id="r_a2bd5f5dff6bc47669ef9eb004d106425"><td class="memItemLeft" align="right" valign="top"><a id="a2bd5f5dff6bc47669ef9eb004d106425" name="a2bd5f5dff6bc47669ef9eb004d106425"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>unDoMove</b> ()</td></tr>
@@ -235,6 +235,111 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab5eef12ba0d65df145ab18848571eb63" name="ab5eef12ba0d65df145ab18848571eb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5eef12ba0d65df145ab18848571eb63">&#9670;&#160;</a></span>doMove2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cBoard::doMove2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classc_piece.html">cPiece</a> *</td>          <td class="paramname"><span class="paramname"><em>piece</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targetI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>targetJ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attempts to move a target piece to a target square &amp; if move is completed successfully, adds it to the move history. </p>
+<p>Checks rules for check &amp; checkmate, and checks rules for special-case moves (i.e. castle moves) to determine if move is legal.<br  />
+ If move is deemed illegal, it is not completed. If move is deemed legal, the following actions are taken based on move type:<br  />
+</p>
+<ul>
+<li>Normal moves:<br  />
+ 1) Target piece is moved to the given destination square ( <a class="el" href="classc_piece.html">cPiece</a> position members are updated )<br  />
+ 2) <a class="el" href="structc_move.html">cMove</a> instance for a normal move is created &amp; added to the move history<br  />
+</li>
+<li>Capture moves:<br  />
+ 1) Enemy piece at destination square is removed from the board<br  />
+ 2) Target piece is moved to the given destination square ( <a class="el" href="classc_piece.html">cPiece</a> position members are updated )<br  />
+ 3) <a class="el" href="structc_move.html">cMove</a> instance for a capture move is created &amp; added to the move history<br  />
+</li>
+<li>Castle moves:<br  />
+ 1) Target piece (king) is moved to the given destination square ( <a class="el" href="classc_piece.html">cPiece</a> position members are updated )<br  />
+ 2) Secondary piece (rook) is moved to the appropriate destination square based on destination square of the king ( <a class="el" href="classc_piece.html">cPiece</a> position members are updated )<br  />
+ 3) <a class="el" href="structc_move.html">cMove</a> instance for a castle move is created &amp; added to the move history<br  />
+</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">piece</td><td>A pointer to the chess piece that is being moved </td></tr>
+    <tr><td class="paramname">targetI</td><td>The x-index of the target square </td></tr>
+    <tr><td class="paramname">targetJ</td><td>The y-index of the target square </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the piece was moved successfully (move deemed legal), otherwise false </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function only checks rules for check, checkmate, and castle moves. Always call legalMove() first to check general movement rules for the given piece </dd></dl>
+
+</div>
+</div>
+<a id="a19130e06e820c10e9c085572e8bd993c" name="a19130e06e820c10e9c085572e8bd993c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19130e06e820c10e9c085572e8bd993c">&#9670;&#160;</a></span>getPiece()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classc_piece.html">cPiece</a> * cBoard::getPiece </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sqI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sqJ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a pointer to the chess piece at a target square. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sqI</td><td>The x-index of the target square </td></tr>
+    <tr><td class="paramname">sqJ</td><td>The y-index of the target square </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a <a class="el" href="classc_piece.html">cPiece</a> object if the target square was occupied, otherwise nullptr </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use only when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is necessary - otherwise use <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> </dd></dl>
+
+</div>
+</div>
 <a id="a9bf3289315cb694a4731e59e8a33920a" name="a9bf3289315cb694a4731e59e8a33920a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9bf3289315cb694a4731e59e8a33920a">&#9670;&#160;</a></span>isOccupied()</h2>
 
@@ -271,7 +376,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>prefer <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> over getPiece() when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is not strictly necessary </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>prefer <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> over <a class="el" href="#a19130e06e820c10e9c085572e8bd993c" title="Returns a pointer to the chess piece at a target square.">getPiece()</a> when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is not strictly necessary </dd></dl>
 
 </div>
 </div>
