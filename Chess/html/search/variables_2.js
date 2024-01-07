@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pieces_0',['pieces',['../classc_board.html#af7cc392bdc866ae2b049d44261d79421',1,'cBoard']]],
-  ['pieceselected_1',['pieceSelected',['../classc_board.html#a92b3719badd9823b04d963c8804e2d55',1,'cBoard']]]
+  ['endx_0',['endX',['../structc_move.html#a3e33e4556419483a3f687cbce72cbcb5',1,'cMove']]],
+  ['endy_1',['endY',['../structc_move.html#aab65ba1e6f0b29e01996de611d9abb25',1,'cMove']]]
 ];

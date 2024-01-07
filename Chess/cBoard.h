@@ -7,19 +7,28 @@
 
 using namespace sf;
 
+/** /struct cMove
+ * @brief C-struct encapsulating all information relevant to one complete chess move
+ * 
+ * This struct is meant to be instantiated upon the successful completion of a move, and then added to the game move history
+*/
 struct cMove
 {
-    int startX;
-    int startY;
-    int endX;
-    int endY;
-    int castleSide;//-1 for queen side castle, 1 for king side castle, 0 for non-castle moves (default)
-    bool wasStart; //True when moved piece originated at its starting position
-    cPiece* movPiece;  //The primary piece that was moved
-    cPiece* capPiece;  //The piece that was captured (nullptr if move did not result in capture)
-    cPiece* movPiece2; //The second piece that was moved (used only for castle moves)
+    int startX;/**< The x-coordinate of the primary moved piece before the move was executed*/
+    int startY;/**< The y-coordinate of the primary moved piece before the move was executed*/
+    int endX;/**< The x-coordinate of the primary moved piece after the move was executed*/
+    int endY;/**< The y-coordinate of the primary moved piece after the move was executed*/
+    int castleSide;/**< The side of the board that a castle move was executed on (-1 for queen side castle, 1 for king side castle, 0 (default) for non-castle moves)*/
+    bool wasStart;/**< True when moved piece originated at its starting position, otherwise false*/
+    cPiece* movPiece;/**< The primary piece that was moved (always used)*/
+    cPiece* capPiece;/**< The piece that was captured (nullptr if move did not result in capture)*/
+    cPiece* movPiece2;/**< The second piece that was moved (used only for castle moves)*/
     
-    //Constructor to initialize pointer members
+    /**
+    * @brief cMove constructor
+    * 
+    * By default, initializes all pointer members to nullptr, all int members to 0, and all boolean members to false
+    */
     cMove(cPiece* primary = nullptr, int sX = 0, int sY = 0, int eX = 0, int eY = 0, bool start = false, cPiece* cap = nullptr, cPiece* secondary = nullptr, int castle = 0) 
         : movPiece(primary), startX(sX), startY(sY), endX(eX), endY(eY), wasStart(start), capPiece(cap), movPiece2(secondary), castleSide(castle) {}
 };

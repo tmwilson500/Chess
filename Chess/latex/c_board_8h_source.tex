@@ -10,88 +10,86 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }sf;}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structc_move}{cMove}}}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ startX;}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ startY;}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ endX;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ endY;}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ castleSide;\textcolor{comment}{//-\/1\ for\ queen\ side\ castle,\ 1\ for\ king\ side\ castle,\ 0\ for\ non-\/castle\ moves\ (default)}}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ wasStart;\ \textcolor{comment}{//True\ when\ moved\ piece\ originated\ at\ its\ starting\ position}}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ movPiece;\ \ \textcolor{comment}{//The\ primary\ piece\ that\ was\ moved}}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ capPiece;\ \ \textcolor{comment}{//The\ piece\ that\ was\ captured\ (nullptr\ if\ move\ did\ not\ result\ in\ capture)}}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ movPiece2;\ \textcolor{comment}{//The\ second\ piece\ that\ was\ moved\ (used\ only\ for\ castle\ moves)}}
-\DoxyCodeLine{00021\ \ \ \ \ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//Constructor\ to\ initialize\ pointer\ members}}
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structc_move}{cMove}}(\mbox{\hyperlink{classc_piece}{cPiece}}*\ primary\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ sX\ =\ 0,\ \textcolor{keywordtype}{int}\ sY\ =\ 0,\ \textcolor{keywordtype}{int}\ eX\ =\ 0,\ \textcolor{keywordtype}{int}\ eY\ =\ 0,\ \textcolor{keywordtype}{bool}\ start\ =\ \textcolor{keyword}{false},\ \mbox{\hyperlink{classc_piece}{cPiece}}*\ cap\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classc_piece}{cPiece}}*\ secondary\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ castle\ =\ 0)\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ :\ movPiece(primary),\ startX(sX),\ startY(sY),\ endX(eX),\ endY(eY),\ wasStart(start),\ capPiece(cap),\ movPiece2(secondary),\ castleSide(castle)\ \{\}}
-\DoxyCodeLine{00025\ \};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classc_board}{cBoard}}\ \{}
-\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4}{cBoard}}(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ boardTheme[2][3],\ std::map<int,\ std::string>\ pieceTheme);}
-\DoxyCodeLine{00046\ \ \ \ \ }
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classc_board_a1a1afe34658c3d79c6d727b67a25fe00}{\string~cBoard}}();}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}{Update}}();}
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structc_move}{cMove}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structc_move_a54eba495724e3c23c3893ecb6492720b}{startX}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structc_move_a53c9b29975195fabf1dcc1e581545677}{startY}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structc_move_a3e33e4556419483a3f687cbce72cbcb5}{endX}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structc_move_aab65ba1e6f0b29e01996de611d9abb25}{endY}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structc_move_ac173bc7faad1935d3b2fcf840772d15c}{castleSide}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structc_move_a5d28d6a9932c0b3d77a4129dcd1a4a65}{wasStart}};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{structc_move_a62997124992b5931f16cf51aef6c4694}{movPiece}};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{structc_move_aec82abffee105b3c4c06365b63509fe3}{capPiece}};}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{structc_move_a7b1e58f2bc8ff20cbb123458f6c78813}{movPiece2}};}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{structc_move_aa871f0bd97645ea09da85ed099cd0311}{cMove}}(\mbox{\hyperlink{classc_piece}{cPiece}}*\ primary\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ sX\ =\ 0,\ \textcolor{keywordtype}{int}\ sY\ =\ 0,\ \textcolor{keywordtype}{int}\ eX\ =\ 0,\ \textcolor{keywordtype}{int}\ eY\ =\ 0,\ \textcolor{keywordtype}{bool}\ start\ =\ \textcolor{keyword}{false},\ \mbox{\hyperlink{classc_piece}{cPiece}}*\ cap\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classc_piece}{cPiece}}*\ secondary\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ castle\ =\ 0)\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structc_move_a62997124992b5931f16cf51aef6c4694}{movPiece}}(primary),\ \mbox{\hyperlink{structc_move_a54eba495724e3c23c3893ecb6492720b}{startX}}(sX),\ \mbox{\hyperlink{structc_move_a53c9b29975195fabf1dcc1e581545677}{startY}}(sY),\ \mbox{\hyperlink{structc_move_a3e33e4556419483a3f687cbce72cbcb5}{endX}}(eX),\ \mbox{\hyperlink{structc_move_aab65ba1e6f0b29e01996de611d9abb25}{endY}}(eY),\ \mbox{\hyperlink{structc_move_a5d28d6a9932c0b3d77a4129dcd1a4a65}{wasStart}}(start),\ \mbox{\hyperlink{structc_move_aec82abffee105b3c4c06365b63509fe3}{capPiece}}(cap),\ \mbox{\hyperlink{structc_move_a7b1e58f2bc8ff20cbb123458f6c78813}{movPiece2}}(secondary),\ \mbox{\hyperlink{structc_move_ac173bc7faad1935d3b2fcf840772d15c}{castleSide}}(castle)\ \{\}}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classc_board}{cBoard}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classc_board_a73cc8574b696c4ac1aeb481ed17c9fe4}{cBoard}}(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ boardTheme[2][3],\ std::map<int,\ std::string>\ pieceTheme);}
+\DoxyCodeLine{00055\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classc_board_a1a1afe34658c3d79c6d727b67a25fe00}{\string~cBoard}}();}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00064\ \ \ \ \ RenderWindow\ \mbox{\hyperlink{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}{win}};\ }
-\DoxyCodeLine{00065\ \ \ \ \ RectangleShape\ \mbox{\hyperlink{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}{squares}}[8][8];\ }
-\DoxyCodeLine{00066\ \ \ \ \ Color\ \mbox{\hyperlink{classc_board_a73ad176f97652c7d17c1eef08aa6e644}{sColors}}[2];\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}{sColor}}\ =\ 1;\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}{sW}};\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classc_board_a38237fa9e608b8f49a214452150f03d0}{sH}};\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_a3edd67210471079eb566375af47b5b47}{selectIndex}}\ =\ -\/1;\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a92b3719badd9823b04d963c8804e2d55}{pieceSelected}}\ =\ \textcolor{keyword}{false};\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_ab67c1761efdbb28e4742dfe0022ae869}{turn}}\ =\ 0;\ }
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{classc_board_af7cc392bdc866ae2b049d44261d79421}{pieces}}[64];\ }
-\DoxyCodeLine{00074\ \ \ \ \ std::vector<cMove*>\ \mbox{\hyperlink{classc_board_a7be074a616bec2c8533aeabf2cc01356}{moveHist}};\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_acda39afbc354b40730eb91d1b6853603}{boardMap}}[8][8]\ =\ \{\ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\},}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{5,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/5\},}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{6,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/6\},}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\}\ \};\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a97bb593cf962f42ade0d1c12734622b0}{drawSquares}}();}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a41ce55a2280150fe72d9ab071691e106}{drawPieces}}();}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_afb51d861a93f0af56d7d728f8e2a8549}{scalePieces}}();}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{isOccupied}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{classc_board_a19130e06e820c10e9c085572e8bd993c}{getPiece}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
-\DoxyCodeLine{00120\ \ \ \ \ }
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_ab5eef12ba0d65df145ab18848571eb63}{doMove2}}(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ un-\/does\ the\ last\ move,\ removing\ it\ from\ the\ moveHist\ vector\ and\ returning\ all\ pieces\ to\ their\ }}
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ original\ position\ before\ that\ move}}
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ could\ be\ un-\/done,\ otherwise\ returns\ false}}
-\DoxyCodeLine{00153\ \ \ \ \ }
-\DoxyCodeLine{00154\ \ \ \ \ }
-\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a2bd5f5dff6bc47669ef9eb004d106425}{unDoMove}}();}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//Prints\ current\ move\ history\ for\ the\ entire\ game\ to\ the\ console}}
-\DoxyCodeLine{00166\ \ \ \ \ }
-\DoxyCodeLine{00167\ \ \ \ \ }
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a92f12e54c619a311690d0c2900ca7cb0}{printHist}}();}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ Takes\ a\ pointer\ to\ a\ cPiece\ object\ and\ attempts\ to\ move\ it\ to\ square\ at\ coordinates\ [targetI][targetJ]}}
-\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ If\ target\ square\ contains\ enemy\ piece,\ capture\ it}}
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ move\ was\ executed\ successfully,\ otherwise\ return\ false}}
-\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ fully\ check\ legality\ of\ move\ -\/\ always\ check\ legality\ using\ legalMove()\ first}}
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMove(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a80885309fb08afa1bb2b8c343b210bb6}{checkCheck}}(\textcolor{keywordtype}{int}\ player);}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a530e62c9e0550703290498259743f6ed}{mateCheck}}(\textcolor{keywordtype}{int}\ player);}
-\DoxyCodeLine{00200\ \ \ \ \ }
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}{legalMove}}(\mbox{\hyperlink{classc_piece}{cPiece}}\ piece,\ \textcolor{keywordtype}{int}\ newSqI,\ \textcolor{keywordtype}{int}\ newSqJ);}
-\DoxyCodeLine{00211\ \};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a6a35c1c874fe9c41a88e7776b8addf2e}{Update}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \ \ \ \ RenderWindow\ \mbox{\hyperlink{classc_board_a54d58a006e8b841320267c7f8c6e3c6f}{win}};\ }
+\DoxyCodeLine{00074\ \ \ \ \ RectangleShape\ \mbox{\hyperlink{classc_board_acdb0c6e60b6afa3081bd3fd0862315d1}{squares}}[8][8];\ }
+\DoxyCodeLine{00075\ \ \ \ \ Color\ \mbox{\hyperlink{classc_board_a73ad176f97652c7d17c1eef08aa6e644}{sColors}}[2];\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_aad3fa4fb00b131d308a3e5a2de386ca4}{sColor}}\ =\ 1;\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classc_board_a99fc9c822263d9b1f790a7c103fbb2a1}{sW}};\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classc_board_a38237fa9e608b8f49a214452150f03d0}{sH}};\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_a3edd67210471079eb566375af47b5b47}{selectIndex}}\ =\ -\/1;\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a92b3719badd9823b04d963c8804e2d55}{pieceSelected}}\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_ab67c1761efdbb28e4742dfe0022ae869}{turn}}\ =\ 0;\ }
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{classc_board_af7cc392bdc866ae2b049d44261d79421}{pieces}}[64];\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<cMove*>\ \mbox{\hyperlink{classc_board_a7be074a616bec2c8533aeabf2cc01356}{moveHist}};\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classc_board_acda39afbc354b40730eb91d1b6853603}{boardMap}}[8][8]\ =\ \{\ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{5,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/5\},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{6,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/6\},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/4\},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/3\},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ -\/1,\ -\/2\}\ \};\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a97bb593cf962f42ade0d1c12734622b0}{drawSquares}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a41ce55a2280150fe72d9ab071691e106}{drawPieces}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_afb51d861a93f0af56d7d728f8e2a8549}{scalePieces}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{isOccupied}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classc_piece}{cPiece}}*\ \mbox{\hyperlink{classc_board_a19130e06e820c10e9c085572e8bd993c}{getPiece}}(\textcolor{keywordtype}{int}\ sqI,\ \textcolor{keywordtype}{int}\ sqJ);}
+\DoxyCodeLine{00129\ \ \ \ \ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_ab5eef12ba0d65df145ab18848571eb63}{doMove2}}(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ un-\/does\ the\ last\ move,\ removing\ it\ from\ the\ moveHist\ vector\ and\ returning\ all\ pieces\ to\ their\ }}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ original\ position\ before\ that\ move}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ Returns\ true\ if\ move\ could\ be\ un-\/done,\ otherwise\ returns\ false}}
+\DoxyCodeLine{00162\ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a2bd5f5dff6bc47669ef9eb004d106425}{unDoMove}}();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//Prints\ current\ move\ history\ for\ the\ entire\ game\ to\ the\ console}}
+\DoxyCodeLine{00175\ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classc_board_a92f12e54c619a311690d0c2900ca7cb0}{printHist}}();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ Takes\ a\ pointer\ to\ a\ cPiece\ object\ and\ attempts\ to\ move\ it\ to\ square\ at\ coordinates\ [targetI][targetJ]}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ If\ target\ square\ contains\ enemy\ piece,\ capture\ it}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ move\ was\ executed\ successfully,\ otherwise\ return\ false}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ NOTE:\ does\ not\ fully\ check\ legality\ of\ move\ -\/\ always\ check\ legality\ using\ legalMove()\ first}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMove(\mbox{\hyperlink{classc_piece}{cPiece}}*\ piece,\ \textcolor{keywordtype}{int}\ targetI,\ \textcolor{keywordtype}{int}\ targetJ);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a80885309fb08afa1bb2b8c343b210bb6}{checkCheck}}(\textcolor{keywordtype}{int}\ player);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a530e62c9e0550703290498259743f6ed}{mateCheck}}(\textcolor{keywordtype}{int}\ player);}
+\DoxyCodeLine{00209\ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}{legalMove}}(\mbox{\hyperlink{classc_piece}{cPiece}}\ piece,\ \textcolor{keywordtype}{int}\ newSqI,\ \textcolor{keywordtype}{int}\ newSqJ);}
+\DoxyCodeLine{00220\ \};}
 
 \end{DoxyCode}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getpiece_0',['getPiece',['../classc_board.html#a19130e06e820c10e9c085572e8bd993c',1,'cBoard']]]
+  ['endx_0',['endX',['../structc_move.html#a3e33e4556419483a3f687cbce72cbcb5',1,'cMove']]],
+  ['endy_1',['endY',['../structc_move.html#aab65ba1e6f0b29e01996de611d9abb25',1,'cMove']]]
 ];
