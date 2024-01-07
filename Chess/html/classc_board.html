@@ -121,8 +121,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>scalePieces</b> ()</t
 <tr class="memitem:ab5eef12ba0d65df145ab18848571eb63" id="r_ab5eef12ba0d65df145ab18848571eb63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5eef12ba0d65df145ab18848571eb63">doMove2</a> (<a class="el" href="classc_piece.html">cPiece</a> *piece, int targetI, int targetJ)</td></tr>
 <tr class="memdesc:ab5eef12ba0d65df145ab18848571eb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to move a target piece to a target square &amp; if move is completed successfully, adds it to the move history.  <br /></td></tr>
 <tr class="separator:ab5eef12ba0d65df145ab18848571eb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bd5f5dff6bc47669ef9eb004d106425" id="r_a2bd5f5dff6bc47669ef9eb004d106425"><td class="memItemLeft" align="right" valign="top"><a id="a2bd5f5dff6bc47669ef9eb004d106425" name="a2bd5f5dff6bc47669ef9eb004d106425"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>unDoMove</b> ()</td></tr>
+<tr class="memitem:a2bd5f5dff6bc47669ef9eb004d106425" id="r_a2bd5f5dff6bc47669ef9eb004d106425"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bd5f5dff6bc47669ef9eb004d106425">unDoMove</a> ()</td></tr>
+<tr class="memdesc:a2bd5f5dff6bc47669ef9eb004d106425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un-does most recent move.  <br /></td></tr>
 <tr class="separator:a2bd5f5dff6bc47669ef9eb004d106425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92f12e54c619a311690d0c2900ca7cb0" id="r_a92f12e54c619a311690d0c2900ca7cb0"><td class="memItemLeft" align="right" valign="top"><a id="a92f12e54c619a311690d0c2900ca7cb0" name="a92f12e54c619a311690d0c2900ca7cb0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printHist</b> ()</td></tr>
@@ -377,6 +377,36 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>prefer <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> over <a class="el" href="#a19130e06e820c10e9c085572e8bd993c" title="Returns a pointer to the chess piece at a target square.">getPiece()</a> when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is not strictly necessary </dd></dl>
+
+</div>
+</div>
+<a id="a2bd5f5dff6bc47669ef9eb004d106425" name="a2bd5f5dff6bc47669ef9eb004d106425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd5f5dff6bc47669ef9eb004d106425">&#9670;&#160;</a></span>unDoMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cBoard::unDoMove </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un-does most recent move. </p>
+<p>Removes the most recent move from the game's move history, and returns all moved pieces to their original positions before that move was executed.<br  />
+ If any pieces were captured in that move, they are returned to the board in their last known position.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if a move was un-done successfully. False if there were no moves to un-do (move history empty) </dd></dl>
 
 </div>
 </div>

@@ -150,6 +150,16 @@ private:
     // un-does the last move, removing it from the moveHist vector and returning all pieces to their 
     // original position before that move
     // Returns true if move could be un-done, otherwise returns false
+    
+    
+    /**
+    * @brief Un-does most recent move
+    * 
+    * Removes the most recent move from the game's move history, and returns all moved pieces to their original positions before that move was executed.\n 
+    * If any pieces were captured in that move, they are returned to the board in their last known position.
+    * 
+    * @return true if a move was un-done successfully. False if there were no moves to un-do (move history empty)
+    */
     bool unDoMove();
 
     //Prints current move history for the entire game to the console
