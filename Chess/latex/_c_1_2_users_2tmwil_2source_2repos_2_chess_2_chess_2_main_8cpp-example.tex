@@ -11,6 +11,7 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }sf;}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ map\ that\ correlates\ piece\ IDs\ to\ the\ appropriate\ texture\ file\ paths\ (should\ be\ PNG\ files)}}
 \DoxyCodeLine{\textcolor{keyword}{const}\ std::map<int,\ std::string>\ pieceTheme1\ =\ \{\ }
 \DoxyCodeLine{\ \ \ \ \{1,\ \textcolor{stringliteral}{"{}Textures/bp.png"{}}\},}
 \DoxyCodeLine{\ \ \ \ \{2,\ \textcolor{stringliteral}{"{}Textures/br.png"{}}\},}
@@ -25,6 +26,8 @@
 \DoxyCodeLine{\ \ \ \ \{-\/5,\ \textcolor{stringliteral}{"{}Textures/wq.png"{}}\},}
 \DoxyCodeLine{\ \ \ \ \{-\/6,\ \textcolor{stringliteral}{"{}Textures/wkg.png"{}}\}\ \};}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ an\ array\ of\ RGB\ color\ codes\ for\ dark\ \&\ light\ squares\ on\ the\ board}}
+\DoxyCodeLine{\textcolor{comment}{//\ Array\ should\ be\ formatted\ as:\ \{\ \{dark.r,\ dark.g,\ dark.b\},\ \{light.r,\ light.g,\ light.b\}\ \}}}
 \DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ boardTheme1[2][3]\ =\ \{\ \{118,150,86\},}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{238,238,210\}\ \};}
 \DoxyCodeLine{}
@@ -32,7 +35,10 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
 \DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ an\ instance\ of\ the\ cBoard\ class\ using\ the\ desired\ initial\ window\ size\ (x\ \&\ y),\ and\ board\ theme\ and\ piece\ theme\ defined\ above}}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classc_board}{cBoard}}\ board(600.f,\ 600.f,\ boardTheme1,\ pieceTheme1);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Continuously\ run\ the\ Update()\ function\ to\ check\ for\ user\ input\ until\ the\ game\ is\ finished}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (board.Update())\ \{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \}}

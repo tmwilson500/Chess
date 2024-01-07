@@ -85,6 +85,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>sf;</div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// Define a map that correlates piece IDs to the appropriate texture file paths (should be PNG files)</span></div>
 <div class="line"><span class="keyword">const</span> std::map&lt;int, std::string&gt; pieceTheme1 = { </div>
 <div class="line">    {1, <span class="stringliteral">&quot;Textures/bp.png&quot;</span>},</div>
 <div class="line">    {2, <span class="stringliteral">&quot;Textures/br.png&quot;</span>},</div>
@@ -99,6 +100,8 @@ $(function() {
 <div class="line">    {-5, <span class="stringliteral">&quot;Textures/wq.png&quot;</span>},</div>
 <div class="line">    {-6, <span class="stringliteral">&quot;Textures/wkg.png&quot;</span>} };</div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// Define an array of RGB color codes for dark &amp; light squares on the board</span></div>
+<div class="line"><span class="comment">// Array should be formatted as: { {dark.r, dark.g, dark.b}, {light.r, light.g, light.b} }</span></div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">int</span> boardTheme1[2][3] = { {118,150,86},</div>
 <div class="line">                                {238,238,210} };</div>
 <div class="line"> </div>
@@ -106,7 +109,10 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
+<div class="line">    <span class="comment">// Create an instance of the cBoard class using the desired initial window size (x &amp; y), and board theme and piece theme defined above</span></div>
 <div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="classc_board.html">cBoard</a> board(600.f, 600.f, boardTheme1, pieceTheme1);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Continuously run the Update() function to check for user input until the game is finished</span></div>
 <div class="line">    <span class="keywordflow">while</span> (board.Update()) {</div>
 <div class="line"> </div>
 <div class="line">    }</div>
