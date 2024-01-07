@@ -186,7 +186,16 @@ private:
     */
     bool checkCheck(int player);
 
-    //Returns true if player is in checkmate, otherwise returns false
+    /**
+     * @brief Checks if the given player is in checkmate
+     * 
+     * If the player is in checkmate, "GAME OVER" is printed to the console.\n 
+     * If the player is not in checkmate, the first valid move found for that player to escape check\n 
+     * is printed to the console instead (piece ID and destination square indices)
+     * @param player The player being checked for check (0 for white, 1 for black)
+     * @return True if the given player is in checkmate, otherwise false
+     * @note This function assumes the player is already in check. Always call checkCheck() first
+    */
     bool mateCheck(int player);
 
     // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
