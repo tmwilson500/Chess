@@ -1,0 +1,43 @@
+\doxysection{C\+:/\+Users/tmwil/source/repos/\+Chess/\+Chess/\+Main.\+cpp}
+\hypertarget{_c_1_2_users_2tmwil_2source_2repos_2_chess_2_chess_2_main_8cpp-example}{}\label{_c_1_2_users_2tmwil_2source_2repos_2_chess_2_chess_2_main_8cpp-example}
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <SFML/System.hpp>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}cBoard.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }sf;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ std::map<int,\ std::string>\ pieceTheme1\ =\ \{\ }
+\DoxyCodeLine{\ \ \ \ \{1,\ \textcolor{stringliteral}{"{}Textures/bp.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{2,\ \textcolor{stringliteral}{"{}Textures/br.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{3,\ \textcolor{stringliteral}{"{}Textures/bkn.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{4,\ \textcolor{stringliteral}{"{}Textures/bb.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{5,\ \textcolor{stringliteral}{"{}Textures/bq.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{6,\ \textcolor{stringliteral}{"{}Textures/bkg.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/1,\ \textcolor{stringliteral}{"{}Textures/wp.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/2,\ \textcolor{stringliteral}{"{}Textures/wr.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/3,\ \textcolor{stringliteral}{"{}Textures/wkn.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/4,\ \textcolor{stringliteral}{"{}Textures/wb.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/5,\ \textcolor{stringliteral}{"{}Textures/wq.png"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{-\/6,\ \textcolor{stringliteral}{"{}Textures/wkg.png"{}}\}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ boardTheme1[2][3]\ =\ \{\ \{118,150,86\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{238,238,210\}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classc_board}{cBoard}}\ board(600.f,\ 600.f,\ boardTheme1,\ pieceTheme1);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (board.Update())\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

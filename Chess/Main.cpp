@@ -6,7 +6,9 @@
 #include <map>
 #include "cBoard.h"
 
-
+/**
+* @example
+*/
 using namespace sf;
 
 const std::map<int, std::string> pieceTheme1 = { 
