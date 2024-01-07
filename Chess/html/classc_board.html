@@ -137,8 +137,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>doMove</b> (<a class=
 <tr class="memitem:a530e62c9e0550703290498259743f6ed" id="r_a530e62c9e0550703290498259743f6ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530e62c9e0550703290498259743f6ed">mateCheck</a> (int player)</td></tr>
 <tr class="memdesc:a530e62c9e0550703290498259743f6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given player is in checkmate.  <br /></td></tr>
 <tr class="separator:a530e62c9e0550703290498259743f6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a053b8f23ea21e1d9cf2a80b5d20f0ca3" id="r_a053b8f23ea21e1d9cf2a80b5d20f0ca3"><td class="memItemLeft" align="right" valign="top"><a id="a053b8f23ea21e1d9cf2a80b5d20f0ca3" name="a053b8f23ea21e1d9cf2a80b5d20f0ca3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>legalMove</b> (<a class="el" href="classc_piece.html">cPiece</a> piece, int newSqI, int newSqJ)</td></tr>
+<tr class="memitem:a053b8f23ea21e1d9cf2a80b5d20f0ca3" id="r_a053b8f23ea21e1d9cf2a80b5d20f0ca3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a053b8f23ea21e1d9cf2a80b5d20f0ca3">legalMove</a> (<a class="el" href="classc_piece.html">cPiece</a> piece, int newSqI, int newSqJ)</td></tr>
+<tr class="memdesc:a053b8f23ea21e1d9cf2a80b5d20f0ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the basic movement rules for the given piece &amp; determines if it can legally move to the given destination square.  <br /></td></tr>
 <tr class="separator:a053b8f23ea21e1d9cf2a80b5d20f0ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -332,7 +332,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the piece was moved successfully (move deemed legal), otherwise false </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This function only checks rules for check, checkmate, and castle moves. Always call legalMove() first to check general movement rules for the given piece </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function only checks rules for check, checkmate, and castle moves. Always call <a class="el" href="#a053b8f23ea21e1d9cf2a80b5d20f0ca3" title="Checks the basic movement rules for the given piece &amp; determines if it can legally move to the given ...">legalMove()</a> first to check general movement rules for the given piece </dd></dl>
 
 </div>
 </div>
@@ -413,6 +413,52 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>prefer <a class="el" href="#a9bf3289315cb694a4731e59e8a33920a" title="Checks if a given square on the chess board is occupied by any piece.">isOccupied()</a> over <a class="el" href="#a19130e06e820c10e9c085572e8bd993c" title="Returns a pointer to the chess piece at a target square.">getPiece()</a> when access to <a class="el" href="classc_piece.html">cPiece</a> object attributes is not strictly necessary </dd></dl>
+
+</div>
+</div>
+<a id="a053b8f23ea21e1d9cf2a80b5d20f0ca3" name="a053b8f23ea21e1d9cf2a80b5d20f0ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a053b8f23ea21e1d9cf2a80b5d20f0ca3">&#9670;&#160;</a></span>legalMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cBoard::legalMove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classc_piece.html">cPiece</a></td>          <td class="paramname"><span class="paramname"><em>piece</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>newSqI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>newSqJ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks the basic movement rules for the given piece &amp; determines if it can legally move to the given destination square. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">piece</td><td>The cPiee object representing the piece to be moves </td></tr>
+    <tr><td class="paramname">newSqI</td><td>The x-index of the destination square for the desired move </td></tr>
+    <tr><td class="paramname">newSqJ</td><td>The y-index of the destination square for the desired move </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the move follows the basic movement rules for the given piece, otherwise false </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function does not move any pieces &amp; does not check the rules for check, checkmate, or castle moves. This can be accomplished by using <a class="el" href="#ab5eef12ba0d65df145ab18848571eb63" title="Attempts to move a target piece to a target square &amp; if move is completed successfully,...">doMove2()</a> </dd></dl>
 
 </div>
 </div>

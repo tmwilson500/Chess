@@ -48,9 +48,8 @@ bool \mbox{\hyperlink{classc_board_a80885309fb08afa1bb2b8c343b210bb6}{check\+Che
 \begin{DoxyCompactList}\small\item\em Checks if the given player is in check. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classc_board_a530e62c9e0550703290498259743f6ed}{mate\+Check}} (int player)
 \begin{DoxyCompactList}\small\item\em Checks if the given player is in checkmate. \end{DoxyCompactList}\item 
-\Hypertarget{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}\label{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3} 
-bool {\bfseries legal\+Move} (\mbox{\hyperlink{classc_piece}{c\+Piece}} piece, int new\+SqI, int new\+SqJ)
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}{legal\+Move}} (\mbox{\hyperlink{classc_piece}{c\+Piece}} piece, int new\+SqI, int new\+SqJ)
+\begin{DoxyCompactList}\small\item\em Checks the basic movement rules for the given piece \& determines if it can legally move to the given destination square. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -187,7 +186,7 @@ Checks rules for check \& checkmate, and checks rules for special-\/case moves (
 true if the piece was moved successfully (move deemed legal), otherwise false 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-This function only checks rules for check, checkmate, and castle moves. Always call legal\+Move() first to check general movement rules for the given piece 
+This function only checks rules for check, checkmate, and castle moves. Always call \doxylink{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}{legal\+Move()} first to check general movement rules for the given piece 
 \end{DoxyNote}
 \Hypertarget{classc_board_a19130e06e820c10e9c085572e8bd993c}\label{classc_board_a19130e06e820c10e9c085572e8bd993c} 
 \index{cBoard@{cBoard}!getPiece@{getPiece}}
@@ -233,6 +232,31 @@ Returns true if the given square currently contains any piece, otherwise returns
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
 prefer \doxylink{classc_board_a9bf3289315cb694a4731e59e8a33920a}{is\+Occupied()} over \doxylink{classc_board_a19130e06e820c10e9c085572e8bd993c}{get\+Piece()} when access to \doxylink{classc_piece}{c\+Piece} object attributes is not strictly necessary 
+\end{DoxyNote}
+\Hypertarget{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3}\label{classc_board_a053b8f23ea21e1d9cf2a80b5d20f0ca3} 
+\index{cBoard@{cBoard}!legalMove@{legalMove}}
+\index{legalMove@{legalMove}!cBoard@{cBoard}}
+\doxysubsubsection{\texorpdfstring{legalMove()}{legalMove()}}
+{\footnotesize\ttfamily bool c\+Board\+::legal\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classc_piece}{c\+Piece}}}]{piece,  }\item[{int}]{new\+SqI,  }\item[{int}]{new\+SqJ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks the basic movement rules for the given piece \& determines if it can legally move to the given destination square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & The c\+Piee object representing the piece to be moves \\
+\hline
+{\em new\+SqI} & The x-\/index of the destination square for the desired move \\
+\hline
+{\em new\+SqJ} & The y-\/index of the destination square for the desired move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the move follows the basic movement rules for the given piece, otherwise false 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function does not move any pieces \& does not check the rules for check, checkmate, or castle moves. This can be accomplished by using \doxylink{classc_board_ab5eef12ba0d65df145ab18848571eb63}{do\+Move2()} 
 \end{DoxyNote}
 \Hypertarget{classc_board_a530e62c9e0550703290498259743f6ed}\label{classc_board_a530e62c9e0550703290498259743f6ed} 
 \index{cBoard@{cBoard}!mateCheck@{mateCheck}}

@@ -197,9 +197,15 @@ private:
      * @note This function assumes the player is already in check. Always call checkCheck() first
     */
     bool mateCheck(int player);
-
-    // Checks if moving cPiece object 'piece' to square with coords [newSqI][newSqJ] is legal
-    // Returns true if move is legal, otherwise returns false
-    // NOTE: does not execute move or modify any pieces - use doMove() to execute move after checking legality
+    
+    /**
+    * @brief Checks the basic movement rules for the given piece & determines if it can legally move to the given destination square
+    * 
+    * @param piece The cPiee object representing the piece to be moves
+    * @param newSqI The x-index of the destination square for the desired move
+    * @param newSqJ The y-index of the destination square for the desired move
+    * @return True if the move follows the basic movement rules for the given piece, otherwise false
+    * @note This function does not move any pieces & does not check the rules for check, checkmate, or castle moves. This can be accomplished by using doMove2()
+    */
     bool legalMove(cPiece piece, int newSqI, int newSqJ);
 };

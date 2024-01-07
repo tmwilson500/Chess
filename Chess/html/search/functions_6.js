@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scalepieces_0',['scalePieces',['../classc_board.html#afb51d861a93f0af56d7d728f8e2a8549',1,'cBoard']]]
+  ['printhist_0',['printHist',['../classc_board.html#a92f12e54c619a311690d0c2900ca7cb0',1,'cBoard']]]
 ];
