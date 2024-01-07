@@ -87,32 +87,29 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classc_piece.html">cPiece</a>; <span class="comment">//Forward declaration of cPiece class</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//struct cMove</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//{</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//  int startX = 0; </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//  int startY = 0;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//  int endX = 0;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//  int endY = 0;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//  cPiece* movPiece2 = nullptr; //The second piece that was moved (used only for castle moves)</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//  cPiece* capPiece = nullptr;  //The piece that was captured (nullptr if move did not result in capture)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//};</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classc_piece.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classc_piece.html">cPiece</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Sprite sprite;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    Texture pTex;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">//std::vector&lt;cMove&gt; moveHist;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> draw = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">int</span> ID = 0;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">float</span> x = 0;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">float</span> y = 0;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> player = 0; <span class="comment">// 0 if piece belongs to white, 1 if piece belongs to black</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> startPos = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classc_piece.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classc_piece.html">cPiece</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classc_piece.html#a7f44210387c2901f9132f5061c5ac855">   14</a></span>    Sprite <a class="code hl_variable" href="classc_piece.html#a7f44210387c2901f9132f5061c5ac855">sprite</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classc_piece.html#a879c8a625082c6e419c4249482d6cfb4">   15</a></span>    Texture <a class="code hl_variable" href="classc_piece.html#a879c8a625082c6e419c4249482d6cfb4">pTex</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classc_piece.html#a2d1b27e58ac2e634e5dfa3d311bcf673">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classc_piece.html#a2d1b27e58ac2e634e5dfa3d311bcf673">draw</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classc_piece.html#a64ed69d58caa77a73b252bb834b8b61f">   17</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classc_piece.html#a64ed69d58caa77a73b252bb834b8b61f">ID</a> = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classc_piece.html#a41f31cce88eed4828cd207f5c3214b5f">   18</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classc_piece.html#a41f31cce88eed4828cd207f5c3214b5f">x</a> = 0;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classc_piece.html#a46a5009be96409707d5cb9e90b482322">   19</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classc_piece.html#a46a5009be96409707d5cb9e90b482322">y</a> = 0;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classc_piece.html#ad9b02f017f6ca08a76593a8a88a34d30">   20</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classc_piece.html#ad9b02f017f6ca08a76593a8a88a34d30">player</a> = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classc_piece.html#aac719565cdb4f70694a73d506fb36911">   21</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classc_piece.html#aac719565cdb4f70694a73d506fb36911">startPos</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
-<div class="ttc" id="aclassc_piece_html"><div class="ttname"><a href="classc_piece.html">cPiece</a></div><div class="ttdef"><b>Definition</b> cPiece.h:18</div></div>
+<div class="ttc" id="aclassc_piece_html"><div class="ttname"><a href="classc_piece.html">cPiece</a></div><div class="ttdoc">Class representing one piece on the chess board.</div><div class="ttdef"><b>Definition</b> cPiece.h:11</div></div>
+<div class="ttc" id="aclassc_piece_html_a2d1b27e58ac2e634e5dfa3d311bcf673"><div class="ttname"><a href="classc_piece.html#a2d1b27e58ac2e634e5dfa3d311bcf673">cPiece::draw</a></div><div class="ttdeci">bool draw</div><div class="ttdef"><b>Definition</b> cPiece.h:16</div></div>
+<div class="ttc" id="aclassc_piece_html_a41f31cce88eed4828cd207f5c3214b5f"><div class="ttname"><a href="classc_piece.html#a41f31cce88eed4828cd207f5c3214b5f">cPiece::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition</b> cPiece.h:18</div></div>
+<div class="ttc" id="aclassc_piece_html_a46a5009be96409707d5cb9e90b482322"><div class="ttname"><a href="classc_piece.html#a46a5009be96409707d5cb9e90b482322">cPiece::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition</b> cPiece.h:19</div></div>
+<div class="ttc" id="aclassc_piece_html_a64ed69d58caa77a73b252bb834b8b61f"><div class="ttname"><a href="classc_piece.html#a64ed69d58caa77a73b252bb834b8b61f">cPiece::ID</a></div><div class="ttdeci">int ID</div><div class="ttdef"><b>Definition</b> cPiece.h:17</div></div>
+<div class="ttc" id="aclassc_piece_html_a7f44210387c2901f9132f5061c5ac855"><div class="ttname"><a href="classc_piece.html#a7f44210387c2901f9132f5061c5ac855">cPiece::sprite</a></div><div class="ttdeci">Sprite sprite</div><div class="ttdef"><b>Definition</b> cPiece.h:14</div></div>
+<div class="ttc" id="aclassc_piece_html_a879c8a625082c6e419c4249482d6cfb4"><div class="ttname"><a href="classc_piece.html#a879c8a625082c6e419c4249482d6cfb4">cPiece::pTex</a></div><div class="ttdeci">Texture pTex</div><div class="ttdef"><b>Definition</b> cPiece.h:15</div></div>
+<div class="ttc" id="aclassc_piece_html_aac719565cdb4f70694a73d506fb36911"><div class="ttname"><a href="classc_piece.html#aac719565cdb4f70694a73d506fb36911">cPiece::startPos</a></div><div class="ttdeci">bool startPos</div><div class="ttdef"><b>Definition</b> cPiece.h:21</div></div>
+<div class="ttc" id="aclassc_piece_html_ad9b02f017f6ca08a76593a8a88a34d30"><div class="ttname"><a href="classc_piece.html#ad9b02f017f6ca08a76593a8a88a34d30">cPiece::player</a></div><div class="ttdeci">int player</div><div class="ttdef"><b>Definition</b> cPiece.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

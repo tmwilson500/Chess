@@ -1,33 +1,88 @@
 \doxysection{c\+Piece Class Reference}
 \hypertarget{classc_piece}{}\label{classc_piece}\index{cPiece@{cPiece}}
+
+
+Class representing one piece on the chess board.  
+
+
+
+
+{\ttfamily \#include $<$c\+Piece.\+h$>$}
+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classc_piece_a7f44210387c2901f9132f5061c5ac855}\label{classc_piece_a7f44210387c2901f9132f5061c5ac855} 
-Sprite {\bfseries sprite}
+Sprite \mbox{\hyperlink{classc_piece_a7f44210387c2901f9132f5061c5ac855}{sprite}}
 \item 
-\Hypertarget{classc_piece_a879c8a625082c6e419c4249482d6cfb4}\label{classc_piece_a879c8a625082c6e419c4249482d6cfb4} 
-Texture {\bfseries p\+Tex}
+Texture \mbox{\hyperlink{classc_piece_a879c8a625082c6e419c4249482d6cfb4}{p\+Tex}}
 \item 
-\Hypertarget{classc_piece_a2d1b27e58ac2e634e5dfa3d311bcf673}\label{classc_piece_a2d1b27e58ac2e634e5dfa3d311bcf673} 
-bool {\bfseries draw} = false
+bool \mbox{\hyperlink{classc_piece_a2d1b27e58ac2e634e5dfa3d311bcf673}{draw}} = false
 \item 
-\Hypertarget{classc_piece_a64ed69d58caa77a73b252bb834b8b61f}\label{classc_piece_a64ed69d58caa77a73b252bb834b8b61f} 
-int {\bfseries ID} = 0
+int \mbox{\hyperlink{classc_piece_a64ed69d58caa77a73b252bb834b8b61f}{ID}} = 0
 \item 
-\Hypertarget{classc_piece_a41f31cce88eed4828cd207f5c3214b5f}\label{classc_piece_a41f31cce88eed4828cd207f5c3214b5f} 
-float {\bfseries x} = 0
+float \mbox{\hyperlink{classc_piece_a41f31cce88eed4828cd207f5c3214b5f}{x}} = 0
 \item 
-\Hypertarget{classc_piece_a46a5009be96409707d5cb9e90b482322}\label{classc_piece_a46a5009be96409707d5cb9e90b482322} 
-float {\bfseries y} = 0
+float \mbox{\hyperlink{classc_piece_a46a5009be96409707d5cb9e90b482322}{y}} = 0
 \item 
-\Hypertarget{classc_piece_ad9b02f017f6ca08a76593a8a88a34d30}\label{classc_piece_ad9b02f017f6ca08a76593a8a88a34d30} 
-int {\bfseries player} = 0
+int \mbox{\hyperlink{classc_piece_ad9b02f017f6ca08a76593a8a88a34d30}{player}} = 0
 \item 
-\Hypertarget{classc_piece_aac719565cdb4f70694a73d506fb36911}\label{classc_piece_aac719565cdb4f70694a73d506fb36911} 
-bool {\bfseries start\+Pos} = true
+bool \mbox{\hyperlink{classc_piece_aac719565cdb4f70694a73d506fb36911}{start\+Pos}} = true
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class representing one piece on the chess board. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classc_piece_a2d1b27e58ac2e634e5dfa3d311bcf673}\label{classc_piece_a2d1b27e58ac2e634e5dfa3d311bcf673} 
+\index{cPiece@{cPiece}!draw@{draw}}
+\index{draw@{draw}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{draw}{draw}}
+{\footnotesize\ttfamily bool c\+Piece\+::draw = false}
+
+Boolean value indicating whether the piece shoud be displayed on the board \Hypertarget{classc_piece_a64ed69d58caa77a73b252bb834b8b61f}\label{classc_piece_a64ed69d58caa77a73b252bb834b8b61f} 
+\index{cPiece@{cPiece}!ID@{ID}}
+\index{ID@{ID}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily int c\+Piece\+::\+ID = 0}
+
+The piece ID (indicates which type of piece it is) \Hypertarget{classc_piece_ad9b02f017f6ca08a76593a8a88a34d30}\label{classc_piece_ad9b02f017f6ca08a76593a8a88a34d30} 
+\index{cPiece@{cPiece}!player@{player}}
+\index{player@{player}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily int c\+Piece\+::player = 0}
+
+The player that owns the piece (0 if piece belongs to white, 1 if piece belongs to black) \Hypertarget{classc_piece_a879c8a625082c6e419c4249482d6cfb4}\label{classc_piece_a879c8a625082c6e419c4249482d6cfb4} 
+\index{cPiece@{cPiece}!pTex@{pTex}}
+\index{pTex@{pTex}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{pTex}{pTex}}
+{\footnotesize\ttfamily Texture c\+Piece\+::p\+Tex}
+
+The SFML texture for the chess piece \Hypertarget{classc_piece_a7f44210387c2901f9132f5061c5ac855}\label{classc_piece_a7f44210387c2901f9132f5061c5ac855} 
+\index{cPiece@{cPiece}!sprite@{sprite}}
+\index{sprite@{sprite}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily Sprite c\+Piece\+::sprite}
+
+The underlying SFML Sprite object used to display the chess piece \Hypertarget{classc_piece_aac719565cdb4f70694a73d506fb36911}\label{classc_piece_aac719565cdb4f70694a73d506fb36911} 
+\index{cPiece@{cPiece}!startPos@{startPos}}
+\index{startPos@{startPos}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{startPos}{startPos}}
+{\footnotesize\ttfamily bool c\+Piece\+::start\+Pos = true}
+
+Boolean value indicating whether the piece has moved from its starting position \Hypertarget{classc_piece_a41f31cce88eed4828cd207f5c3214b5f}\label{classc_piece_a41f31cce88eed4828cd207f5c3214b5f} 
+\index{cPiece@{cPiece}!x@{x}}
+\index{x@{x}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float c\+Piece\+::x = 0}
+
+The x-\/coordinate of the piece within the game window \Hypertarget{classc_piece_a46a5009be96409707d5cb9e90b482322}\label{classc_piece_a46a5009be96409707d5cb9e90b482322} 
+\index{cPiece@{cPiece}!y@{y}}
+\index{y@{y}!cPiece@{cPiece}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float c\+Piece\+::y = 0}
+
+The y-\/coordinate of the piece within the game window 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
