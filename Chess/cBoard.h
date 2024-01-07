@@ -163,6 +163,11 @@ private:
     bool unDoMove();
 
     //Prints current move history for the entire game to the console
+    
+    
+    /**
+    * @brief Prints the current move history for the game to the console, in order of most recent to least recent
+    */
     void printHist();
 
     // Takes a pointer to a cPiece object and attempts to move it to square at coordinates [targetI][targetJ]
